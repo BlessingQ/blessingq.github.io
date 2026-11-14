@@ -1,149 +1,1199 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoupePDF (루페PDF) - Privacy Policy / 개인정보처리방침</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- MANDATORY: Declare support for both light and dark themes -->
+  <meta name="color-scheme" content="light dark">
+  <title>개인정보 처리방침 | 루페PDF (LoupePDF)</title>
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #e2e8f0;
-      --accent: #2563eb;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b1120;
-        --card: #111827;
-        --text: #f1f5f9;
-        --muted: #94a3b8;
-        --border: #1e293b;
-        --accent: #60a5fa;
+      --bg-light: #f8fafc;
+      --bg-dark: #0b0f19;
+      --surface-light: #ffffff;
+      --surface-dark: #111827;
+      --surface-muted-light: #f1f5f9;
+      --surface-muted-dark: #1e293b;
+      --text-light: #0f172a;
+      --text-dark: #f8fafc;
+      --muted-light: #475569;
+      --muted-dark: #94a3b8;
+      --border-light: #e2e8f0;
+      --border-dark: #1f2937;
+      --accent-light: #3730a3;
+      --accent-dark: #818cf8;
+      --accent-soft-light: #eef2ff;
+      --accent-soft-dark: rgba(129, 140, 248, 0.14);
+      --badge-green-bg-light: #ecfdf5;
+      --badge-green-bg-dark: rgba(16, 185, 129, 0.15);
+      --badge-green-text-light: #047857;
+      --badge-green-text-dark: #34d399;
+
+      --bg: var(--bg-light);
+      --surface: var(--surface-light);
+      --surface-muted: var(--surface-muted-light);
+      --text: var(--text-light);
+      --muted: var(--muted-light);
+      --border: var(--border-light);
+      --accent: var(--accent-light);
+      --accent-soft: var(--accent-soft-light);
+      --badge-green-bg: var(--badge-green-bg-light);
+      --badge-green-text: var(--badge-green-text-light);
+
+      /* MANDATORY: Fallback for browsers without light-dark support */
+      @media (prefers-color-scheme: dark) {
+        --bg: var(--bg-dark);
+        --surface: var(--surface-dark);
+        --surface-muted: var(--surface-muted-dark);
+        --text: var(--text-dark);
+        --muted: var(--muted-dark);
+        --border: var(--border-dark);
+        --accent: var(--accent-dark);
+        --accent-soft: var(--accent-soft-dark);
+        --badge-green-bg: var(--badge-green-bg-dark);
+        --badge-green-text: var(--badge-green-text-dark);
       }
+
+      @supports (color: light-dark(white, black)) {
+        --bg: light-dark(var(--bg-light), var(--bg-dark));
+        --surface: light-dark(var(--surface-light), var(--surface-dark));
+        --surface-muted: light-dark(var(--surface-muted-light), var(--surface-muted-dark));
+        --text: light-dark(var(--text-light), var(--text-dark));
+        --muted: light-dark(var(--muted-light), var(--muted-dark));
+        --border: light-dark(var(--border-light), var(--border-dark));
+        --accent: light-dark(var(--accent-light), var(--accent-dark));
+        --accent-soft: light-dark(var(--accent-soft-light), var(--accent-soft-dark));
+        --badge-green-bg: light-dark(var(--badge-green-bg-light), var(--badge-green-bg-dark));
+        --badge-green-text: light-dark(var(--badge-green-text-light), var(--badge-green-text-dark));
+      }
+
+      /* MANDATORY: Apply color-scheme to :root for viewport-wide theming */
+      color-scheme: light dark;
+      accent-color: var(--accent);
     }
-    * { box-sizing: border-box; }
+
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: var(--bg-light);
+      --surface: var(--surface-light);
+      --surface-muted: var(--surface-muted-light);
+      --text: var(--text-light);
+      --muted: var(--muted-light);
+      --border: var(--border-light);
+      --accent: var(--accent-light);
+      --accent-soft: var(--accent-soft-light);
+      --badge-green-bg: var(--badge-green-bg-light);
+      --badge-green-text: var(--badge-green-text-light);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: var(--bg-dark);
+      --surface: var(--surface-dark);
+      --surface-muted: var(--surface-muted-dark);
+      --text: var(--text-dark);
+      --muted: var(--muted-dark);
+      --border: var(--border-dark);
+      --accent: var(--accent-dark);
+      --accent-soft: var(--accent-soft-dark);
+      --badge-green-bg: var(--badge-green-bg-dark);
+      --badge-green-text: var(--badge-green-text-dark);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Pretendard", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans TC", "Noto Sans Arabic", sans-serif;
+      background-color: var(--bg);
       color: var(--text);
-      line-height: 1.65;
-      padding: 32px 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-    .container {
-      max-width: 820px;
-      margin: 0 auto;
-      background: var(--card);
+
+    /* Visually hidden utility with :focus-within / :active exception */
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      inset-block-start: 12px;
+      inset-inline-start: 12px;
+      z-index: 9999;
+      background: var(--surface);
+      color: var(--accent);
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 2px solid var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    :where(a:any-link, button, select):focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    header.site-header {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-block-end: 1px solid var(--border);
+      padding: 12px 20px;
+    }
+
+    .header-inner {
+      max-inline-size: 920px;
+      margin-inline: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 34px;
+      block-size: 34px;
+      border-radius: 9px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-group label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    select#lang-select,
+    button#theme-toggle {
+      min-block-size: 36px;
+      min-inline-size: 36px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-muted);
+      color: var(--text);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    @media (pointer: coarse) {
+      select#lang-select,
+      button#theme-toggle,
+      .lang-pill {
+        min-block-size: 42px;
+      }
+    }
+
+    .lang-bar {
+      max-inline-size: 920px;
+      margin-inline: auto;
+      padding: 14px 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .lang-pill {
+      min-block-size: 30px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .lang-pill[aria-pressed="true"] {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    main {
+      max-inline-size: 920px;
+      margin-inline: auto;
+      padding: 20px 20px 64px;
+    }
+
+    .policy-card {
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 32px 28px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
-    h1 { font-size: 1.65rem; margin-top: 0; }
-    h2 { font-size: 1.2rem; margin-top: 28px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
-    p, li { color: var(--text); font-size: 0.96rem; }
-    .muted { color: var(--muted); font-size: 0.9rem; }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-block-end: 14px;
+    }
+
     .badge {
-      display: inline-block;
-      background: rgba(37, 99, 235, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--accent-soft);
       color: var(--accent);
+    }
+
+    .badge.on-device {
+      background: var(--badge-green-bg);
+      color: var(--badge-green-text);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.3;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .meta-info {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-block-end: 24px;
+      padding-block-end: 20px;
+      border-block-end: 1px solid var(--border);
+    }
+
+    .summary-callout {
+      background: var(--accent-soft);
+      border-inline-start: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-block-end: 28px;
+    }
+
+    .summary-callout p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    section.article {
+      margin-block-start: 28px;
+      padding-block-start: 24px;
+      border-block-start: 1px solid var(--border);
+    }
+
+    section.article:first-of-type {
+      border-block-start: none;
+      padding-block-start: 0;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 16px 0 8px;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 0 0 14px;
+      padding-inline-start: 22px;
+    }
+
+    li {
+      margin-block-end: 6px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.86em;
+      background: var(--surface-muted);
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
+
+    /* Responsive Table (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      container-type: inline-size;
+      margin-block: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      inline-size: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.9rem;
+    }
+
+    caption {
+      text-align: start;
+      padding: 10px 14px;
       font-weight: 600;
       font-size: 0.85rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 12px;
+      color: var(--muted);
+      background: var(--surface-muted);
+      border-block-end: 1px solid var(--border);
     }
-    hr {
-      border: none;
-      border-top: 2px solid var(--border);
-      margin: 40px 0;
+
+    thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 1;
+      background: var(--surface-muted);
     }
-    a { color: var(--accent); }
+
+    th, td {
+      text-align: start;
+      padding: 12px 14px;
+      border-block-end: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    thead th {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    tbody tr:last-child th,
+    tbody tr:last-child td {
+      border-block-end: none;
+    }
+
+    tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      background: var(--surface);
+      font-weight: 600;
+    }
+
+    @container (width < 600px) {
+      table, thead, tbody, tr, th, td {
+        display: block;
+      }
+
+      thead {
+        /* MANDATORY: Hide column header from layout and screen readers */
+        display: none;
+      }
+
+      tr {
+        margin-block-end: 12px;
+        border-block-end: 2px solid var(--border);
+      }
+
+      tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: var(--surface-muted);
+      }
+
+      td:nth-child(2)::before {
+        content: var(--label-2) ": ";
+        font-weight: 600;
+        color: var(--muted);
+      }
+      td:nth-child(3)::before {
+        content: var(--label-3) ": ";
+        font-weight: 600;
+        color: var(--muted);
+      }
+      td:nth-child(4)::before {
+        content: var(--label-4) ": ";
+        font-weight: 600;
+        color: var(--muted);
+      }
+      td:nth-child(5)::before {
+        content: var(--label-5) ": ";
+        font-weight: 600;
+        color: var(--muted);
+      }
+    }
+
+    footer.site-footer {
+      max-inline-size: 920px;
+      margin-inline: auto;
+      padding: 0 20px 48px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <span class="badge">100% On-Device Processing · 온디바이스 문서 보안</span>
-    <h1>LoupePDF (루페PDF) 개인정보처리방침 (Privacy Policy)</h1>
-    <p class="muted">시행일 (Effective Date): 2026-11-14 | 개발자 (Developer): blessingq</p>
+  <a href="#page-title" class="skip-link visually-hidden" id="skip-link">본문으로 건너뛰기</a>
 
-    <h2>1. 문서 및 파일의 기기 내 처리 원칙 (100% 로컬 처리)</h2>
-    <p>
-      <strong>루페PDF (LoupePDF)</strong>(이하 "앱")는 사용자가 불러오거나 생성하는 모든 PDF 문서, 사진, 신분증 이미지, 서명 및 도장 데이터를
-      <strong>오직 사용자의 스마트폰/태블릿 기기 내부(On-Device)에서만 처리하고 저장</strong>합니다.
-      개발자는 별도의 외부 서버를 운영하지 않으며, 사용자의 문서나 서명 이미지를 외부 서버로 전송·수집·열람·보관하지 않습니다.
-    </p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://blessingq.github.io" class="brand">
+        <span class="brand-icon" aria-hidden="true">PDF</span>
+        <span>LoupePDF</span>
+      </a>
+      <div class="controls">
+        <div class="lang-group">
+          <label for="lang-select" id="lang-label">언어 (Language)</label>
+          <select id="lang-select" aria-labelledby="lang-label">
+            <option value="ko">🇰🇷 한국어 (Korean)</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ja">🇯🇵 日本語 (Japanese)</option>
+            <option value="zh-TW">🇹🇼 繁體中文 (Traditional Chinese)</option>
+            <option value="zh-CN">🇨🇳 简体中文 (Simplified Chinese)</option>
+            <option value="es">🇪🇸 Español (Spanish)</option>
+            <option value="fr">🇫🇷 Français (French)</option>
+            <option value="de">🇩🇪 Deutsch (German)</option>
+            <option value="pt">🇧🇷 Português (Portuguese)</option>
+            <option value="id">🇮🇩 Bahasa Indonesia</option>
+            <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
+            <option value="ru">🇷🇺 Русский (Russian)</option>
+            <option value="ar">🇸🇦 العربية (Arabic)</option>
+            <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+          </select>
+        </div>
+        <button type="button" id="theme-toggle" aria-label="테마 전환 (Toggle dark/light theme)">🌓</button>
+      </div>
+    </div>
+  </header>
 
-    <h2>2. 앱 접근 권한 안내</h2>
-    <ul>
-      <li><strong>카메라 (Camera)</strong>: 종이 문서 스캔 및 자필 서명/도장 촬영 기능을 사용자가 직접 실행할 때만 사용되며, 촬영된 이미지는 기기 내부에서만 처리됩니다.</li>
-      <li><strong>사진 및 파일 저장소 (Photo Library &amp; Files)</strong>: 변환·병합·서명할 PDF 및 이미지 파일을 불러오거나 완성된 결과물을 기기에 저장할 때만 사용됩니다.</li>
-    </ul>
+  <nav class="lang-bar" aria-label="Language Quick Switcher" id="lang-pills"></nav>
 
-    <h2>3. 제3자 광고 서비스 (Google AdMob) 및 식별자 수집</h2>
-    <p>
-      본 앱은 무료로 기능을 제공하기 위해 Google LLC의 모바일 광고 플랫폼인 <strong>Google AdMob</strong>을 사용합니다.
-      AdMob SDK는 광고 제공, 광고 빈도 제한, 부정 클릭 방지 및 맞춤형/비맞춤형 광고 노출을 위해 다음과 같은 비개인 기기 정보를 자동으로 수집·처리할 수 있습니다:
-    </p>
-    <ul>
-      <li>모바일 광고 식별자 (Android ADID / iOS IDFA)</li>
-      <li>대략적인 위치 정보 (IP 기반 국가/지역), 기기 모델명, 운영체제 버전 및 광고 상호작용(노출·클릭) 로그</li>
-    </ul>
-    <p>
-      사용자는 언제든지 기기 설정에서 맞춤형 광고 추적을 제한하거나 광고 ID를 재설정할 수 있습니다:
-      <br />• <strong>Android</strong>: 설정 &gt; Google &gt; 광고 &gt; 광고 ID 재설정 또는 삭제
-      <br />• <strong>iOS</strong>: 설정 &gt; 개인정보 보호 및 보안 &gt; 추적 &gt; 앱이 추적을 요청하도록 허용 해제
-      <br />• Google의 개인정보처리방침 상세 안내: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>
-    </p>
+  <main id="main-content">
+    <article class="policy-card" id="policy-container">
+      <!-- Dynamically populated by language -->
+    </article>
+  </main>
 
-    <h2>4. 데이터의 보관 및 삭제</h2>
-    <p>
-      앱 내에서 생성된 '최근 작업 파일' 및 '내 서명 보관함' 데이터는 사용자의 기기 내부 저장소(암호화 로컬 영역 포함)에만 저장되며,
-      사용자가 앱 내 삭제 버튼을 누르거나 앱을 삭제(Uninstall)하면 기기에서 즉시 영구 삭제됩니다.
-    </p>
+  <footer class="site-footer">
+    <p>© 2026 JAEYOUNG LEE (blessingq). All rights reserved. · <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a></p>
+  </footer>
 
-    <h2>5. 문의처 (Contact)</h2>
-    <p>
-      본 개인정보처리방침과 관련한 문의사항은 개발자 웹사이트(<a href="https://blessingq.github.io" target="_blank" rel="noopener">https://blessingq.github.io</a>)를 통해 문의해 주시기 바랍니다.
-    </p>
+  <script>
+    const COMMON_META = {
+      appId: "com.blessingq.loupepdf",
+      developer: "JAEYOUNG LEE (blessingq)",
+      email: "ejok9194@gmail.com",
+      website: "https://blessingq.github.io",
+      effectiveDate: "2026-11-14"
+    };
 
-    <hr />
+    const POLICY_DATA = {
+      "ko": {
+        dir: "ltr",
+        name: "한국어",
+        skip: "본문으로 건너뛰기",
+        langLabel: "언어 선택",
+        badgeApp: "루페PDF (LoupePDF)",
+        badgeLocal: "100% 기기 내(On-Device) 로컬 처리",
+        title: "루페PDF (LoupePDF) 개인정보 처리방침",
+        meta: "시행일자: 2026년 11월 14일 · 공고일자: 2026년 11월 14일 · 패키지 ID: com.blessingq.loupepdf",
+        summary: "핵심 요약: 루페PDF(LoupePDF)는 사용자의 PDF 문서, 사진, 서명, 도장, 비밀번호 등 어떠한 문서 데이터도 외부 서버로 전송하거나 수집하지 않습니다. 모든 문서 편집·서명·암호화 작업은 100% 사용자의 스마트폰 내부(On-Device)에서만 수행됩니다.",
+        preamble: "JAEYOUNG LEE(blessingq, 이하 '개발자')가 제공하는 모바일 애플리케이션 '루페PDF (LoupePDF)'(패키지 ID: com.blessingq.loupepdf, 이하 '앱')는 대한민국 「개인정보 보호법」 제30조 및 개인정보보호위원회의 「표준 개인정보 처리방침 작성지침」, 그리고 Google Play·Apple App Store의 글로벌 개인정보 보호 정책(GDPR, CCPA 포함)을 준수하며 정보주체의 개인정보와 권익을 보호하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.",
+        articles: [
+          {
+            h: "제1조 (개인정보의 처리 목적)",
+            p: [
+              "앱은 별도의 회원가입이나 로그인 절차 없이 모든 기능을 제공하며, 다음의 목적을 위해서만 최소한의 데이터를 처리합니다. 처리하고 있는 정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다."
+            ],
+            list: [
+              "<strong>100% 기기 내(On-Device) 문서 및 이미지 처리</strong>: PDF 병합·분할·회전·페이지 추출, 돋보기(Loupe) 정밀 전자서명 및 도장 생성·날인, 신분증 대각선 보안 워터마크 삽입, 개인정보(주민등록번호 등) 마스킹 평탄화, PDF 암호 설정·해제(AES-256), 이미지↔PDF 변환, 카메라 문서 스캔 및 용량 압축 등 앱의 모든 핵심 기능은 외부 서버 전송 없이 100% 사용자의 기기 내부 메모리와 로컬 저장소에서만 처리됩니다.",
+              "<strong>무료 서비스 운영 및 광고 게재 (Google AdMob)</strong>: 앱을 무료로 제공하고 유지·보수하기 위하여 제3자 광고 플랫폼인 Google AdMob SDK를 탑재하고 있으며, 광고 노출(네이티브·전면·보상형 광고), 광고 빈도 제한(Frequency Capping), 광고 성과 분석 및 부정 클릭(사기 트래픽) 방지를 위해 기기 광고 식별자 및 행태정보가 처리됩니다."
+            ]
+          },
+          {
+            h: "제2조 (처리하는 개인정보의 항목 및 수집 방법)",
+            p: [
+              "개발자는 이용자의 성명, 주민등록번호, 전화번호, 이메일 주소, 계정 비밀번호, 정밀 위치정보 및 사용자가 편집하는 원본 문서·사진을 개발자 서버로 일체 수집하거나 저장하지 않습니다."
+            ],
+            list: [
+              "<strong>개발자가 직접 수집·보유하는 개인정보</strong>: 없음 (서버 및 데이터베이스를 운영하지 않음).",
+              "<strong>기기 내부에만 저장되는 로컬 데이터 (외부 전송 없음)</strong>: 사용자가 생성한 서명·도장 보관함(Vault) 이미지, 최근 작업 출력 파일, 앱 설정값(언어·테마)은 사용자의 기기 내부 앱 전용 샌드박스 및 OS 암호화 저장소(iOS Keychain / Android EncryptedSharedPreferences)에만 보관되며 외부로 전송되지 않습니다.",
+              "<strong>제3자 광고 SDK(Google AdMob)를 통해 자동 수집되는 항목</strong>: 모바일 앱 이용 및 광고 로드 과정에서 Google Mobile Ads SDK가 광고 식별자(Android ADID / iOS IDFA), 기기 정보(기기 모델명, OS 버전, 화면 크기, 언어 및 국가 설정), 네트워크 정보(IP 주소 기반 대략적 국가/지역, 네트워크 연결 유형), 앱 상호작용 데이터(광고 노출·클릭 여부) 및 앱 진단 정보(충돌 로그, 성능 데이터)를 자동으로 수집·전송할 수 있습니다."
+            ]
+          },
+          {
+            h: "제3조 (개인정보의 처리 및 보유 기간)",
+            p: [
+              "개발자는 이용자의 개인정보를 외부 서버에 수집·보유하지 않으므로 별도의 서버 보유 기간이 존재하지 않습니다."
+            ],
+            list: [
+              "<strong>기기 내 로컬 데이터(서명 보관함, 작업 파일, 캐시)</strong>: 이용자가 앱 내 '설정 > 출력 파일 비우기' 또는 '보관함 삭제'를 실행하거나 스마트폰에서 <strong>앱을 삭제(언인스톨)하는 즉시 기기에서 영구 삭제</strong>됩니다.",
+              "<strong>Google AdMob 수집 데이터</strong>: 제3자 광고 사업자인 Google LLC의 개인정보 보유 및 파기 정책에 따라 보유·관리됩니다."
+            ]
+          },
+          {
+            h: "제4조 (개인정보의 제3자 제공 및 국외 이전)",
+            p: [
+              "개발자는 이용자의 문서나 개인정보를 제3자에게 임의로 판매하거나 제공하지 않습니다. 다만, 무료 앱 운영을 위한 Google AdMob 광고 서비스 제공 과정에서 「개인정보 보호법」 제28조의8에 따라 아래와 같이 행태정보 및 기기 식별 정보가 국외(Google LLC)로 이전되어 처리됩니다."
+            ],
+            table: {
+              caption: "Google AdMob 제3자 제공 및 국외 이전 법정 고지사항",
+              headers: ["구분 (항목)", "제공·이전받는 자", "이전 국가 및 일시·방법", "이전되는 항목", "이용 목적 및 보유 기간"],
+              rows: [
+                [
+                  "모바일 광고 및 분석 (AdMob SDK)",
+                  "Google LLC (privacy@google.com / policies.google.com/privacy)",
+                  "미국(USA) 및 Google 글로벌 서버 소재국 / 앱 실행 및 광고 호출 시 HTTPS 암호화 네트워크를 통한 실시간 자동 전송",
+                  "광고 식별자(ADID/IDFA), 기기 및 OS 정보, IP 주소(대략적 위치), 광고 상호작용 데이터, 충돌·성능 진단 로그",
+                  "네이티브·전면·보상형 광고 제공, 부정 트래픽 방지, 광고 성과 측정 및 분석 / Google LLC의 개인정보 보유 정책에 따름"
+                ]
+              ]
+            }
+          },
+          {
+            h: "제5조 (스마트폰 앱 접근 권한 안내)",
+            p: [
+              "앱은 기능 수행을 위해 이용자가 해당 기능을 직접 실행할 때에만 아래의 선택적 기기 권한을 요청하며, 허용하지 않아도 다른 기능을 이용하실 수 있습니다."
+            ],
+            list: [
+              "<strong>카메라 (CAMERA)</strong>: 종이 문서를 스캔하거나 백지에 적은 자필 서명·인감도장을 촬영하여 투명 배경(누끼)으로 추출할 때 사용합니다. 촬영된 영상은 기기 내부에서만 즉시 처리됩니다.",
+              "<strong>사진 및 파일 저장소 (READ_MEDIA_IMAGES / Photo Library / 시스템 파일 피커)</strong>: 사용자가 직접 선택한 PDF 또는 이미지를 불러와 편집하고, 완성된 결과 파일을 기기에 저장·공유할 때 사용합니다."
+            ]
+          },
+          {
+            h: "제6조 (개인정보의 파기 절차 및 방법)",
+            p: [
+              "앱이 기기 내부에서 생성한 임시 작업 데이터 및 암호화된 서명·도장 보관함 파일은 사용자가 앱 내에서 삭제 버튼을 누르거나 앱을 기기에서 삭제할 때 운영체제(Android/iOS)의 보안 파일 파기 메커니즘에 따라 복구할 수 없는 방법으로 즉시 영구 삭제됩니다."
+            ]
+          },
+          {
+            h: "제7조 (정보주체와 법정대리인의 권리·의무 및 맞춤형 광고(행태정보) 거부 방법)",
+            p: [
+              "정보주체는 언제든지 기기 설정을 통해 광고 식별자(ADID/IDFA) 수집 및 맞춤형 광고 수신을 거부(Opt-out)하거나 초기화할 수 있으며, 앱 내 데이터를 직접 삭제할 권리를 가집니다."
+            ],
+            list: [
+              "<strong>Android 맞춤형 광고 제한·초기화</strong>: 기기 <code>설정 &gt; 보안 및 개인정보 보호 &gt; 개인정보 보호 &gt; 기타 개인정보 설정 &gt; 광고</code> 메뉴에서 '광고 ID 재설정' 또는 '광고 ID 삭제'를 선택합니다.",
+              "<strong>iOS(iPhone/iPad) 추적 제한</strong>: 기기 <code>설정 &gt; 개인정보 보호 및 보안 &gt; 추적</code> 메뉴에서 '앱이 추적을 요청하도록 허용'을 끄거나 앱별 추적을 비활성화합니다.",
+              "<strong>유럽연합(GDPR) 및 미국 캘리포니아(CCPA) 등 해외 이용자 권리</strong>: 이용자는 관련 법령에 따라 데이터 열람, 삭제, 처리 제한 및 맞춤형 광고 동의 철회 권리를 행사할 수 있습니다."
+            ]
+          },
+          {
+            h: "제8조 (개인정보의 안전성 확보조치)",
+            p: [
+              "개발자는 「개인정보 보호법」 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적·관리적 조치를 취하고 있습니다."
+            ],
+            list: [
+              "<strong>100% 기기 내(On-Device) 격리 처리</strong>: 모든 PDF 및 이미지 연산을 기기 로컬 메모리에서만 수행하여 네트워크 전송 중 문서 유출 위험을 원천 차단합니다.",
+              "<strong>서명·도장 보관함 암호화</strong>: 보관함에 저장된 서명 및 도장 이미지는 OS 보안 키체인(Android Keystore / iOS Keychain) 기반 암호화 스토리지에 안전하게 보호됩니다.",
+              "<strong>표준 암호화 기술 적용</strong>: PDF 문서 잠금 시 국제 표준 AES-256 암호화를 지원하며, 광고 SDK 통신은 전 구간 TLS/HTTPS 암호화 채널을 사용합니다."
+            ]
+          },
+          {
+            h: "제9조 (아동의 개인정보 보호)",
+            p: [
+              "본 앱은 만 14세 미만(해외의 경우 만 13세 미만) 아동을 주된 대상으로 하지 않으며, 아동으로부터 고의로 개인정보를 수집하지 않습니다. 만일 법정대리인의 동의 없이 아동의 개인정보가 수집된 사실이 확인될 경우 지체 없이 삭제 조치를 취합니다."
+            ]
+          },
+          {
+            h: "제10조 (개인정보 보호책임자 및 권익침해 구제방법)",
+            p: [
+              "개인정보 처리에 관한 문의, 불만 처리 및 피해 구제 등에 관한 사항은 아래의 개인정보 보호책임자에게 연락해 주시면 신속하고 성실하게 답변해 드리겠습니다."
+            ],
+            list: [
+              "<strong>개인정보 보호책임자 및 개발자</strong>: JAEYOUNG LEE (blessingq)",
+              "<strong>이메일(Email)</strong>: <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>",
+              "<strong>공식 웹사이트</strong>: <a href="https://blessingq.github.io" target="_blank" rel="noopener">https://blessingq.github.io</a>",
+              "<strong>개인정보침해신고센터 (한국인터넷진흥원 운영)</strong>: (국번없이) 118 / <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener">privacy.kisa.or.kr</a>",
+              "<strong>개인정보분쟁조정위원회</strong>: 1833-6972 / <a href="https://www.kopico.go.kr" target="_blank" rel="noopener">www.kopico.go.kr</a>",
+              "<strong>대검찰청 사이버수사과</strong>: (국번없이) 1301 / <a href="https://www.spo.go.kr" target="_blank" rel="noopener">www.spo.go.kr</a>",
+              "<strong>경찰청 사이버수사국</strong>: (국번없이) 182 / <a href="https://ecrm.police.go.kr" target="_blank" rel="noopener">ecrm.police.go.kr</a>"
+            ]
+          },
+          {
+            h: "제11조 (개인정보 처리방침의 변경)",
+            p: [
+              "이 개인정보 처리방침은 <strong>2026년 11월 14일</strong>부터 적용됩니다. 법령 및 서비스 정책 변경에 따라 내용의 추가·삭제 및 수정이 있을 시에는 본 웹페이지를 통해 사전 공지합니다."
+            ]
+          }
+        ]
+      },
+      "en": {
+        dir: "ltr",
+        name: "English",
+        skip: "Skip to main content",
+        langLabel: "Language",
+        badgeApp: "LoupePDF",
+        badgeLocal: "100% On-Device Processing",
+        title: "LoupePDF Standard Privacy Policy",
+        meta: "Effective Date: November 14, 2026 · Package ID: com.blessingq.loupepdf",
+        summary: "Core Summary: LoupePDF processes 100% of your PDFs, images, signatures, stamps, and passwords strictly on your device. We never upload, collect, store, or transmit your documents to any external server.",
+        preamble: "JAEYOUNG LEE (blessingq, hereinafter 'Developer') operates the 'LoupePDF' mobile application (Package/Bundle ID: com.blessingq.loupepdf, hereinafter 'App'). This Privacy Policy is established in compliance with applicable global data protection laws—including the Personal Information Protection Act (PIPA, Article 30), GDPR (EU/EEA), CCPA/CPRA (California), and Google Play & Apple App Store requirements—to transparently inform users of how data is handled.",
+        articles: [
+          {
+            h: "Article 1. Purpose of Data Processing",
+            p: ["LoupePDF requires no user registration or login and processes information solely for the following purposes:"],
+            list: [
+              "<strong>100% On-Device Document & Image Processing</strong>: PDF merging, splitting, rotation, precision Loupe signing, custom seal/stamp generation, ID security watermarking, permanent redaction flattening, AES-256 PDF encryption/decryption, image-to-PDF conversion, camera scanning, and compression execute entirely within your device's local memory and storage.",
+              "<strong>Free Service Operation & Advertising (Google AdMob)</strong>: To provide the App free of charge, we integrate the Google AdMob SDK to display ads (Native Advanced, Interstitial, and Rewarded ads), enforce frequency caps, measure ad performance, and prevent invalid traffic/fraud."
+            ]
+          },
+          {
+            h: "Article 2. Categories of Data Processed & Collection Methods",
+            p: ["The Developer does not collect, store, or have access to your name, national ID, phone number, email, precise GPS location, or any documents/photos you edit."],
+            list: [
+              "<strong>Personal Data Collected Directly by the Developer</strong>: None (we operate no backend servers for user documents or accounts).",
+              "<strong>Local On-Device Storage Only</strong>: Saved signatures and stamps in your Vault, recent output files, and app preferences (language/theme) are stored strictly on your device using sandboxed storage and OS-level encryption (iOS Keychain / Android EncryptedSharedPreferences) and never leave your device.",
+              "<strong>Data Automatically Collected by Third-Party Ad SDK (Google AdMob)</strong>: When loading ads, the Google Mobile Ads SDK may automatically collect your mobile advertising ID (Android ADID / iOS IDFA), device metadata (model, OS version, screen dimensions, language/locale), network info (IP-based coarse region), ad interaction events (impressions/clicks), and crash/performance diagnostics."
+            ]
+          },
+          {
+            h: "Article 3. Data Retention & Deletion Period",
+            p: ["Because the Developer does not store user data on external servers, there is no server-side retention period."],
+            list: [
+              "<strong>Local On-Device Data</strong>: Permanently deleted immediately when you tap 'Clear Output Files' or delete items from the Signature Vault inside the App, or when you <strong>uninstall the App</strong>.",
+              "<strong>Google AdMob Data</strong>: Retained and governed in accordance with Google LLC's Privacy Policy and retention schedules."
+            ]
+          },
+          {
+            h: "Article 4. Third-Party Provision & International Data Transfers",
+            p: ["We never sell or share your personal documents. For advertising delivery and fraud prevention, pseudonymous device/advertising identifiers are transmitted to Google LLC as detailed below:"],
+            table: {
+              caption: "Third-Party Service Provider & Cross-Border Transfer Disclosure",
+              headers: ["Service", "Recipient", "Country & Transfer Method", "Data Transferred", "Purpose & Retention"],
+              rows: [
+                [
+                  "Mobile Advertising (Google AdMob SDK)",
+                  "Google LLC (policies.google.com/privacy)",
+                  "United States & Google global data centers / Automatic real-time transmission via encrypted HTTPS upon ad request",
+                  "Advertising ID (ADID/IDFA), device & OS metadata, coarse IP region, ad interaction events, crash/diagnostic logs",
+                  "Serving Native/Interstitial/Rewarded ads, frequency capping, analytics & fraud prevention / Retained per Google LLC policy"
+                ]
+              ]
+            }
+          },
+          {
+            h: "Article 5. Device Permissions",
+            p: ["The App requests optional permissions only when you actively invoke a feature requiring them:"],
+            list: [
+              "<strong>Camera (CAMERA)</strong>: Used exclusively to scan physical documents or capture a photo of your paper signature/stamp for background cutout. Captured frames are processed locally on-device.",
+              "<strong>Photos & Media / File Picker</strong>: Used exclusively to import PDFs or images you explicitly select and to save or share finished files on your device."
+            ]
+          },
+          {
+            h: "Article 6. Data Destruction Procedure & Method",
+            p: ["All locally cached files, outputs, and encrypted Signature Vault records are irreversibly erased from device storage via standard OS file-deletion APIs when cleared in-app or when the App is uninstalled."]
+          },
+          {
+            h: "Article 7. User Rights & Opting Out of Personalized Ads (GDPR / CCPA / PIPA)",
+            p: ["You can reset or opt out of mobile advertising identifiers at any time through your device settings:"],
+            list: [
+              "<strong>Android</strong>: Go to <code>Settings &gt; Security &amp; privacy &gt; Privacy &gt; Ads</code> and select <em>Reset advertising ID</em> or <em>Delete advertising ID</em>.",
+              "<strong>iOS (iPhone/iPad)</strong>: Go to <code>Settings &gt; Privacy &amp; Security &gt; Tracking</code> and toggle off <em>Allow Apps to Request to Track</em>.",
+              "<strong>Global Privacy Rights (GDPR / CCPA / LGPD)</strong>: Users have the right to access, delete, restrict processing, and withdraw consent for personalized advertising."
+            ]
+          },
+          {
+            h: "Article 8. Security Measures",
+            p: ["We implement strict technical safeguards including 100% on-device sandboxed document processing, OS Keychain/Keystore encryption for the Signature Vault, standard AES-256 PDF encryption, and TLS/HTTPS encryption for all SDK communications."]
+          },
+          {
+            h: "Article 9. Children's Privacy",
+            p: ["The App is not directed to children under the age of 13 (or 14 under Korean law), and we do not knowingly collect personal information from children."]
+          },
+          {
+            h: "Article 10. Privacy Officer & Contact Information",
+            p: ["If you have any questions or requests regarding this Privacy Policy, please contact:"],
+            list: [
+              "<strong>Privacy Officer / Developer</strong>: JAEYOUNG LEE (blessingq)",
+              "<strong>Email</strong>: <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>",
+              "<strong>Website</strong>: <a href="https://blessingq.github.io" target="_blank" rel="noopener">https://blessingq.github.io</a>"
+            ]
+          },
+          {
+            h: "Article 11. Changes to This Privacy Policy",
+            p: ["This Privacy Policy is effective as of <strong>November 14, 2026</strong>. Any updates will be posted on this page with an updated effective date."]
+          }
+        ]
+      }
+    };
 
-    <h1>Privacy Policy (English)</h1>
-    <p class="muted">Effective Date: November 14, 2026 | Developer: blessingq (Package ID: com.blessingq.loupepdf)</p>
+    // Generate localized standard policies for the remaining 12 languages so all 14 languages are selectable
+    const EXTRA_LANGS = {
+      "ja": {
+        dir: "ltr",
+        name: "日本語",
+        skip: "本文へスキップ",
+        langLabel: "言語",
+        badgeApp: "LoupePDF (ルーペPDF)",
+        badgeLocal: "100% 端末内（オンデバイス）処理",
+        title: "LoupePDF プライバシーポリシー（個人情報保護方針）",
+        meta: "施行日: 2026年11月14日 · パッケージID: com.blessingq.loupepdf",
+        summary: "重要なお知らせ：LoupePDFは、PDF文書、画像、署名、印影（ハンコ）、パスワードなどのデータを外部サーバーへ送信・収集することは一切ありません。すべての編集・署名・暗号化処理は100%お客様の端末内（オンデバイス）で完結します。",
+        preamble: "JAEYOUNG LEE（blessingq、以下「開発者」）が提供するモバイルアプリ「LoupePDF」（ID: com.blessingq.loupepdf）は、個人情報保護法（APPI/PIPA）、GDPR、およびGoogle Play・Apple App Storeの規約を遵守し、以下の通りプライバシーポリシーを定めます。",
+        articles: [
+          {
+            h: "第1条（処理の目的および100%端末内処理の原則）",
+            p: ["本アプリは会員登録不要でご利用いただけます。PDFの結合・分割・回転、2.5倍ルーペ精密署名、電子印鑑（丸印・データ印・4種書体）作成、マイナンバー等の黒塗り・透かし挿入、AES-256暗号化、画像変換、カメラスキャン等の全機能は、外部サーバーへ一切送信されず端末内部でのみ処理されます。無料提供を維持するため、Google AdMob SDKによる広告配信および不正防止のみを行います。"]
+          },
+          {
+            h: "第2条（取得する情報および端末内暗号化保管）",
+            p: ["開発者はユーザーの氏名・電話番号・メールアドレス・編集ファイル等を一切収集しません。作成した署名・印鑑データは端末内の暗号化領域（Keychain / EncryptedSharedPreferences）にのみ保存され、アプリ削除時に完全消去されます。Google AdMob SDKは広告配信のため広告識別子（ADID/IDFA）、端末情報、おおよその地域（IP）、広告表示・クリック履歴、クラッシュログを自動取得する場合があります。"]
+          },
+          {
+            h: "第3条（第三者提供・国外移転：Google AdMob）",
+            p: ["広告配信のため、Google LLC（米国等）へHTTPS暗号化通信を通じて広告ID（ADID/IDFA）・端末情報・診断データが送信されます（詳細：policies.google.com/privacy）。端末の「設定 > プライバシー > 広告 / トラッキング」からいつでもパーソナライズ広告を制限・リセットできます。"]
+          },
+          {
+            h: "第4条（端末権限およびお問い合わせ窓口）",
+            p: ["カメラ権限（書類スキャン・印影切り抜き時のみ）および写真/ファイル権限（ユーザーが選択したファイルの入出力のみ）は端末内処理に限定して使用されます。"],
+            list: [
+              "<strong>個人情報保護責任者・開発者</strong>: JAEYOUNG LEE (blessingq)",
+              "<strong>メール</strong>: <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>",
+              "<strong>ウェブサイト</strong>: <a href="https://blessingq.github.io" target="_blank" rel="noopener">https://blessingq.github.io</a>"
+            ]
+          }
+        ]
+      },
+      "zh-TW": {
+        dir: "ltr",
+        name: "繁體中文",
+        skip: "跳至主要內容",
+        langLabel: "語言",
+        badgeApp: "LoupePDF",
+        badgeLocal: "100% 裝置端本地處理",
+        title: "LoupePDF 隱私權政策",
+        meta: "生效日期：2026年11月14日 · 套件 ID：com.blessingq.loupepdf",
+        summary: "核心摘要：LoupePDF 的所有 PDF 合併、分割、放大鏡精準簽名、印章產生、身分證防偽浮水印、遮蔽與 AES-256 加密皆 100% 在您的手機內部（On-Device）完成，絕不將任何文件、照片、簽名或密碼上傳至外部伺服器。",
+        preamble: "JAEYOUNG LEE (blessingq) 所開發之「LoupePDF」（ID: com.blessingq.loupepdf）嚴格遵守個人資料保護法規與 Google Play / App Store 政策，特訂定本隱私權政策。",
+        articles: [
+          {
+            h: "第1條（資料處理目的與 100% 本地處理）",
+            p: ["本應用程式免註冊即可使用。所有 PDF 與圖片編輯功能均在裝置本地記憶體中執行，開發者不設任何伺服器收集您的文件。您的簽名與印章僅加密儲存於手機內部安全區，卸載應用程式時即完全刪除。"]
+          },
+          {
+            h: "第2條（第三方廣告 SDK 與跨境傳輸：Google AdMob）",
+            p: ["為提供免費服務，本應用整合 Google AdMob SDK。Google LLC（美國及全球伺服器）可能會自動收集廣告識別碼（ADID/IDFA）、裝置資訊、粗略地區（IP）、廣告互動與當機診斷紀錄以投放廣告與防範詐欺。您可隨時於手機「設定 > 隱私權 > 廣告 / 追蹤」中重設廣告 ID 或關閉追蹤。"]
+          },
+          {
+            h: "第3條（權限使用與聯絡方式）",
+            p: ["相機與檔案權限僅在您主動掃描文件、去背簽名或讀寫 PDF 時於本地使用。"],
+            list: [
+              "<strong>開發者與資料保護聯絡人</strong>: JAEYOUNG LEE (blessingq)",
+              "<strong>電子郵件</strong>: <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>",
+              "<strong>網站</strong>: <a href="https://blessingq.github.io" target="_blank" rel="noopener">https://blessingq.github.io</a>"
+            ]
+          }
+        ]
+      },
+      "zh-CN": {
+        dir: "ltr",
+        name: "简体中文",
+        skip: "跳至主要内容",
+        langLabel: "语言",
+        badgeApp: "LoupePDF",
+        badgeLocal: "100% 设备本地处理",
+        title: "LoupePDF 隐私政策",
+        meta: "生效日期：2026年11月14日 · 包名：com.blessingq.loupepdf",
+        summary: "核心摘要：LoupePDF 的所有 PDF 合并、拆分、放大镜精准签名、印章制作、身份证安全水印、敏感信息涂黑及 AES-256 加密均 100% 在您的手机本地（On-Device）完成，绝不会将您的任何文档、图片、签名或密码上传至任何服务器。",
+        preamble: "JAEYOUNG LEE (blessingq) 开发的“LoupePDF”（包名：com.blessingq.loupepdf）严格遵守个人信息保护法及应用商店隐私规范。",
+        articles: [
+          {
+            h: "第1条（处理目的与 100% 本地处理原则）",
+            p: ["本应用无需注册登录。所有文档和图像处理均在设备本地完成，开发者不收集或存储您的任何文档。签名与印章仅加密保存在设备本地安全存储中，卸载应用后立即彻底删除。"]
+          },
+          {
+            h: "第2条（第三方广告 SDK：Google AdMob）",
+            p: ["为维持免费服务，本应用接入 Google AdMob SDK。Google LLC 可能会收集广告标识符（ADID/IDFA）、设备型号、系统版本、粗略位置（IP）、广告互动及崩溃日志用于展示广告与反作弊。您可在系统“设置 > 隐私 > 广告/跟踪”中随时重置广告 ID 或关闭个性化广告。"]
+          },
+          {
+            h: "第3条（设备权限与联系方式）",
+            p: ["相机与相册/文件权限仅在您主动扫描文档、提取签名或保存 PDF 时在本地调用。"],
+            list: [
+              "<strong>开发者与隐私负责人</strong>: JAEYOUNG LEE (blessingq)",
+              "<strong>电子邮箱</strong>: <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>"
+            ]
+          }
+        ]
+      },
+      "es": {
+        dir: "ltr",
+        name: "Español",
+        skip: "Saltar al contenido principal",
+        langLabel: "Idioma",
+        badgeApp: "LoupePDF",
+        badgeLocal: "Procesamiento 100% en el dispositivo",
+        title: "Política de Privacidad de LoupePDF",
+        meta: "Fecha de entrada en vigor: 14 de noviembre de 2026 · ID: com.blessingq.loupepdf",
+        summary: "Resumen: LoupePDF procesa el 100% de sus documentos PDF, imágenes, firmas, sellos y contraseñas localmente en su dispositivo. Nunca subimos ni recopilamos sus archivos en ningún servidor externo.",
+        preamble: "JAEYOUNG LEE (blessingq) ofrece la aplicación móvil LoupePDF (com.blessingq.loupepdf) en cumplimiento con el RGPD (GDPR), CCPA y las políticas de Google Play y App Store.",
+        articles: [
+          {
+            h: "1. Procesamiento 100% Local en el Dispositivo",
+            p: ["Todas las funciones (unir, dividir, firmar con lupa de precisión, crear sellos, marca de agua, censura de datos y cifrado AES-256) se ejecutan exclusivamente en la memoria local de su teléfono. Las firmas guardadas se cifran localmente y se eliminan al desinstalar la app."]
+          },
+          {
+            h: "2. Publicidad de Terceros (Google AdMob)",
+            p: ["Para ofrecer la aplicación de forma gratuita, utilizamos Google AdMob SDK, el cual puede recopilar el identificador de publicidad (ADID/IDFA), datos técnicos del dispositivo, interacciones con anuncios y registros de fallos (transferidos a Google LLC, EE. UU.). Puede restablecer o desactivar la publicidad personalizada en los ajustes de privacidad de Android o iOS."]
+          },
+          {
+            h: "3. Permisos y Contacto",
+            p: ["Los permisos de cámara y archivos solo se utilizan localmente cuando usted escanea documentos o guarda archivos PDF."],
+            list: [
+              "<strong>Responsable de Privacidad</strong>: JAEYOUNG LEE (blessingq) — <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>"
+            ]
+          }
+        ]
+      },
+      "fr": {
+        dir: "ltr",
+        name: "Français",
+        skip: "Aller au contenu principal",
+        langLabel: "Langue",
+        badgeApp: "LoupePDF",
+        badgeLocal: "Traitement 100 % sur l'appareil",
+        title: "Politique de Confidentialité de LoupePDF",
+        meta: "Date d'entrée en vigueur : 14 novembre 2026 · ID : com.blessingq.loupepdf",
+        summary: "Résumé : LoupePDF traite 100 % de vos fichiers PDF, images, signatures, tampons et mots de passe localement sur votre appareil. Aucun document n'est envoyé vers un serveur externe.",
+        preamble: "JAEYOUNG LEE (blessingq) publie l'application LoupePDF (com.blessingq.loupepdf) conformément au RGPD (GDPR) et aux exigences de Google Play et de l'App Store.",
+        articles: [
+          {
+            h: "1. Traitement 100 % Local",
+            p: ["Toutes les opérations (fusion, division, signature précise avec loupe, tampons, filigrane de sécurité, masquage et chiffrement AES-256) s'effectuent uniquement sur votre appareil. Votre coffre-fort de signatures est chiffré localement et supprimé lors de la désinstallation."]
+          },
+          {
+            h: "2. Publicité (Google AdMob)",
+            p: ["Pour fournir l'application gratuitement, le SDK Google AdMob (Google LLC, États-Unis) peut collecter l'identifiant publicitaire (ADID/IDFA), les métadonnées de l'appareil, les interactions publicitaires et les journaux d'erreurs. Vous pouvez désactiver le suivi publicitaire dans les réglages de votre appareil Android ou iOS."]
+          },
+          {
+            h: "3. Contact",
+            p: ["Responsable de la confidentialité : JAEYOUNG LEE (blessingq) — <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>"]
+          }
+        ]
+      },
+      "de": {
+        dir: "ltr",
+        name: "Deutsch",
+        skip: "Zum Hauptinhalt springen",
+        langLabel: "Sprache",
+        badgeApp: "LoupePDF",
+        badgeLocal: "100 % lokale Verarbeitung auf dem Gerät",
+        title: "Datenschutzerklärung für LoupePDF",
+        meta: "Gültig ab: 14. November 2026 · Paket-ID: com.blessingq.loupepdf",
+        summary: "Zusammenfassung: LoupePDF verarbeitet alle PDF-Dokumente, Bilder, Unterschriften, Stempel und Passwörter zu 100 % lokal auf Ihrem Gerät. Es werden niemals Dokumente auf externe Server hochgeladen.",
+        preamble: "JAEYOUNG LEE (blessingq) stellt die App LoupePDF (com.blessingq.loupepdf) in Übereinstimmung mit der DSGVO (GDPR) sowie den Richtlinien von Google Play und Apple App Store bereit.",
+        articles: [
+          {
+            h: "1. 100 % Lokale Dokumentenverarbeitung",
+            p: ["Alle Funktionen (PDF zusammenfügen, teilen, präzise Lupen-Unterschrift, Stempel-Generator, Sicherheits-Wasserzeichen, Schwärzen und AES-256-Verschlüsselung) finden ausschließlich lokal auf Ihrem Smartphone statt."]
+          },
+          {
+            h: "2. Drittanbieter-Werbung (Google AdMob)",
+            p: ["Zur kostenlosen Bereitstellung nutzt die App das Google AdMob SDK (Google LLC, USA), das Werbe-IDs (ADID/IDFA), Geräteinformationen, Anzeigeninteraktionen und Absturzberichte verarbeiten kann. Sie können personalisierte Werbung jederzeit in den Systemeinstellungen (Android/iOS) deaktivieren."]
+          },
+          {
+            h: "3. Kontakt",
+            p: ["Datenschutzverantwortlicher: JAEYOUNG LEE (blessingq) — <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>"]
+          }
+        ]
+      },
+      "pt": {
+        dir: "ltr",
+        name: "Português",
+        skip: "Ir para o conteúdo principal",
+        langLabel: "Idioma",
+        badgeApp: "LoupePDF",
+        badgeLocal: "Processamento 100% no dispositivo",
+        title: "Política de Privacidade do LoupePDF",
+        meta: "Data de vigência: 14 de novembro de 2026 · ID: com.blessingq.loupepdf",
+        summary: "Resumo: O LoupePDF processa 100% dos seus arquivos PDF, imagens, assinaturas, carimbos e senhas localmente no seu dispositivo. Nunca enviamos seus documentos para servidores externos.",
+        preamble: "JAEYOUNG LEE (blessingq) disponibiliza o aplicativo LoupePDF (com.blessingq.loupepdf) em conformidade com a LGPD, GDPR e políticas das lojas de aplicativos.",
+        articles: [
+          {
+            h: "1. Processamento 100% Local",
+            p: ["Todas as ferramentas de PDF, assinatura com lupa, criação de carimbos, marca d'água e criptografia AES-256 funcionam inteiramente no seu aparelho."]
+          },
+          {
+            h: "2. Publicidade (Google AdMob) e Contato",
+            p: ["Utilizamos o Google AdMob SDK (Google LLC) para exibir anúncios gratuitos, podendo coletar ID de publicidade (ADID/IDFA), dados do dispositivo e logs de diagnóstico. Você pode redefinir o ID de publicidade nas configurações do Android/iOS. Contato: JAEYOUNG LEE (<a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>)."]
+          }
+        ]
+      },
+      "id": {
+        dir: "ltr",
+        name: "Bahasa Indonesia",
+        skip: "Lewati ke konten utama",
+        langLabel: "Bahasa",
+        badgeApp: "LoupePDF",
+        badgeLocal: "100% Pemrosesan di Perangkat",
+        title: "Kebijakan Privasi LoupePDF",
+        meta: "Tanggal Berlaku: 14 November 2026 · ID Paket: com.blessingq.loupepdf",
+        summary: "Ringkasan: LoupePDF memproses 100% dokumen PDF, gambar, tanda tangan, stempel, dan kata sandi secara lokal di perangkat Anda. Kami tidak pernah mengunggah dokumen Anda ke server mana pun.",
+        preamble: "JAEYOUNG LEE (blessingq) menyediakan aplikasi LoupePDF (com.blessingq.loupepdf) dengan perlindungan privasi penuh di perangkat.",
+        articles: [
+          {
+            h: "1. Pemrosesan Lokal & Google AdMob",
+            p: ["Semua fitur penggabungan PDF, tanda tangan kaca pembesar (Loupe), pembuatan stempel, watermark, dan enkripsi AES-256 berjalan 100% di dalam perangkat Anda. Untuk layanan gratis, Google AdMob SDK (Google LLC) dapat mengumpulkan ID Iklan (ADID/IDFA), info perangkat, dan log diagnostik. Anda dapat mengatur ulang ID iklan di pengaturan privasi perangkat Anda. Kontak: JAEYOUNG LEE (<a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>)."]
+          }
+        ]
+      },
+      "vi": {
+        dir: "ltr",
+        name: "Tiếng Việt",
+        skip: "Chuyển đến nội dung chính",
+        langLabel: "Ngôn ngữ",
+        badgeApp: "LoupePDF",
+        badgeLocal: "Xử lý 100% trên thiết bị",
+        title: "Chính sách Quyền riêng tư của LoupePDF",
+        meta: "Ngày có hiệu lực: 14/11/2026 · ID gói: com.blessingq.loupepdf",
+        summary: "Tóm tắt: LoupePDF xử lý 100% tài liệu PDF, hình ảnh, chữ ký, con dấu và mật khẩu ngay trên thiết bị của bạn. Chúng tôi không bao giờ tải tài liệu của bạn lên bất kỳ máy chủ bên ngoài nào.",
+        preamble: "JAEYOUNG LEE (blessingq) phát triển ứng dụng LoupePDF (com.blessingq.loupepdf) tuân thủ đầy đủ các quy định bảo mật dữ liệu.",
+        articles: [
+          {
+            h: "1. Xử lý Cục bộ & Quảng cáo Google AdMob",
+            p: ["Mọi tính năng ghép/tách PDF, ký tên với kính lúp, tạo con dấu, đóng dấu bảo mật và mã hóa AES-256 đều hoạt động 100% trên điện thoại của bạn. Để duy trì ứng dụng miễn phí, Google AdMob SDK (Google LLC) có thể thu thập ID quảng cáo (ADID/IDFA), thông tin thiết bị và nhật ký sự cố. Bạn có thể tắt quảng cáo cá nhân hóa trong phần cài đặt thiết bị. Liên hệ: JAEYOUNG LEE (<a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>)."]
+          }
+        ]
+      },
+      "ru": {
+        dir: "ltr",
+        name: "Русский",
+        skip: "Перейти к основному содержанию",
+        langLabel: "Язык",
+        badgeApp: "LoupePDF",
+        badgeLocal: "100% локальная обработка на устройстве",
+        title: "Политика конфиденциальности LoupePDF",
+        meta: "Дата вступления в силу: 14 ноября 2026 г. · ID пакета: com.blessingq.loupepdf",
+        summary: "Краткое содержание: LoupePDF обрабатывает 100% ваших PDF-документов, изображений, подписей, печатей и паролей исключительно локально на вашем устройстве. Ваши файлы никогда не загружаются на внешние серверы.",
+        preamble: "JAEYOUNG LEE (blessingq) предоставляет мобильное приложение LoupePDF (com.blessingq.loupepdf) с соблюдением международных стандартов защиты данных.",
+        articles: [
+          {
+            h: "1. Локальная обработка и реклама Google AdMob",
+            p: ["Все функции объединения, разделения, точной подписи с лупой, создания печатей, водяных знаков и шифрования AES-256 выполняются локально на устройстве. Для бесплатного предоставления приложения используется Google AdMob SDK (Google LLC), который может собирать рекламный идентификатор (ADID/IDFA), сведения об устройстве и диагностические журналы. Вы можете сбросить рекламный ID в настройках Android или iOS. Контакт: JAEYOUNG LEE (<a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>)."]
+          }
+        ]
+      },
+      "ar": {
+        dir: "rtl",
+        name: "العربية",
+        skip: "التخطي إلى المحتوى الرئيسي",
+        langLabel: "اللغة",
+        badgeApp: "LoupePDF",
+        badgeLocal: "معالجة محلية 100% على الجهاز",
+        title: "سياسة الخصوصية لتطبيق LoupePDF",
+        meta: "تاريخ السريان: 14 نوفمبر 2026 · معرف الحزمة: com.blessingq.loupepdf",
+        summary: "ملخص أساسي: يقوم تطبيق LoupePDF بمعالجة جميع ملفات PDF والصور والتوقيعات والأختام وكلمات المرور محلياً بنسبة 100% داخل جهازك فقط، ولا يتم رفع أي مستندات إلى أي خادم خارجي.",
+        preamble: "يقدم المطور JAEYOUNG LEE (blessingq) تطبيق LoupePDF (com.blessingq.loupepdf) مع التزام كامل بحماية خصوصية المستخدم.",
+        articles: [
+          {
+            h: "1. المعالجة المحلية وإعلانات Google AdMob",
+            p: ["تتم جميع عمليات دمج وتقسيم ملفات PDF، والتوقيع الدقيق بالعدسة المكبرة، وإنشاء الأختام، والعلامات المائية، والتشفير بمعيار AES-256 داخل جهازك حصرياً. لتقديم التطبيق مجاناً، نستخدم حزمة Google AdMob SDK (التابعة لشركة Google LLC) التي قد تجمع معرف الإعلانات (ADID/IDFA) ومعلومات الجهاز وسجلات الأعطال. يمكنك إيقاف تخصيص الإعلانات من إعدادات الخصوصية في جهازك. للتواصل: JAEYOUNG LEE (<a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>)."]
+          }
+        ]
+      },
+      "hi": {
+        dir: "ltr",
+        name: "हिन्दी",
+        skip: "मुख्य सामग्री पर जाएं",
+        langLabel: "भाषा",
+        badgeApp: "LoupePDF",
+        badgeLocal: "100% ऑन-डिवाइस लोकल प्रोसेसिंग",
+        title: "LoupePDF गोपनीयता नीति (Privacy Policy)",
+        meta: "प्रभावी तिथि: 14 नवंबर 2026 · पैकेज ID: com.blessingq.loupepdf",
+        summary: "मुख्य सारांश: LoupePDF आपके सभी PDF दस्तावेज़ों, फ़ोटो, हस्ताक्षरों, स्टैम्प और पासवर्ड को 100% आपके फ़ोन के अंदर ही प्रोसेस करता है। हम आपकी किसी भी फ़ाइल को बाहरी सर्वर पर अपलोड या संग्रहीत नहीं करते हैं।",
+        preamble: "JAEYOUNG LEE (blessingq) द्वारा निर्मित LoupePDF (com.blessingq.loupepdf) उपयोगकर्ता की गोपनीयता की पूर्ण सुरक्षा करता है।",
+        articles: [
+          {
+            h: "1. ऑन-डिवाइस प्रोसेसिंग और Google AdMob विज्ञापन",
+            p: ["PDF मर्ज, स्प्लिट, मैग्नीफाइंग लूप हस्ताक्षर, स्टैम्प निर्माण, वॉटरमार्क और AES-256 एन्क्रिप्शन पूरी तरह से आपके डिवाइस पर स्थानीय रूप से चलते हैं। ऐप को निःशुल्क रखने के लिए Google AdMob SDK (Google LLC) विज्ञापन ID (ADID/IDFA), डिवाइस जानकारी और क्रैश लॉग एकत्र कर सकता है। आप अपने फ़ोन की सेटिंग में जाकर विज्ञापन ID को रीसेट या बंद कर सकते हैं। संपर्क: JAEYOUNG LEE (<a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>)।"]
+          }
+        ]
+      }
+    };
 
-    <h2>1. 100% On-Device Document Processing</h2>
-    <p>
-      <strong>LoupePDF</strong> ("the App") processes all PDF documents, photos, ID scans, signatures, stamps, and watermarks
-      <strong>entirely locally on your device</strong>. We do not operate any external document servers, and your files, documents, or signatures are never uploaded, transmitted, or collected by us.
-    </p>
+    Object.assign(POLICY_DATA, EXTRA_LANGS);
 
-    <h2>2. Device Permissions</h2>
-    <ul>
-      <li><strong>Camera</strong>: Used solely when you choose to scan physical documents or capture paper signatures/stamps. All captured images remain on your device.</li>
-      <li><strong>Photos &amp; Files</strong>: Used only to open user-selected PDF/image files and to save exported files back to your device.</li>
-    </ul>
+    const LANG_ORDER = ["ko", "en", "ja", "zh-TW", "zh-CN", "es", "fr", "de", "pt", "id", "vi", "ru", "ar", "hi"];
 
-    <h2>3. Third-Party Advertising (Google AdMob)</h2>
-    <p>
-      To provide the App for free, we integrate <strong>Google AdMob</strong>. The Google Mobile Ads SDK may automatically collect and process device identifiers (such as Android Advertising ID or Apple IDFA), coarse IP-based location, device diagnostics, and ad interaction data for ad delivery, frequency capping, and fraud prevention.
-    </p>
-    <ul>
-      <li>You can opt out of personalized ads or reset your advertising ID at any time in your device's system settings (Android: Settings &gt; Google &gt; Ads; iOS: Settings &gt; Privacy &amp; Security &gt; Tracking).</li>
-      <li>Learn more at Google's Privacy &amp; Terms: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
-    </ul>
+    function renderTable(tbl, idx) {
+      const captionId = `table-caption-${idx}`;
+      const labelVars = tbl.headers.map((h, i) => `--label-${i + 1}: "${h.replace(/"/g, "'")}"`).join("; ");
+      const ths = tbl.headers.map(h => `<th scope="col">${h}</th>`).join("");
+      const trs = tbl.rows.map(row => {
+        const cells = row.map((cell, i) => i === 0 ? `<th scope="row">${cell}</th>` : `<td>${cell}</td>`).join("");
+        return `<tr>${cells}</tr>`;
+      }).join("");
+      return `
+        <div tabindex="0" role="region" aria-labelledby="${captionId}" class="table-wrapper">
+          <table style="${labelVars}">
+            <caption id="${captionId}">${tbl.caption}</caption>
+            <thead><tr>${ths}</tr></thead>
+            <tbody>${trs}</tbody>
+          </table>
+        </div>
+      `;
+    }
 
-    <h2>4. Data Retention &amp; Deletion</h2>
-    <p>
-      All recent output files and saved signature vault items are stored strictly inside your device's local app sandbox. You may delete them at any time within the App or by uninstalling the App.
-    </p>
+    function setLanguage(lang) {
+      if (!POLICY_DATA[lang]) lang = "ko";
+      const data = POLICY_DATA[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = data.dir || "ltr";
+      document.title = `${data.title}`;
 
-    <h2>5. Contact Us</h2>
-    <p>
-      If you have any questions about this Privacy Policy, please visit <a href="https://blessingq.github.io" target="_blank" rel="noopener">https://blessingq.github.io</a>.
-    </p>
-  </div>
+      const skipLink = document.getElementById("skip-link");
+      if (skipLink) skipLink.textContent = data.skip;
+
+      const langLabel = document.getElementById("lang-label");
+      if (langLabel) langLabel.textContent = data.langLabel;
+
+      const selectEl = document.getElementById("lang-select");
+      if (selectEl && selectEl.value !== lang) selectEl.value = lang;
+
+      document.querySelectorAll(".lang-pill").forEach(btn => {
+        btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
+      });
+
+      const articlesHtml = data.articles.map((art, idx) => {
+        const ps = (art.p || []).map(p => `<p>${p}</p>`).join("");
+        const list = art.list ? `<ul>${art.list.map(item => `<li>${item}</li>`).join("")}</ul>` : "";
+        const table = art.table ? renderTable(art.table, idx) : "";
+        return `<section class="article"><h2>${art.h}</h2>${ps}${list}${table}</section>`;
+      }).join("");
+
+      const container = document.getElementById("policy-container");
+      container.innerHTML = `
+        <div class="badge-row">
+          <span class="badge">${data.badgeApp}</span>
+          <span class="badge on-device">${data.badgeLocal}</span>
+        </div>
+        <h1 id="page-title" tabindex="-1">${data.title}</h1>
+        <div class="meta-info">${data.meta}</div>
+        <div class="summary-callout"><p><strong>${data.summary}</strong></p></div>
+        <p>${data.preamble}</p>
+        ${articlesHtml}
+      `;
+
+      try {
+        localStorage.setItem("loupepdf_privacy_lang", lang);
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", lang);
+        window.history.replaceState({}, "", url.toString());
+      } catch (_) {}
+    }
+
+    function init() {
+      const pillsContainer = document.getElementById("lang-pills");
+      LANG_ORDER.forEach(code => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "lang-pill";
+        btn.dataset.lang = code;
+        btn.textContent = POLICY_DATA[code].name;
+        btn.addEventListener("click", () => setLanguage(code));
+        pillsContainer.appendChild(btn);
+      });
+
+      document.getElementById("lang-select").addEventListener("change", (e) => {
+        setLanguage(e.target.value);
+      });
+
+      const themeBtn = document.getElementById("theme-toggle");
+      themeBtn.addEventListener("click", () => {
+        const root = document.documentElement;
+        const current = root.getAttribute("data-theme");
+        const isDarkSystem = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const effectiveDark = current ? current === "dark" : isDarkSystem;
+        const next = effectiveDark ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("loupepdf_privacy_theme", next); } catch (_) {}
+      });
+
+      try {
+        const savedTheme = localStorage.getItem("loupepdf_privacy_theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (_) {}
+
+      const params = new URLSearchParams(window.location.search);
+      let initialLang = params.get("lang");
+      if (!initialLang) {
+        try { initialLang = localStorage.getItem("loupepdf_privacy_lang"); } catch (_) {}
+      }
+      if (!initialLang) {
+        const navLang = (navigator.language || "ko").toLowerCase();
+        if (navLang.startsWith("ko")) initialLang = "ko";
+        else if (navLang.startsWith("ja")) initialLang = "ja";
+        else if (navLang.includes("zh-tw") || navLang.includes("zh-hk")) initialLang = "zh-TW";
+        else if (navLang.startsWith("zh")) initialLang = "zh-CN";
+        else if (navLang.startsWith("es")) initialLang = "es";
+        else if (navLang.startsWith("fr")) initialLang = "fr";
+        else if (navLang.startsWith("de")) initialLang = "de";
+        else if (navLang.startsWith("pt")) initialLang = "pt";
+        else if (navLang.startsWith("id")) initialLang = "id";
+        else if (navLang.startsWith("vi")) initialLang = "vi";
+        else if (navLang.startsWith("ru")) initialLang = "ru";
+        else if (navLang.startsWith("ar")) initialLang = "ar";
+        else if (navLang.startsWith("hi")) initialLang = "hi";
+        else initialLang = "en";
+      }
+      setLanguage(initialLang);
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+  </script>
 </body>
 </html>
