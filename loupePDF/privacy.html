@@ -3,101 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- MANDATORY: Declare support for both light and dark themes -->
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
   <title>개인정보 처리방침 | 루페PDF (LoupePDF)</title>
   <style>
     :root {
-      --bg-light: #f8fafc;
-      --bg-dark: #0b0f19;
-      --surface-light: #ffffff;
-      --surface-dark: #111827;
-      --surface-muted-light: #f1f5f9;
-      --surface-muted-dark: #1e293b;
-      --text-light: #0f172a;
-      --text-dark: #f8fafc;
-      --muted-light: #475569;
-      --muted-dark: #94a3b8;
-      --border-light: #e2e8f0;
-      --border-dark: #1f2937;
-      --accent-light: #3730a3;
-      --accent-dark: #818cf8;
-      --accent-soft-light: #eef2ff;
-      --accent-soft-dark: rgba(129, 140, 248, 0.14);
-      --badge-green-bg-light: #ecfdf5;
-      --badge-green-bg-dark: rgba(16, 185, 129, 0.15);
-      --badge-green-text-light: #047857;
-      --badge-green-text-dark: #34d399;
-
-      --bg: var(--bg-light);
-      --surface: var(--surface-light);
-      --surface-muted: var(--surface-muted-light);
-      --text: var(--text-light);
-      --muted: var(--muted-light);
-      --border: var(--border-light);
-      --accent: var(--accent-light);
-      --accent-soft: var(--accent-soft-light);
-      --badge-green-bg: var(--badge-green-bg-light);
-      --badge-green-text: var(--badge-green-text-light);
-
-      /* MANDATORY: Fallback for browsers without light-dark support */
-      @media (prefers-color-scheme: dark) {
-        --bg: var(--bg-dark);
-        --surface: var(--surface-dark);
-        --surface-muted: var(--surface-muted-dark);
-        --text: var(--text-dark);
-        --muted: var(--muted-dark);
-        --border: var(--border-dark);
-        --accent: var(--accent-dark);
-        --accent-soft: var(--accent-soft-dark);
-        --badge-green-bg: var(--badge-green-bg-dark);
-        --badge-green-text: var(--badge-green-text-dark);
-      }
-
-      @supports (color: light-dark(white, black)) {
-        --bg: light-dark(var(--bg-light), var(--bg-dark));
-        --surface: light-dark(var(--surface-light), var(--surface-dark));
-        --surface-muted: light-dark(var(--surface-muted-light), var(--surface-muted-dark));
-        --text: light-dark(var(--text-light), var(--text-dark));
-        --muted: light-dark(var(--muted-light), var(--muted-dark));
-        --border: light-dark(var(--border-light), var(--border-dark));
-        --accent: light-dark(var(--accent-light), var(--accent-dark));
-        --accent-soft: light-dark(var(--accent-soft-light), var(--accent-soft-dark));
-        --badge-green-bg: light-dark(var(--badge-green-bg-light), var(--badge-green-bg-dark));
-        --badge-green-text: light-dark(var(--badge-green-text-light), var(--badge-green-text-dark));
-      }
-
-      /* MANDATORY: Apply color-scheme to :root for viewport-wide theming */
-      color-scheme: light dark;
-      accent-color: var(--accent);
-    }
-
-    :root[data-theme="light"] {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-muted: #f8fafc;
+      --text: #111111;
+      --muted: #4b5563;
+      --border: #d1d5db;
+      --accent: #1d4ed8;
+      --accent-soft: #eff6ff;
+      --badge-green-bg: #ecfdf5;
+      --badge-green-text: #047857;
       color-scheme: light;
-      --bg: var(--bg-light);
-      --surface: var(--surface-light);
-      --surface-muted: var(--surface-muted-light);
-      --text: var(--text-light);
-      --muted: var(--muted-light);
-      --border: var(--border-light);
-      --accent: var(--accent-light);
-      --accent-soft: var(--accent-soft-light);
-      --badge-green-bg: var(--badge-green-bg-light);
-      --badge-green-text: var(--badge-green-text-light);
-    }
-
-    :root[data-theme="dark"] {
-      color-scheme: dark;
-      --bg: var(--bg-dark);
-      --surface: var(--surface-dark);
-      --surface-muted: var(--surface-muted-dark);
-      --text: var(--text-dark);
-      --muted: var(--muted-dark);
-      --border: var(--border-dark);
-      --accent: var(--accent-dark);
-      --accent-soft: var(--accent-soft-dark);
-      --badge-green-bg: var(--badge-green-bg-dark);
-      --badge-green-text: var(--badge-green-text-dark);
+      accent-color: var(--accent);
     }
 
     * {
@@ -514,7 +435,6 @@
             <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
           </select>
         </div>
-        <button type="button" id="theme-toggle" aria-label="테마 전환 (Toggle dark/light theme)">🌓</button>
       </div>
     </div>
   </header>
@@ -1170,24 +1090,6 @@
       document.getElementById("lang-select").addEventListener("change", (e) => {
         setLanguage(e.target.value);
       });
-
-      const themeBtn = document.getElementById("theme-toggle");
-      themeBtn.addEventListener("click", () => {
-        const root = document.documentElement;
-        const current = root.getAttribute("data-theme");
-        const isDarkSystem = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const effectiveDark = current ? current === "dark" : isDarkSystem;
-        const next = effectiveDark ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        try { localStorage.setItem("loupepdf_privacy_theme", next); } catch (_) {}
-      });
-
-      try {
-        const savedTheme = localStorage.getItem("loupepdf_privacy_theme");
-        if (savedTheme === "light" || savedTheme === "dark") {
-          document.documentElement.setAttribute("data-theme", savedTheme);
-        }
-      } catch (_) {}
 
       const params = new URLSearchParams(window.location.search);
       let initialLang = params.get("lang");
