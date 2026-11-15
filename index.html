@@ -1,851 +1,677 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="5h0-aQFTUYXaCVvGGn5A4-YuheoaOTxe1ir1VBxvEjI" />
-    <title>Firmware Developer Portfolio | 펌웨어 개발자 포트폴리오</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --bg-secondary: #f9fafb;
-            --text: #111827;
-            --text-secondary: #6b7280;
-            --accent: #2563eb;
-            --accent-light: #dbeafe;
-            --border: #e5e7eb;
-            --card-bg: #ffffff;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-            --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="5h0-aQFTUYXaCVvGGn5A4-YuheoaOTxe1ir1VBxvEjI" />
+  <title>BlessingQ | 임베디드 · 앱 · 데스크톱 소프트웨어 엔지니어</title>
+  <meta
+    name="description"
+    content="STM32 임베디드 펌웨어, Flutter 모바일 앱, Python 데스크톱 유틸리티 및 MCP 개발 도구를 만드는 소프트웨어 엔지니어 BlessingQ 포트폴리오"
+  />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script>
+    (function () {
+      try {
+        var pref = localStorage.getItem('theme-preference');
+        if (pref === 'light' || pref === 'dark') {
+          document.documentElement.dataset.theme = pref;
         }
-
-        [data-theme="dark"] {
-            --bg: #0f172a;
-            --bg-secondary: #1e293b;
-            --text: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --accent: #60a5fa;
-            --accent-light: rgba(96,165,250,0.12);
-            --border: #334155;
-            --card-bg: #1e293b;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', 'Noto Sans KR', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        body[lang="en"] { font-family: 'Inter', sans-serif; }
-
-        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 0.75rem 0;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.02em;
-        }
-
-        .nav-container { display: flex; align-items: center; gap: 1.5rem; }
-
-        .nav-links { display: flex; gap: 1.5rem; }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--text); }
-
-        .controls { display: flex; align-items: center; gap: 0.5rem; }
-
-        .lang-toggle, .theme-toggle {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.375rem 0.5rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            transition: all 0.2s;
-        }
-
-        .lang-toggle:hover, .theme-toggle:hover {
-            color: var(--text);
-            border-color: var(--text-secondary);
-        }
-
-        /* Hero */
-        .hero {
-            padding: 10rem 0 6rem;
-            text-align: center;
-        }
-
-        .hero-label {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent);
-            background: var(--accent-light);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.02em;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 4.5vw, 3rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
-            color: var(--text);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 520px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary, .btn-outline {
-            padding: 0.625rem 1.25rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .btn-primary:hover { opacity: 0.9; }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-outline:hover { border-color: var(--text-secondary); }
-
-        /* Sections */
-        section { padding: 5rem 0; }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .divider {
-            width: 40px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 2px;
-            margin: 0 auto 3rem;
-        }
-
-        /* About Profile */
-        .about-profile {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .about-profile img {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--border);
-            margin-bottom: 1rem;
-        }
-
-        .about-profile .name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-
-        .about-profile .bio {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        /* About Grid */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-        }
-
-        .about-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: box-shadow 0.2s;
-        }
-
-        .about-card:hover { box-shadow: var(--card-shadow-hover); }
-
-        .about-card h3 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        .about-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .about-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .about-card ul li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding: 0.3rem 0;
-            display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-        }
-
-        .about-card ul li::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 0.5rem;
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.75rem;
-            transition: box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover { box-shadow: var(--card-shadow-hover); }
-
-        .project-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-
-        .project-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .project-card > p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            flex: 1;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.375rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .tag {
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .project-link:hover { opacity: 0.7; }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-group {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: box-shadow 0.2s;
-        }
-
-        .skill-group:hover { box-shadow: var(--card-shadow-hover); }
-
-        .skill-group h3 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: var(--bg-secondary);
-            color: var(--text);
-            padding: 0.375rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-            transition: border-color 0.2s;
-        }
-
-        .skill-tag:hover { border-color: var(--accent); }
-
-        /* Contact */
-        .contact-wrapper {
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .contact-form {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .form-group { margin-bottom: 1.25rem; }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.375rem;
-            font-weight: 500;
-            font-size: 0.85rem;
-            color: var(--text);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.625rem 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: var(--bg);
-            color: var(--text);
-            font-family: inherit;
-            font-size: 0.9rem;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-group textarea { min-height: 100px; resize: vertical; }
-
-        .btn-submit {
-            background: var(--accent);
-            color: #fff;
-            padding: 0.625rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 500;
-            width: 100%;
-            transition: opacity 0.2s;
-        }
-
-        .btn-submit:hover { opacity: 0.9; }
-
-        /* Footer */
-        footer {
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-
-        footer p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 0.75rem;
-        }
-
-        .social-links a {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            transition: color 0.2s;
-        }
-
-        .social-links a:hover { color: var(--text); }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content { flex-wrap: wrap; gap: 0.75rem; }
-            .nav-container { gap: 1rem; }
-            .nav-links { gap: 1rem; }
-            .hero { padding: 8rem 0 4rem; }
-            .about-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .cta-buttons { flex-direction: column; align-items: center; }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hidden { display: none; }
-
-        /* Background accent */
-        #about { background: var(--bg-secondary); }
-        #skills { background: var(--bg-secondary); }
-    </style>
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <h1>BlessingQ</h1>
-            </div>
-            <div class="nav-container">
-                <nav class="nav-links">
-                    <a href="#about" data-ko="소개" data-en="About">소개</a>
-                    <a href="#projects" data-ko="프로젝트" data-en="Projects">프로젝트</a>
-                    <a href="#skills" data-ko="기술" data-en="Skills">기술</a>
-                    <a href="#contact" data-ko="연락" data-en="Contact">연락</a>
-                </nav>
-                <div class="controls">
-                    <button class="lang-toggle" id="langToggle">
-                        <i class="fas fa-globe"></i> EN
-                    </button>
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-            </div>
+<body data-page="index">
+  <a href="#main-content" class="skip-link visually-hidden" data-i18n="skipLink">본문으로 건너뛰기</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="BlessingQ Home">
+        <img
+          src="assets/images/favicon.svg"
+          alt=""
+          width="28"
+          height="28"
+          class="brand-mark"
+          aria-hidden="true"
+        />
+        <span>BlessingQ</span>
+      </a>
+
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="메뉴 열기"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="주요 내비게이션" data-i18n-aria-label="navAria">
+        <ul class="nav-links">
+          <li><a href="#about" data-i18n="navAbout">소개</a></li>
+          <li><a href="#projects" data-i18n="navProjects">프로젝트</a></li>
+          <li><a href="#skills" data-i18n="navSkills">기술 스택</a></li>
+          <li><a href="#contact" data-i18n="navContact">연락하기</a></li>
+        </ul>
+
+        <div class="header-controls">
+          <button
+            id="lang-toggle"
+            class="glass-pill-btn"
+            type="button"
+            aria-label="Switch language to English"
+          >EN</button>
+
+          <div class="theme-pill-group" role="group" aria-label="테마 선택" data-i18n-aria-label="themeGroupAria">
+            <button
+              class="theme-choice"
+              type="button"
+              data-theme-choice="system"
+              aria-pressed="true"
+              data-i18n="themeSystem"
+            >자동</button>
+            <button
+              class="theme-choice"
+              type="button"
+              data-theme-choice="light"
+              aria-pressed="false"
+              data-i18n="themeLight"
+            >라이트</button>
+            <button
+              class="theme-choice"
+              type="button"
+              data-theme-choice="dark"
+              aria-pressed="false"
+              data-i18n="themeDark"
+            >다크</button>
+          </div>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-label" data-ko="펌웨어 & 앱 개발자" data-en="Firmware & App Developer">펌웨어 & 앱 개발자</div>
-                <h1 data-ko="임베디드 시스템과 모바일 앱을 만듭니다" data-en="Building Embedded Systems & Mobile Apps">임베디드 시스템과 모바일 앱을 만듭니다</h1>
-                <p data-ko="하드웨어와 소프트웨어의 경계에서 효율적인 솔루션을 설계하고 구현합니다." data-en="Designing and implementing efficient solutions at the intersection of hardware and software.">하드웨어와 소프트웨어의 경계에서 효율적인 솔루션을 설계하고 구현합니다.</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn-primary">
-                        <span data-ko="프로젝트 보기" data-en="View Projects">프로젝트 보기</span>
-                        <i class="fas fa-arrow-down" style="font-size:0.75rem"></i>
-                    </a>
-                    <a href="#contact" class="btn-outline">
-                        <span data-ko="연락하기" data-en="Get in Touch">연락하기</span>
-                    </a>
-                </div>
+  <main id="main-content" tabindex="-1">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-label" data-i18n="heroBadge">임베디드 · 앱 · 데스크톱 소프트웨어</span>
+          <h1 class="hero-title">
+            <span data-i18n="heroTitleLine1">현장의 하드웨어와</span><br />
+            <span data-i18n="heroTitleLine2">실용적인 소프트웨어를 잇습니다</span>
+          </h1>
+          <p class="hero-lead" data-i18n="heroLead">
+            STM32 펌웨어부터 Flutter Android 앱, Python 데스크톱 유틸리티 및 MCP 개발 도구까지. 현업과 일상에서 바로 쓰이는 단단하고 직관적인 소프트웨어를 설계하고 구현합니다.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary" data-i18n="heroCtaProjects">프로젝트 살펴보기</a>
+            <a href="#contact" class="btn btn-glass" data-i18n="heroCtaContact">문의하기</a>
+          </div>
+
+          <div class="hero-profile">
+            <img
+              src="assets/images/avatar.webp"
+              alt="BlessingQ 프로필 사진"
+              width="240"
+              height="240"
+              class="avatar-img"
+              fetchpriority="high"
+              data-i18n-alt="avatarAlt"
+            />
+            <div>
+              <div class="profile-name">Jaeyoung Lee &middot; BlessingQ</div>
+              <div class="profile-role" data-i18n="profileRole">임베디드 시스템 &amp; 크로스플랫폼 개발자</div>
+              <div class="profile-links">
+                <a href="https://github.com/BlessingQ" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://play.google.com/store/apps/dev?id=4667928472575740147" target="_blank" rel="noopener noreferrer">Google Play</a>
+                <a href="mailto:ejok9194@gmail.com">ejok9194@gmail.com</a>
+              </div>
             </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="fade-in" data-ko="소개" data-en="About">소개</h2>
-                </div>
-                <div class="divider fade-in"></div>
-                <div class="about-profile fade-in">
-                    <img src="https://github.com/BlessingQ.png" alt="BlessingQ" loading="lazy">
-                    <div class="name">BlessingQ</div>
-                    <div class="bio" data-ko="펌웨어 & 앱 개발자" data-en="Firmware & App Developer">펌웨어 & 앱 개발자</div>
-                </div>
-                <div class="about-grid">
-                    <div class="about-card fade-in">
-                        <h3 data-ko="직업" data-en="Profession">직업</h3>
-                        <p data-ko="펌웨어 개발자로서 임베디드 시스템과 모바일 애플리케이션 개발을 전문으로 하고 있습니다." data-en="As a firmware developer, I specialize in embedded systems and mobile application development.">펌웨어 개발자로서 임베디드 시스템과 모바일 애플리케이션 개발을 전문으로 하고 있습니다.</p>
-                    </div>
-                    <div class="about-card fade-in">
-                        <h3 data-ko="사용 언어" data-en="Languages">사용 언어</h3>
-                        <ul>
-                            <li data-ko="C / C++ — 임베디드 시스템" data-en="C / C++ — Embedded systems">C / C++ — 임베디드 시스템</li>
-                            <li data-ko="Dart — Flutter 모바일 앱" data-en="Dart — Flutter mobile apps">Dart — Flutter 모바일 앱</li>
-                            <li data-ko="Python — 데스크톱 앱 / 자동화" data-en="Python — Desktop apps / Automation">Python — 데스크톱 앱 / 자동화</li>
-                        </ul>
-                    </div>
-                    <div class="about-card fade-in">
-                        <h3 data-ko="플랫폼" data-en="Platforms">플랫폼</h3>
-                        <ul>
-                            <li data-ko="임베디드 시스템 — 마이크로컨트롤러" data-en="Embedded Systems — Microcontrollers">임베디드 시스템 — 마이크로컨트롤러</li>
-                            <li data-ko="Flutter — Android / iOS 크로스 플랫폼" data-en="Flutter — Android / iOS cross-platform">Flutter — Android / iOS 크로스 플랫폼</li>
-                            <li data-ko="Windows / macOS / Linux — 데스크톱" data-en="Windows / macOS / Linux — Desktop">Windows / macOS / Linux — 데스크톱</li>
-                        </ul>
-                    </div>
-                    <div class="about-card fade-in">
-                        <h3 data-ko="도구" data-en="Tools">도구</h3>
-                        <ul>
-                            <li data-ko="Git — 버전 관리" data-en="Git — Version control">Git — 버전 관리</li>
-                            <li data-ko="STM32CubeIDE — STM32 개발" data-en="STM32CubeIDE — STM32 development">STM32CubeIDE — STM32 개발</li>
-                            <li data-ko="VS Code — 코드 편집기" data-en="VS Code — Code editor">VS Code — 코드 편집기</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="fade-in" data-ko="프로젝트" data-en="Projects">프로젝트</h2>
-                </div>
-                <div class="divider fade-in"></div>
-                <div class="projects-grid">
-                    <div class="project-card fade-in">
-                        <div class="project-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3 data-ko="YMODEM 1K 파일 전송 앱" data-en="YMODEM 1K File Transfer App">YMODEM 1K 파일 전송 앱</h3>
-                        <p data-ko="YMODEM 1K 프로토콜을 활용하여 bin 파일을 임베디드 시스템에 전송하는 Flutter 기반 애플리케이션입니다. Serial 통신을 통해 안정적인 파일 전송을 구현했습니다." data-en="A Flutter-based application that transfers bin files to embedded systems using the YMODEM 1K protocol. Implements reliable file transfer through serial communication.">YMODEM 1K 프로토콜을 활용하여 bin 파일을 임베디드 시스템에 전송하는 Flutter 기반 애플리케이션입니다. Serial 통신을 통해 안정적인 파일 전송을 구현했습니다.</p>
-                        <div class="project-tags">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Dart</span>
-                            <span class="tag">Serial</span>
-                            <span class="tag">YMODEM</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.blessingq.ymodem_uploader" target="_blank" class="project-link">
-                                <i class="fab fa-google-play"></i>
-                                <span>Google Play</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-card fade-in">
-                        <div class="project-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <h3 data-ko="PDF Compressor" data-en="PDF Compressor">PDF Compressor</h3>
-                        <p data-ko="PDF 파일의 이미지를 리사이징 및 재압축하여 용량을 줄이는 데스크톱 애플리케이션입니다. 드래그 앤 드롭, 4가지 압축 프리셋, 실시간 진행률 표시를 지원합니다. Windows, macOS, Linux 크로스 플랫폼 지원." data-en="A desktop application that reduces PDF file size by resizing and recompressing embedded images. Supports drag & drop, 4 compression presets, and real-time progress display. Cross-platform for Windows, macOS, and Linux.">PDF 파일의 이미지를 리사이징 및 재압축하여 용량을 줄이는 데스크톱 애플리케이션입니다. 드래그 앤 드롭, 4가지 압축 프리셋, 실시간 진행률 표시를 지원합니다. Windows, macOS, Linux 크로스 플랫폼 지원.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">PyQt</span>
-                            <span class="tag">PDF</span>
-                            <span class="tag">Cross-platform</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/BlessingQ/PDFCompressor" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="fade-in" data-ko="기술 스택" data-en="Skills">기술 스택</h2>
-                </div>
-                <div class="divider fade-in"></div>
-                <div class="skills-grid">
-                    <div class="skill-group fade-in">
-                        <h3 data-ko="펌웨어" data-en="Firmware">펌웨어</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">STM32</span>
-                            <span class="skill-tag">TouchGFX</span>
-                            <span class="skill-tag">UART</span>
-                            <span class="skill-tag">SPI</span>
-                            <span class="skill-tag">I2C</span>
-                            <span class="skill-tag" data-ko="임베디드 C/C++" data-en="Embedded C/C++">임베디드 C/C++</span>
-                        </div>
-                    </div>
-                    <div class="skill-group fade-in">
-                        <h3 data-ko="앱 개발" data-en="App Development">앱 개발</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Dart</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag" data-ko="Serial 통신" data-en="Serial Communication">Serial 통신</span>
-                        </div>
-                    </div>
-                    <div class="skill-group fade-in">
-                        <h3 data-ko="도구" data-en="Tools">도구</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">STM32CubeIDE</span>
-                            <span class="skill-tag">VS Code</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="fade-in" data-ko="연락처" data-en="Contact">연락처</h2>
-                </div>
-                <div class="divider fade-in"></div>
-                <div class="contact-wrapper">
-                    <div class="contact-form fade-in">
-                        <form action="https://formsubmit.co/ejok9194@gmail.com" method="POST">
-                            <input type="hidden" name="_subject" value="Portfolio Website Inquiry | 포트폴리오 웹사이트 문의">
-                            <input type="hidden" name="_next" value="https://blessingq.github.io/thank-you.html">
-                            <input type="hidden" name="_captcha" value="false">
-
-                            <div class="form-group">
-                                <label for="name" data-ko="이름" data-en="Name">이름</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" data-ko="이메일" data-en="Email">이메일</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" data-ko="메시지" data-en="Message">메시지</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn-submit">
-                                <span data-ko="보내기" data-en="Send">보내기</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 BlessingQ</p>
-            <div class="social-links">
-                <a href="https://github.com/BlessingQ" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:ejok9194@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        let currentLang = localStorage.getItem('language') || 'ko';
+        <aside class="hero-showcase" aria-label="대표 출시 앱 미리보기" data-i18n-aria-label="showcaseAria">
+          <div class="showcase-header">
+            <div class="showcase-app-meta">
+              <img
+                src="assets/images/ymodem-icon.webp"
+                alt="YMODEM Uploader 앱 아이콘"
+                width="160"
+                height="160"
+                class="showcase-app-icon"
+                data-i18n-alt="ymodemIconAlt"
+              />
+              <div>
+                <div class="showcase-title">YMODEM Uploader</div>
+                <div class="showcase-sub" data-i18n="showcaseSub">USB OTG 펌웨어 업로더</div>
+              </div>
+            </div>
+            <span class="showcase-badge" data-i18n="showcaseBadge">Google Play 출시</span>
+          </div>
 
-        const translations = {
-            ko: { title: '펌웨어 개발자 포트폴리오', langBtn: 'EN' },
-            en: { title: 'Firmware Developer Portfolio', langBtn: '한국어' }
-        };
+          <div class="showcase-tabs" role="group" aria-label="앱 화면 전환" data-i18n-aria-label="showcaseTabsAria">
+            <button class="showcase-tab" type="button" data-shot-index="0" aria-pressed="true" data-i18n="shotTab0">USB 연결</button>
+            <button class="showcase-tab" type="button" data-shot-index="1" aria-pressed="false" data-i18n="shotTab1">YMODEM</button>
+            <button class="showcase-tab" type="button" data-shot-index="2" aria-pressed="false" data-i18n="shotTab2">MegaBoot</button>
+            <button class="showcase-tab" type="button" data-shot-index="3" aria-pressed="false" data-i18n="shotTab3">프로토콜</button>
+          </div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            setLanguage(currentLang);
-            initScrollAnimations();
-        });
+          <div class="showcase-stage">
+            <button
+              id="hero-shot-btn"
+              class="phone-frame-btn"
+              type="button"
+              aria-label="YMODEM Uploader 스크린샷 크게 보기"
+              data-i18n-aria-label="heroShotBtnAria"
+            >
+              <img
+                id="hero-shot-img"
+                src="assets/images/ymodem-usb.webp"
+                alt="YMODEM Uploader USB Serial Connection 화면"
+                width="540"
+                height="1170"
+                fetchpriority="high"
+              />
+            </button>
+          </div>
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-            localStorage.setItem('language', lang);
+          <p class="showcase-hint" data-i18n="showcaseHint">탭으로 화면 전환 · 이미지 클릭 시 크게 보기</p>
+        </aside>
+      </div>
+    </section>
 
-            document.querySelectorAll('[data-ko][data-en]').forEach(el => {
-                const text = el.getAttribute('data-' + lang);
-                if (text) {
-                    if (el.innerHTML.includes('<')) {
-                        el.innerHTML = text;
-                    } else {
-                        el.textContent = text;
-                    }
-                }
-            });
+    <section class="section section-subtle" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="aboutHeading">개발 분야와 접근 방식</h2>
+          <div class="section-divider"></div>
+          <p data-i18n="aboutSubheading">하드웨어 제어부터 사용자 화면까지, 문제에 가장 잘 맞는 기술로 단단하게 만듭니다.</p>
+        </div>
 
-            document.getElementById('langToggle').innerHTML =
-                '<i class="fas fa-globe"></i> ' + translations[lang].langBtn;
-            document.title = translations[lang].title;
-            document.body.setAttribute('lang', lang);
-        }
+        <div class="about-grid">
+          <article class="about-card reveal-item">
+            <h3 data-i18n="aboutCard1Title">핵심 영역</h3>
+            <ul class="about-list" data-i18n-list="aboutCard1List">
+              <li>STM32 마이크로컨트롤러 &amp; 임베디드 C/C++ 펌웨어</li>
+              <li>TouchGFX 기반 임베디드 UI 및 UART · SPI · I2C 통신</li>
+              <li>Flutter Android 앱 (USB OTG 시리얼, 로컬 PDF 보안 처리)</li>
+              <li>Python PyQt6 크로스플랫폼 유틸리티 및 MCP 개발 도구</li>
+            </ul>
+          </article>
 
-        document.getElementById('langToggle').addEventListener('click', () => {
-            setLanguage(currentLang === 'ko' ? 'en' : 'ko');
-        });
+          <article class="about-card reveal-item">
+            <h3 data-i18n="aboutCard2Title">설계 원칙</h3>
+            <p data-i18n="aboutCard2Body">
+              화려한 기능보다 현장에서 멈추지 않는 안정성과 직관적인 사용 흐름을 우선합니다. 민감한 문서 처리나 하드웨어 제어는 불필요한 외부 서버 의존 없이 기기 안에서 완결되도록 설계합니다.
+            </p>
+          </article>
 
-        const themeToggle = document.getElementById('themeToggle');
-        const icon = themeToggle.querySelector('i');
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') icon.classList.replace('fa-moon', 'fa-sun');
+          <article class="about-card reveal-item">
+            <h3 data-i18n="aboutCard3Title">모바일 · 데스크톱 앱</h3>
+            <ul class="about-list" data-i18n-list="aboutCard3List">
+              <li>USB OTG 시리얼 및 부트로더 펌웨어 업로더 Google Play 출시</li>
+              <li>100% 온디바이스 PDF 편집·전자서명·마스킹 모바일 앱 개발</li>
+              <li>Windows · macOS · Linux 지원 PyQt6 데스크톱 유틸리티</li>
+              <li>C/C++ 소스 UTF-8 변환 및 프레임 뷰어 유틸리티 배포</li>
+            </ul>
+          </article>
 
-        themeToggle.addEventListener('click', () => {
-            const current = document.body.getAttribute('data-theme');
-            const next = current === 'light' ? 'dark' : 'light';
-            document.body.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            if (next === 'dark') {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
+          <article class="about-card reveal-item">
+            <h3 data-i18n="aboutCard4Title">자동화 &amp; 엔지니어링</h3>
+            <ul class="about-list" data-i18n-list="aboutCard4List">
+              <li>PADS Logic/Layout 9.x 연동을 위한 MCP 서버 설계 및 구현</li>
+              <li>Windows COM 자동화와 ASCII 설계 파일 파싱 결합</li>
+              <li>Git 기반 버전 관리와 크로스플랫폼 빌드·릴리즈 패키징</li>
+              <li>실사용 환경 피드백을 반영한 지속적인 유지보수</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        function initScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="projectsHeading">주요 프로젝트</h2>
+          <div class="section-divider"></div>
+          <p data-i18n="projectsSubheading">실제 배포 및 운영 중인 모바일 앱, 데스크톱 유틸리티, 엔지니어링 도구입니다.</p>
+        </div>
 
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        }
+        <div class="projects-grid">
+          <article class="project-card is-wide reveal-item">
+            <div class="ym-content">
+              <div class="project-head">
+                <img
+                  src="assets/images/ymodem-icon.webp"
+                  alt=""
+                  width="160"
+                  height="160"
+                  loading="lazy"
+                  class="project-app-icon"
+                  aria-hidden="true"
+                />
+                <div>
+                  <span class="project-kicker" data-i18n="proj1Kicker">Google Play · Android 앱</span>
+                  <h3 class="project-title">YMODEM Uploader</h3>
+                </div>
+              </div>
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = document.querySelector('header').offsetHeight + 20;
-                    window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
-                }
-            });
-        });
+              <p class="project-desc" data-i18n="proj1Desc">
+                스마트폰 USB OTG 포트로 FTDI·CP210x 등 USB-to-Serial 어댑터에 연결해 YMODEM 및 MegaBoot 프로토콜로 MCU 펌웨어를 전송하는 Android 앱입니다. 통신 속도 설정, 실시간 블록/페이지 로그, 사용자 정의 프로토콜 주소 구성을 지원합니다.
+              </p>
 
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const st = window.pageYOffset;
-            const header = document.querySelector('header');
-            if (st > lastScroll && st > 100) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
-            lastScroll = st;
-        });
-    </script>
+              <div class="tag-row">
+                <span class="tag">Flutter</span>
+                <span class="tag">Android USB OTG</span>
+                <span class="tag">YMODEM</span>
+                <span class="tag">MegaBoot</span>
+                <span class="tag">Serial</span>
+              </div>
+
+              <div class="card-links">
+                <a
+                  class="card-link-btn"
+                  href="https://play.google.com/store/apps/details?id=com.blessingq.ymodem_uploader"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="linkPlayStore"
+                >Google Play에서 보기</a>
+              </div>
+            </div>
+
+            <div class="ym-gallery-box">
+              <button class="thumb-btn" type="button" data-shot-index="0" aria-label="USB 연결 화면 확대" data-i18n-aria-label="thumbAria0">
+                <img src="assets/images/ymodem-usb.webp" alt="YMODEM Uploader USB Serial Connection 화면" width="540" height="1170" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-shot-index="1" aria-label="YMODEM 전송 화면 확대" data-i18n-aria-label="thumbAria1">
+                <img src="assets/images/ymodem-upload.webp" alt="YMODEM Firmware Upload 화면" width="540" height="1170" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-shot-index="2" aria-label="MegaBoot 로그 화면 확대" data-i18n-aria-label="thumbAria2">
+                <img src="assets/images/ymodem-megaboot.webp" alt="MegaBoot FLASH 전송 로그 화면" width="540" height="1170" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-shot-index="3" aria-label="프로토콜 설정 화면 확대" data-i18n-aria-label="thumbAria3">
+                <img src="assets/images/ymodem-protocol.webp" alt="사용자 정의 프로토콜 주소 설정 화면" width="540" height="1170" loading="lazy" />
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal-item">
+            <div class="project-head">
+              <div class="project-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7" />
+                  <line x1="20" y1="20" x2="16.2" y2="16.2" />
+                  <path d="M11 8v6M8 11h6" />
+                </svg>
+              </div>
+              <div>
+                <span class="project-kicker" data-i18n="proj2Kicker">On-Device · 모바일 PDF 도구</span>
+                <h3 class="project-title" data-i18n="proj2Title">LoupePDF (루페PDF)</h3>
+              </div>
+            </div>
+
+            <div class="card-visual-strip" aria-hidden="true">
+              <div class="preset-row">
+                <span class="mini-pill is-accent">2.5x Loupe</span>
+                <span class="mini-pill">100% On-Device</span>
+                <span class="mini-pill">AES-256</span>
+              </div>
+            </div>
+
+            <p class="project-desc" data-i18n="proj2Desc">
+              서버 업로드 없이 기기 내부에서만 동작하는 오프라인 PDF 편집·보안 모바일 앱입니다. 2.5배 정밀 돋보기(Loupe) 전자서명·도장 생성, 신분증 대각선 워터마크, 개인정보 마스킹 평탄화, AES-256 암호화 및 병합·분할 기능을 제공합니다.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">On-Device PDF</span>
+              <span class="tag">2.5x Loupe Sign</span>
+              <span class="tag">AES-256</span>
+              <span class="tag">Redaction</span>
+            </div>
+
+            <div class="card-links">
+              <a class="card-link-btn" href="loupePDF/privacy.html" data-i18n="linkLoupeInfo">기능 · 개인정보처리방침</a>
+              <a
+                class="card-link-btn"
+                href="https://play.google.com/store/apps/dev?id=4667928472575740147"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="linkPlayDev"
+              >개발자 스토어</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal-item">
+            <div class="project-head">
+              <img
+                src="assets/images/pdfcompressor-icon.webp"
+                alt=""
+                width="160"
+                height="160"
+                loading="lazy"
+                class="project-app-icon"
+                aria-hidden="true"
+              />
+              <div>
+                <span class="project-kicker" data-i18n="proj3Kicker">GitHub · 데스크톱 유틸리티</span>
+                <h3 class="project-title">PDF Compressor</h3>
+              </div>
+            </div>
+
+            <div class="card-visual-strip" aria-hidden="true">
+              <div class="preset-row">
+                <span class="mini-pill">/screen</span>
+                <span class="mini-pill is-accent">/ebook</span>
+                <span class="mini-pill">/printer</span>
+                <span class="mini-pill">/prepress</span>
+              </div>
+            </div>
+
+            <p class="project-desc" data-i18n="proj3Desc">
+              Python과 PyQt6로 제작한 크로스플랫폼 PDF 용량 압축 데스크톱 앱입니다. Windows·macOS·Linux 환경에서 /screen, /ebook, /printer, /prepress 품질 프리셋을 선택해 PDF 파일을 일괄 압축하고 결과 폴더에 깔끔하게 저장합니다.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">PyQt6</span>
+              <span class="tag">Ghostscript</span>
+              <span class="tag">Cross-Platform</span>
+            </div>
+
+            <div class="card-links">
+              <a
+                class="card-link-btn"
+                href="https://github.com/BlessingQ/PDFCompressor"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="linkGithubRepo"
+              >GitHub 저장소</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal-item">
+            <div class="project-head">
+              <div class="project-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="6" height="6" rx="1.5" />
+                  <rect x="14" y="14" width="6" height="6" rx="1.5" />
+                  <path d="M10 7h3a2 2 0 0 1 2 2v3" />
+                  <path d="M7 10v5a2 2 0 0 0 2 2h5" />
+                </svg>
+              </div>
+              <div>
+                <span class="project-kicker" data-i18n="proj4Kicker">GitHub · 전자 CAD MCP 서버</span>
+                <h3 class="project-title">pads-mcp</h3>
+              </div>
+            </div>
+
+            <div class="arch-flow" aria-hidden="true">
+              <span class="arch-node">AI Client</span>
+              <span class="arch-arrow">&rarr;</span>
+              <span class="arch-node">pads-mcp</span>
+              <span class="arch-arrow">&rarr;</span>
+              <span class="arch-node">COM / ASCII</span>
+              <span class="arch-arrow">&rarr;</span>
+              <span class="arch-node">PADS 9.x</span>
+            </div>
+
+            <p class="project-desc" data-i18n="proj4Desc">
+              Mentor PADS Logic 및 PADS Layout 9.x를 위한 MCP(Model Context Protocol) 서버입니다. Windows COM 자동화와 ASCII 설계 파일 파싱을 결합해 회로도·PCB 넷 및 부품 조회, 설계 검토 작업을 AI 도구와 연동합니다.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">MCP Server</span>
+              <span class="tag">PADS 9.x</span>
+              <span class="tag">COM Automation</span>
+            </div>
+
+            <div class="card-links">
+              <a
+                class="card-link-btn"
+                href="https://github.com/BlessingQ/pads-mcp"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="linkGithubRepo"
+              >GitHub 저장소</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal-item">
+            <div class="project-head">
+              <img
+                src="assets/images/encoding-icon.svg"
+                alt=""
+                width="52"
+                height="52"
+                loading="lazy"
+                class="project-app-icon"
+                aria-hidden="true"
+              />
+              <div>
+                <span class="project-kicker" data-i18n="proj5Kicker">GitHub · 개발자 유틸리티</span>
+                <h3 class="project-title" data-i18n="proj5Title">Encoding Converter &amp; ShowFrameApp</h3>
+              </div>
+            </div>
+
+            <div class="card-visual-strip" aria-hidden="true">
+              <div class="preset-row">
+                <span class="mini-pill">C / H / CPP / HPP</span>
+                <span class="mini-pill is-accent">&rarr; UTF-8</span>
+                <span class="mini-pill">ShowFrameApp v1.2.0</span>
+              </div>
+            </div>
+
+            <p class="project-desc" data-i18n="proj5Desc">
+              레거시 임베디드 C/C++(.c, .h, .cpp, .hpp) 소스 코드 인코딩을 UTF-8로 안전하게 일괄 변환하는 Tkinter GUI·CLI 유틸리티(Encoding Converter)와, Windows·macOS용 프레임 분석 앱(ShowFrameApp) 배포 릴리즈를 제공합니다.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">Tkinter / CLI</span>
+              <span class="tag">UTF-8</span>
+              <span class="tag">Desktop Releases</span>
+            </div>
+
+            <div class="card-links">
+              <a
+                class="card-link-btn"
+                href="https://github.com/BlessingQ/encoding_converter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Encoding Converter</a>
+              <a
+                class="card-link-btn"
+                href="https://github.com/BlessingQ/showframeapp-releases"
+                target="_blank"
+                rel="noopener noreferrer"
+              >ShowFrameApp v1.2.0</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-subtle" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="skillsHeading">기술 스택</h2>
+          <div class="section-divider"></div>
+          <p data-i18n="skillsSubheading">하드웨어 펌웨어부터 크로스플랫폼 앱과 자동화 도구까지 활용하는 주요 기술입니다.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group reveal-item">
+            <h3 data-i18n="skillCat1">Firmware &amp; Hardware</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">STM32</span>
+              <span class="skill-tag">TouchGFX</span>
+              <span class="skill-tag">Embedded C / C++</span>
+              <span class="skill-tag">UART</span>
+              <span class="skill-tag">SPI</span>
+              <span class="skill-tag">I2C</span>
+              <span class="skill-tag" data-i18n="skillSerial">Serial 통신</span>
+              <span class="skill-tag">YMODEM / Bootloader</span>
+              <span class="skill-tag">STM32CubeIDE</span>
+            </div>
+          </article>
+
+          <article class="skill-group reveal-item">
+            <h3 data-i18n="skillCat2">Mobile &amp; Desktop Apps</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Flutter</span>
+              <span class="skill-tag">Dart</span>
+              <span class="skill-tag">Android USB OTG</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PyQt6</span>
+              <span class="skill-tag">Tkinter</span>
+              <span class="skill-tag">On-Device PDF</span>
+              <span class="skill-tag">AES-256</span>
+            </div>
+          </article>
+
+          <article class="skill-group reveal-item">
+            <h3 data-i18n="skillCat3">Automation &amp; Tooling</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MCP Server</span>
+              <span class="skill-tag">PADS Logic / Layout</span>
+              <span class="skill-tag">Windows COM</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Cross-Platform CLI</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="contactHeading">연락하기</h2>
+          <div class="section-divider"></div>
+          <p data-i18n="contactSubheading">프로젝트 협업이나 출시 앱 관련 문의는 아래 이메일 또는 폼으로 보내주세요.</p>
+        </div>
+
+        <div class="contact-grid">
+          <aside class="contact-info-card reveal-item">
+            <h3 data-i18n="contactDirectTitle">직접 연락 및 채널</h3>
+            <p data-i18n="contactDirectDesc">이메일 주소를 복사해 메일을 보내거나, GitHub · Google Play에서 더 많은 작업물을 확인하실 수 있습니다.</p>
+
+            <div class="direct-email-row">
+              <span class="direct-email-addr" id="email-addr">ejok9194@gmail.com</span>
+              <button id="copy-email-btn" class="glass-pill-btn" type="button" data-i18n="copyEmailBtn">이메일 복사</button>
+            </div>
+            <p id="copy-status" class="status-note" aria-live="polite"></p>
+
+            <div class="card-links">
+              <a class="card-link-btn" href="https://github.com/BlessingQ" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="card-link-btn" href="https://play.google.com/store/apps/dev?id=4667928472575740147" target="_blank" rel="noopener noreferrer">Google Play</a>
+            </div>
+          </aside>
+
+          <div class="contact-form-card reveal-item">
+            <form id="contact-form" action="https://formsubmit.co/ejok9194@gmail.com" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="Portfolio Website Inquiry | 포트폴리오 웹사이트 문의" />
+              <input type="hidden" name="_next" value="https://blessingq.github.io/thank-you.html" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <div id="form-error-summary" class="form-error-summary" role="alert" hidden></div>
+
+              <div class="form-group">
+                <label for="name" data-i18n="labelName">이름</label>
+                <span id="name-hint" class="field-hint" data-i18n="hintName">성함 또는 소속을 입력해 주세요.</span>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                  aria-describedby="name-hint name-error"
+                  placeholder="홍길동"
+                  data-i18n-placeholder="placeholderName"
+                />
+                <div id="name-error" class="field-error" hidden></div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" data-i18n="labelEmail">이메일</label>
+                <span id="email-hint" class="field-hint" data-i18n="hintEmail">답변받으실 이메일 주소를 입력해 주세요.</span>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  aria-describedby="email-hint email-error"
+                  placeholder="name@example.com"
+                  data-i18n-placeholder="placeholderEmail"
+                />
+                <div id="email-error" class="field-error" hidden></div>
+              </div>
+
+              <div class="form-group">
+                <label for="message" data-i18n="labelMessage">문의 내용</label>
+                <span id="message-hint" class="field-hint" data-i18n="hintMessage">문의하실 프로젝트나 내용을 간단히 적어 주세요.</span>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  aria-describedby="message-hint message-error"
+                  placeholder="안녕하세요, 프로젝트 협업 관련하여 문의드립니다."
+                  data-i18n-placeholder="placeholderMessage"
+                ></textarea>
+                <div id="message-error" class="field-error" hidden></div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" data-i18n="submitBtn">메시지 보내기</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy" data-i18n="footerCopy">&copy; 2026 BlessingQ. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/BlessingQ" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://play.google.com/store/apps/dev?id=4667928472575740147" target="_blank" rel="noopener noreferrer">Google Play</a>
+        <a href="loupePDF/privacy.html" data-i18n="footerPrivacy">LoupePDF 개인정보처리방침</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="shot-dialog" class="shot-dialog" closedby="any" aria-labelledby="dialog-title">
+    <div class="dialog-bar">
+      <h2 id="dialog-title" class="dialog-title">YMODEM Uploader</h2>
+      <button id="dialog-close" class="glass-pill-btn" type="button" data-i18n="dialogClose">닫기</button>
+    </div>
+    <div class="dialog-img-wrap">
+      <img
+        id="dialog-img"
+        src="assets/images/ymodem-usb.webp"
+        alt="YMODEM Uploader USB Serial Connection 화면"
+        width="540"
+        height="1170"
+      />
+    </div>
+  </dialog>
 </body>
 </html>

@@ -1,328 +1,91 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | 감사합니다 - Firmware Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
-            --primary-color: #3b82f6;
-            --secondary-color: #64748b;
-            --accent-color: #8b5cf6;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>감사합니다 | BlessingQ</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script>
+    (function () {
+      try {
+        var pref = localStorage.getItem('theme-preference');
+        if (pref === 'light' || pref === 'dark') {
+          document.documentElement.dataset.theme = pref;
         }
-
-        [data-theme="dark"] {
-            --bg-color: #0f172a;
-            --text-color: #f1f5f9;
-            --primary-color: #60a5fa;
-            --secondary-color: #94a3b8;
-            --accent-color: #a78bfa;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', 'Noto Sans KR', sans-serif;
-            background: var(--gradient-primary);
-            color: var(--text-color);
-            line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        body[lang="en"] {
-            font-family: 'Inter', sans-serif;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .thank-you-container {
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            max-width: 500px;
-            margin: 2rem;
-            box-shadow: var(--shadow-xl);
-            animation: slideUp 1s ease;
-        }
-
-        [data-theme="dark"] .thank-you-container {
-            background: rgba(15, 23, 42, 0.1);
-            border: 1px solid rgba(51, 65, 85, 0.3);
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            animation: bounce 2s infinite;
-        }
-
-        .success-icon i {
-            font-size: 2.5rem;
-            color: white;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .btn-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 2rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-home:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .controls {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .lang-toggle, .theme-toggle {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            padding: 0.5rem;
-            cursor: pointer;
-            font-size: 1rem;
-            color: white;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .lang-toggle:hover, .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .thank-you-container {
-                margin: 1rem;
-                padding: 2rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .controls {
-                position: relative;
-                top: auto;
-                right: auto;
-                justify-content: center;
-                margin-bottom: 2rem;
-            }
-        }
-    </style>
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body>
-    <div class="controls">
-        <button class="lang-toggle" id="langToggle">
-            <i class="fas fa-globe"></i> EN
-        </button>
-        <button class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
+<body class="thank-you-body" data-page="thank-you">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="BlessingQ Home">
+        <img
+          src="assets/images/favicon.svg"
+          alt=""
+          width="28"
+          height="28"
+          class="brand-mark"
+          aria-hidden="true"
+        />
+        <span>BlessingQ</span>
+      </a>
 
-    <div class="thank-you-container">
-        <div class="success-icon">
-            <i class="fas fa-check"></i>
+      <div class="header-controls">
+        <button
+          id="lang-toggle"
+          class="glass-pill-btn"
+          type="button"
+          aria-label="Switch language to English"
+        >EN</button>
+
+        <div class="theme-pill-group" role="group" aria-label="테마 선택" data-i18n-aria-label="themeGroupAria">
+          <button
+            class="theme-choice"
+            type="button"
+            data-theme-choice="system"
+            aria-pressed="true"
+            data-i18n="themeSystem"
+          >자동</button>
+          <button
+            class="theme-choice"
+            type="button"
+            data-theme-choice="light"
+            aria-pressed="false"
+            data-i18n="themeLight"
+          >라이트</button>
+          <button
+            class="theme-choice"
+            type="button"
+            data-theme-choice="dark"
+            aria-pressed="false"
+            data-i18n="themeDark"
+          >다크</button>
         </div>
-        <h1 data-ko="감사합니다!" data-en="Thank You!">감사합니다!</h1>
-        <p data-ko="메시지가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다." data-en="Your message has been sent successfully. I'll get back to you soon.">메시지가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다.</p>
-        <a href="index.html" class="btn-home">
-            <i class="fas fa-home"></i>
-            <span data-ko="홈으로 돌아가기" data-en="Back to Home">홈으로 돌아가기</span>
-        </a>
+      </div>
     </div>
+  </header>
 
-    <script>
-        // 언어 상태 관리
-        let currentLang = localStorage.getItem('language') || 'ko';
-        
-        // 다국어 텍스트 데이터
-        const translations = {
-            ko: {
-                title: '감사합니다 - 펌웨어 개발자 포트폴리오',
-                langBtn: 'EN'
-            },
-            en: {
-                title: 'Thank You - Firmware Developer Portfolio',
-                langBtn: '한국어'
-            }
-        };
-
-        // 페이지 로드시 언어 설정
-        document.addEventListener('DOMContentLoaded', function() {
-            setLanguage(currentLang);
-        });
-
-        // 언어 변경 함수
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
-            localStorage.setItem('language', lang);
-            
-            // 모든 다국어 요소 업데이트
-            const elements = document.querySelectorAll('[data-ko][data-en]');
-            elements.forEach(element => {
-                const text = element.getAttribute(`data-${lang}`);
-                if (text) {
-                    if (element.innerHTML.includes('<')) {
-                        element.innerHTML = text;
-                    } else {
-                        element.textContent = text;
-                    }
-                }
-            });
-            
-            // 언어 버튼 텍스트 업데이트
-            const langToggle = document.getElementById('langToggle');
-            langToggle.innerHTML = `<i class="fas fa-globe"></i> ${translations[lang].langBtn}`;
-            
-            // 페이지 제목 업데이트
-            document.title = translations[lang].title;
-            
-            // 폰트 패밀리 업데이트
-            if (lang === 'en') {
-                document.body.setAttribute('lang', 'en');
-            } else {
-                document.body.setAttribute('lang', 'ko');
-            }
-        }
-
-        // 언어 토글 이벤트
-        document.getElementById('langToggle').addEventListener('click', () => {
-            const newLang = currentLang === 'ko' ? 'en' : 'ko';
-            setLanguage(newLang);
-        });
-
-        // 다크 모드 토글
-        const themeToggle = document.getElementById('themeToggle');
-        const icon = themeToggle.querySelector('i');
-        
-        // 저장된 테마 확인
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.setAttribute('data-theme', savedTheme);
-        
-        // 아이콘 업데이트
-        if (savedTheme === 'dark') {
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            document.body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            // 아이콘 토글
-            if (newTheme === 'dark') {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-    </script>
+  <main class="thank-you-main" id="main-content">
+    <article class="thank-you-card">
+      <div class="thank-check" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+      <h1 data-i18n="thankTitle">감사합니다!</h1>
+      <p data-i18n="thankSubtitle">메시지가 성공적으로 전송되었습니다. 확인 후 가능한 한 빠르게 회신드리겠습니다.</p>
+      <div class="thank-meta" data-i18n="thankMeta">수신 이메일: ejok9194@gmail.com</div>
+      <a href="index.html" class="btn btn-primary" data-i18n="thankBack">포트폴리오로 돌아가기</a>
+    </article>
+  </main>
 </body>
 </html>
