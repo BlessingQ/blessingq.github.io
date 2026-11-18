@@ -111,11 +111,10 @@
       thumbAria2: 'MegaBoot 로그 화면 확대',
       thumbAria3: '프로토콜 설정 화면 확대',
 
-      proj2Kicker: 'On-Device · 모바일 PDF 도구',
+      proj2Kicker: 'Google Play · 모바일 PDF 앱',
       proj2Title: 'LoupePDF (루페PDF)',
       proj2Desc: '서버 업로드 없이 기기 내부에서만 동작하는 오프라인 PDF 편집·보안 모바일 앱입니다. 2.5배 정밀 돋보기(Loupe) 전자서명·도장 생성, 신분증 대각선 워터마크, 개인정보 마스킹 평탄화, AES-256 암호화 및 병합·분할 기능을 제공합니다.',
       linkLoupeInfo: '기능 · 개인정보처리방침',
-      linkPlayDev: '개발자 스토어',
 
       proj3Kicker: 'GitHub · 데스크톱 유틸리티',
       proj3Desc: 'Python과 PyQt6로 제작한 크로스플랫폼 PDF 용량 압축 데스크톱 앱입니다. Windows·macOS·Linux 환경에서 /screen, /ebook, /printer, /prepress 품질 프리셋을 선택해 PDF 파일을 일괄 압축하고 결과 폴더에 깔끔하게 저장합니다.',
@@ -243,11 +242,10 @@
       thumbAria2: 'Enlarge MegaBoot log screenshot',
       thumbAria3: 'Enlarge Protocol Settings screenshot',
 
-      proj2Kicker: 'On-Device · Mobile PDF Utility',
+      proj2Kicker: 'Google Play · Mobile PDF App',
       proj2Title: 'LoupePDF',
       proj2Desc: 'An offline PDF editing and document security app running strictly on-device with zero server uploads. Offers a 2.5x Loupe magnifier for e-signatures and stamps, diagonal ID watermarks, permanent redaction flattening, AES-256 encryption, merge, and split.',
       linkLoupeInfo: 'Features & Privacy',
-      linkPlayDev: 'Developer Store',
 
       proj3Kicker: 'GitHub · Desktop Utility',
       proj3Desc: 'A cross-platform PDF size reduction desktop app built with Python and PyQt6. Runs on Windows, macOS, and Linux with Ghostscript /screen, /ebook, /printer, and /prepress presets and organized output folders.',
