@@ -149,26 +149,26 @@
           <div class="showcase-header">
             <div class="showcase-app-meta">
               <img
-                src="assets/images/ymodem-icon.webp"
-                alt="YMODEM Uploader 앱 아이콘"
+                src="assets/images/embedded-toolkit-icon.webp"
+                alt="Embedded Toolkit 앱 아이콘"
                 width="160"
                 height="160"
                 class="showcase-app-icon"
-                data-i18n-alt="ymodemIconAlt"
+                data-i18n-alt="etIconAlt"
               />
               <div>
-                <div class="showcase-title">YMODEM Uploader</div>
-                <div class="showcase-sub" data-i18n="showcaseSub">USB OTG 펌웨어 업로더</div>
+                <div class="showcase-title">Embedded Toolkit</div>
+                <div class="showcase-sub" data-i18n="showcaseSub">펌웨어 · 시리얼 도구</div>
               </div>
             </div>
             <span class="showcase-badge" data-i18n="showcaseBadge">Google Play 출시</span>
           </div>
 
           <div class="showcase-tabs" role="group" aria-label="앱 화면 전환" data-i18n-aria-label="showcaseTabsAria">
-            <button class="showcase-tab" type="button" data-shot-index="0" aria-pressed="true" data-i18n="shotTab0">USB 연결</button>
-            <button class="showcase-tab" type="button" data-shot-index="1" aria-pressed="false" data-i18n="shotTab1">YMODEM</button>
-            <button class="showcase-tab" type="button" data-shot-index="2" aria-pressed="false" data-i18n="shotTab2">MegaBoot</button>
-            <button class="showcase-tab" type="button" data-shot-index="3" aria-pressed="false" data-i18n="shotTab3">프로토콜</button>
+            <button class="showcase-tab" type="button" data-shot-index="0" aria-pressed="true" data-i18n="shotTab0">펌웨어</button>
+            <button class="showcase-tab" type="button" data-shot-index="1" aria-pressed="false" data-i18n="shotTab1">STM32</button>
+            <button class="showcase-tab" type="button" data-shot-index="2" aria-pressed="false" data-i18n="shotTab2">Modbus</button>
+            <button class="showcase-tab" type="button" data-shot-index="5" aria-pressed="false" data-i18n="shotTab3">터미널</button>
           </div>
 
           <div class="showcase-stage">
@@ -176,15 +176,15 @@
               id="hero-shot-btn"
               class="phone-frame-btn"
               type="button"
-              aria-label="YMODEM Uploader 스크린샷 크게 보기"
+              aria-label="Embedded Toolkit 스크린샷 크게 보기"
               data-i18n-aria-label="heroShotBtnAria"
             >
               <img
                 id="hero-shot-img"
-                src="assets/images/ymodem-usb.webp"
-                alt="YMODEM Uploader USB Serial Connection 화면"
-                width="540"
-                height="1170"
+                src="assets/images/et-1-firmware.webp"
+                alt="Embedded Toolkit YModem 펌웨어 업로드 화면"
+                width="720"
+                height="1280"
                 fetchpriority="high"
               />
             </button>
@@ -224,8 +224,9 @@
           <article class="about-card reveal-item">
             <h3 data-i18n="aboutCard3Title">모바일 · 데스크톱 앱</h3>
             <ul class="about-list" data-i18n-list="aboutCard3List">
-              <li>USB OTG 시리얼 및 부트로더 펌웨어 업로더 Google Play 출시</li>
+              <li>YModem·ST-LINK·AVR 펌웨어 쓰기와 Modbus RTU 도구 Google Play 출시</li>
               <li>100% 온디바이스 PDF 편집·전자서명·마스킹 모바일 앱 개발</li>
+              <li>연차 계산·같이 쉬는 날 공유 앱 연차메이트 (출시 준비 중)</li>
               <li>Windows · macOS · Linux 지원 PyQt6 데스크톱 유틸리티</li>
               <li>C/C++ 소스 UTF-8 변환 및 프레임 뷰어 유틸리티 배포</li>
             </ul>
@@ -253,108 +254,203 @@
         </div>
 
         <div class="projects-grid">
-          <article class="project-card is-wide reveal-item">
-            <div class="ym-content">
-              <div class="project-head">
-                <img
-                  src="assets/images/ymodem-icon.webp"
-                  alt=""
-                  width="160"
-                  height="160"
-                  loading="lazy"
-                  class="project-app-icon"
-                  aria-hidden="true"
-                />
-                <div>
-                  <span class="project-kicker" data-i18n="proj1Kicker">Google Play · Android 앱</span>
-                  <h3 class="project-title">YMODEM Uploader</h3>
+          <article class="project-card is-feature reveal-item" id="embedded-toolkit">
+            <div class="feature-top">
+              <div class="feature-main">
+                <div class="project-head">
+                  <img
+                    src="assets/images/embedded-toolkit-icon.webp"
+                    alt=""
+                    width="160"
+                    height="160"
+                    loading="lazy"
+                    class="project-app-icon"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <span class="project-kicker" data-i18n="proj1Kicker">Google Play · 펌웨어·시리얼 도구</span>
+                    <h3 class="project-title">Embedded Toolkit: YModem·STM32</h3>
+                  </div>
+                </div>
+
+                <p class="project-desc" data-i18n="proj1Desc">
+                  엔지니어와 현장 기술자를 위한 펌웨어·시리얼 도구입니다. 휴대폰(USB OTG)이나 Windows PC를 장치에 연결해 펌웨어를 쓰고, 읽고, 확인하는 일을 한 앱에서 처리합니다. FTDI·CP210x·CH34x·PL2303 USB-시리얼 어댑터, ST-LINK/V2·V2-1·STLINK-V3, Atmel-ICE·MPLAB Snap·PICkit 4를 지원합니다.
+                </p>
+
+                <div class="tag-row">
+                  <span class="tag">Flutter</span>
+                  <span class="tag">Android USB OTG</span>
+                  <span class="tag">YModem</span>
+                  <span class="tag">ST-LINK SWD</span>
+                  <span class="tag">AVR JTAG / UPDI</span>
+                  <span class="tag">Modbus RTU</span>
+                </div>
+
+                <div class="card-links">
+                  <a
+                    class="card-link-btn"
+                    href="https://play.google.com/store/apps/details?id=com.blessingq.ymodem_uploader"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="linkPlayStore"
+                  >Google Play에서 보기</a>
+                  <a class="card-link-btn" href="Embedded_Toolkit/policy/" data-i18n="linkPrivacy">개인정보처리방침</a>
                 </div>
               </div>
 
-              <p class="project-desc" data-i18n="proj1Desc">
-                스마트폰 USB OTG 포트로 FTDI·CP210x 등 USB-to-Serial 어댑터에 연결해 YMODEM 및 MegaBoot 프로토콜로 MCU 펌웨어를 전송하는 Android 앱입니다. 통신 속도 설정, 실시간 블록/페이지 로그, 사용자 정의 프로토콜 주소 구성을 지원합니다.
-              </p>
-
-              <div class="tag-row">
-                <span class="tag">Flutter</span>
-                <span class="tag">Android USB OTG</span>
-                <span class="tag">YMODEM</span>
-                <span class="tag">MegaBoot</span>
-                <span class="tag">Serial</span>
-              </div>
-
-              <div class="card-links">
-                <a
-                  class="card-link-btn"
-                  href="https://play.google.com/store/apps/details?id=com.blessingq.ymodem_uploader"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-i18n="linkPlayStore"
-                >Google Play에서 보기</a>
-              </div>
+              <ul class="point-list" data-i18n-list="proj1Points">
+                <li><strong>펌웨어 쓰기</strong>YModem(1K) IAP 업로드와 HEX→BIN 자동 변환, ATmega128 MegaBoot, 진행률·남은 시간·전송 속도 표시</li>
+                <li><strong>STM32 · STM8 · AVR</strong>ST-LINK(SWD·SWIM)로 쓰기·검증·읽기·백업과 양산 모드, AVR JTAG·UPDI 쓰기와 퓨즈·락 비트</li>
+                <li><strong>Modbus RTU</strong>FC 01~06·15·16 읽기·쓰기, 주기 폴링 결과 표, CRC·예외 코드 프레임 로그, 값 그래프</li>
+                <li><strong>시리얼 터미널</strong>텍스트·HEX 송수신, 반복 전송, DTR·RTS, 매크로, 수신 기록 파일</li>
+                <li><strong>작업 관리 · NAS</strong>작업 프로필 공유, 월별 CSV 작업 기록, HTTPS WebDAV로 펌웨어 받기와 백업 올리기</li>
+              </ul>
             </div>
 
-            <div class="ym-gallery-box">
-              <button class="thumb-btn" type="button" data-shot-index="0" aria-label="USB 연결 화면 확대" data-i18n-aria-label="thumbAria0">
-                <img src="assets/images/ymodem-usb.webp" alt="YMODEM Uploader USB Serial Connection 화면" width="540" height="1170" loading="lazy" />
+            <div class="shot-strip" role="group" aria-label="Embedded Toolkit 스크린샷" data-i18n-aria-label="etGalleryAria">
+              <button class="thumb-btn" type="button" data-gallery="et" data-shot-index="0" aria-label="크게 보기: 현장에서 바로 펌웨어 쓰기">
+                <img src="assets/images/et-1-firmware.webp" alt="" width="720" height="1280" loading="lazy" />
               </button>
-              <button class="thumb-btn" type="button" data-shot-index="1" aria-label="YMODEM 전송 화면 확대" data-i18n-aria-label="thumbAria1">
-                <img src="assets/images/ymodem-upload.webp" alt="YMODEM Firmware Upload 화면" width="540" height="1170" loading="lazy" />
+              <button class="thumb-btn" type="button" data-gallery="et" data-shot-index="1" aria-label="크게 보기: STM32·STM8 쓰기·읽기">
+                <img src="assets/images/et-2-stm32.webp" alt="" width="720" height="1280" loading="lazy" />
               </button>
-              <button class="thumb-btn" type="button" data-shot-index="2" aria-label="MegaBoot 로그 화면 확대" data-i18n-aria-label="thumbAria2">
-                <img src="assets/images/ymodem-megaboot.webp" alt="MegaBoot FLASH 전송 로그 화면" width="540" height="1170" loading="lazy" />
+              <button class="thumb-btn" type="button" data-gallery="et" data-shot-index="2" aria-label="크게 보기: Modbus RTU 읽기·쓰기·폴링">
+                <img src="assets/images/et-3-modbus.webp" alt="" width="720" height="1280" loading="lazy" />
               </button>
-              <button class="thumb-btn" type="button" data-shot-index="3" aria-label="프로토콜 설정 화면 확대" data-i18n-aria-label="thumbAria3">
-                <img src="assets/images/ymodem-protocol.webp" alt="사용자 정의 프로토콜 주소 설정 화면" width="540" height="1170" loading="lazy" />
+              <button class="thumb-btn" type="button" data-gallery="et" data-shot-index="3" aria-label="크게 보기: NAS(WebDAV)에서 펌웨어 받기">
+                <img src="assets/images/et-4-nas.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="et" data-shot-index="4" aria-label="크게 보기: AVR JTAG 쓰기·퓨즈·백업">
+                <img src="assets/images/et-5-avr.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="et" data-shot-index="5" aria-label="크게 보기: 시리얼 터미널 텍스트·HEX 송수신">
+                <img src="assets/images/et-6-terminal.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="et" data-shot-index="6" aria-label="크게 보기: 다크 모드">
+                <img src="assets/images/et-7-dark.webp" alt="" width="720" height="1280" loading="lazy" />
               </button>
             </div>
           </article>
 
-          <article class="project-card reveal-item">
+          <article class="project-card is-feature reveal-item" id="loupepdf">
+            <div class="feature-top">
+              <div class="feature-main">
+                <div class="project-head">
+                  <img
+                    src="assets/images/loupepdf-icon.webp"
+                    alt=""
+                    width="160"
+                    height="160"
+                    loading="lazy"
+                    class="project-app-icon"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <span class="project-kicker" data-i18n="proj2Kicker">Google Play · 모바일 PDF 앱</span>
+                    <h3 class="project-title" data-i18n="proj2Title">루페PDF (LoupePDF)</h3>
+                  </div>
+                </div>
+
+                <p class="project-desc" data-i18n="proj2Desc">
+                  모든 PDF·이미지 작업을 외부 서버 전송 없이 100% 기기 안에서 처리하는 올인원 문서·보안 도구입니다. 좁은 계약서 서명 칸도 2.5배 돋보기로 정확히 맞추고, 신분증 사본은 워터마크와 마스킹으로 안전하게 제출합니다. 오프라인(비행기 모드)에서도 작동합니다.
+                </p>
+
+                <div class="tag-row">
+                  <span class="tag">Flutter</span>
+                  <span class="tag">On-Device PDF</span>
+                  <span class="tag">2.5x Loupe Sign</span>
+                  <span class="tag">AES-256</span>
+                  <span class="tag">On-Device OCR</span>
+                </div>
+
+                <div class="card-links">
+                  <a
+                    class="card-link-btn"
+                    href="https://play.google.com/store/apps/details?id=com.blessingq.loupepdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="linkPlayStore"
+                  >Google Play에서 보기</a>
+                  <a class="card-link-btn" href="loupePDF/privacy.html" data-i18n="linkPrivacy">개인정보처리방침</a>
+                </div>
+              </div>
+
+              <ul class="point-list" data-i18n-list="proj2Points">
+                <li><strong>2.5배 돋보기 정밀 서명</strong>손가락 위 돋보기와 십자선으로 위치를 잡고, 문서를 40% 비춰 보는 가로 전체화면 서명 패드에 사인</li>
+                <li><strong>도장 · 서명 생성기</strong>한국 인감·막도장, 일본 마루인, 중화권 인장, 영문 서명을 4종 서체로 만들고 종이 배경 제거</li>
+                <li><strong>병합 · 분할 · 페이지 편집</strong>PDF와 사진 합치기, 범위 추출·회전·삭제·순서 변경, 페이지 번호 넣기</li>
+                <li><strong>워터마크 · 영구 마스킹</strong>제출처 대각선 워터마크, 주민번호·계좌번호 자동 찾기와 평탄화로 복원 불가능한 가리기</li>
+                <li><strong>암호 · 스캔 · 변환</strong>AES-256 암호 설정·해제, 문서 스캔과 용량 압축, 이미지↔PDF 변환, 기기 안 글자 인식</li>
+              </ul>
+            </div>
+
+            <div class="shot-strip" role="group" aria-label="루페PDF 스크린샷" data-i18n-aria-label="lpGalleryAria">
+              <button class="thumb-btn" type="button" data-gallery="lp" data-shot-index="0" aria-label="크게 보기: 내 기기 안에서 끝나는 안전한 PDF 도구">
+                <img src="assets/images/lp-1-home.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="lp" data-shot-index="1" aria-label="크게 보기: 2.5배 돋보기로 정확한 서명">
+                <img src="assets/images/lp-2-loupe-sign.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn is-landscape" type="button" data-gallery="lp" data-shot-index="2" aria-label="크게 보기: 문서를 비춰 보며 넓게 서명하는 가로 서명 패드">
+                <img src="assets/images/lp-3-sign-pad.webp" alt="" width="1280" height="720" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="lp" data-shot-index="3" aria-label="크게 보기: 인장체부터 붓글씨까지 도장 만들기">
+                <img src="assets/images/lp-4-stamp.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="lp" data-shot-index="4" aria-label="크게 보기: 페이지 회전·삭제·분할">
+                <img src="assets/images/lp-5-pages.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="lp" data-shot-index="5" aria-label="크게 보기: 제출처 워터마크로 사본 도용 방지">
+                <img src="assets/images/lp-6-watermark.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="lp" data-shot-index="6" aria-label="크게 보기: 민감한 번호를 되살릴 수 없게 가리기">
+                <img src="assets/images/lp-7-redact.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+              <button class="thumb-btn" type="button" data-gallery="lp" data-shot-index="7" aria-label="크게 보기: 중요한 PDF에 AES-256 암호 걸기">
+                <img src="assets/images/lp-8-encrypt.webp" alt="" width="720" height="1280" loading="lazy" />
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card reveal-item" id="dayoffmate">
             <div class="project-head">
               <img
-                src="assets/images/loupepdf-icon.webp"
+                src="dayoffmate/icon.svg"
                 alt=""
-                width="160"
-                height="160"
+                width="52"
+                height="52"
                 loading="lazy"
                 class="project-app-icon"
                 aria-hidden="true"
               />
               <div>
-                <span class="project-kicker" data-i18n="proj2Kicker">Google Play · 모바일 PDF 앱</span>
-                <h3 class="project-title" data-i18n="proj2Title">LoupePDF (루페PDF)</h3>
+                <span class="project-kicker" data-i18n="proj6Kicker">Android · 출시 준비 중</span>
+                <h3 class="project-title" data-i18n="proj6Title">연차메이트 (DayOff Mate)</h3>
               </div>
             </div>
 
             <div class="card-visual-strip" aria-hidden="true">
               <div class="preset-row">
-                <span class="mini-pill is-accent">2.5x Loupe</span>
-                <span class="mini-pill">100% On-Device</span>
-                <span class="mini-pill">AES-256</span>
+                <span class="mini-pill is-text is-accent" data-i18n="proj6Pill1">남은 연차 · 소멸일</span>
+                <span class="mini-pill is-text" data-i18n="proj6Pill2">연휴 추천</span>
+                <span class="mini-pill is-text" data-i18n="proj6Pill3">같이 쉬는 날</span>
               </div>
             </div>
 
-            <p class="project-desc" data-i18n="proj2Desc">
-              서버 업로드 없이 기기 내부에서만 동작하는 오프라인 PDF 편집·보안 모바일 앱입니다. 2.5배 정밀 돋보기(Loupe) 전자서명·도장 생성, 신분증 대각선 워터마크, 개인정보 마스킹 평탄화, AES-256 암호화 및 병합·분할 기능을 제공합니다.
+            <p class="project-desc" data-i18n="proj6Desc">
+              입사일만 넣으면 남은 연차와 소멸일을 계산하는 앱입니다. 입사일·회계연도 기준을 모두 지원하고, 반차·반반차·시간 단위 휴가를 달력에 기록하며, 공휴일에 붙여 쉬는 연휴를 추천합니다. 로그인하면 커플·가족·팀 그룹과 쉬는 날을 함께 보고 모두 쉬는 날을 찾습니다.
             </p>
 
             <div class="tag-row">
-              <span class="tag">On-Device PDF</span>
-              <span class="tag">2.5x Loupe Sign</span>
-              <span class="tag">AES-256</span>
-              <span class="tag">Redaction</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">Firebase</span>
+              <span class="tag" data-i18n="proj6Tag1">근로기준법 연차 계산</span>
+              <span class="tag" data-i18n="proj6Tag2">위젯 · 알림</span>
             </div>
 
             <div class="card-links">
-              <a class="card-link-btn" href="loupePDF/privacy.html" data-i18n="linkLoupeInfo">기능 · 개인정보처리방침</a>
-              <a
-                class="card-link-btn"
-                href="https://play.google.com/store/apps/details?id=com.blessingq.loupepdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="linkPlayStore"
-              >Google Play에서 보기</a>
+              <a class="card-link-btn" href="dayoffmate/" data-i18n="linkDayoffInfo">앱 소개</a>
+              <a class="card-link-btn" href="dayoffmate/privacy.html" data-i18n="linkPrivacy">개인정보처리방침</a>
             </div>
           </article>
 
@@ -529,6 +625,9 @@
               <span class="skill-tag">I2C</span>
               <span class="skill-tag" data-i18n="skillSerial">Serial 통신</span>
               <span class="skill-tag">YMODEM / Bootloader</span>
+              <span class="skill-tag">ST-LINK SWD / SWIM</span>
+              <span class="skill-tag">AVR JTAG / UPDI</span>
+              <span class="skill-tag">Modbus RTU</span>
               <span class="skill-tag">STM32CubeIDE</span>
             </div>
           </article>
@@ -544,6 +643,7 @@
               <span class="skill-tag">Tkinter</span>
               <span class="skill-tag">On-Device PDF</span>
               <span class="skill-tag">AES-256</span>
+              <span class="skill-tag">Firebase</span>
             </div>
           </article>
 
@@ -662,17 +762,22 @@
 
   <dialog id="shot-dialog" class="shot-dialog" closedby="any" aria-labelledby="dialog-title">
     <div class="dialog-bar">
-      <h2 id="dialog-title" class="dialog-title">YMODEM Uploader</h2>
+      <h2 id="dialog-title" class="dialog-title">Embedded Toolkit</h2>
       <button id="dialog-close" class="glass-pill-btn" type="button" data-i18n="dialogClose">닫기</button>
     </div>
     <div class="dialog-img-wrap">
       <img
         id="dialog-img"
-        src="assets/images/ymodem-usb.webp"
-        alt="YMODEM Uploader USB Serial Connection 화면"
-        width="540"
-        height="1170"
+        src="assets/images/et-1-firmware.webp"
+        alt=""
+        width="720"
+        height="1280"
       />
+    </div>
+    <div class="dialog-nav">
+      <button id="dialog-prev" class="glass-pill-btn" type="button" aria-label="이전 화면" data-i18n-aria-label="dialogPrevAria">&larr;</button>
+      <span id="dialog-count" class="dialog-count" aria-live="polite">1 / 7</span>
+      <button id="dialog-next" class="glass-pill-btn" type="button" aria-label="다음 화면" data-i18n-aria-label="dialogNextAria">&rarr;</button>
     </div>
   </dialog>
 </body>

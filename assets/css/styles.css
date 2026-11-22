@@ -719,9 +719,10 @@ textarea {
 }
 
 .phone-frame-btn img {
-  width: 190px;
+  display: block;
+  width: 210px;
   height: auto;
-  aspect-ratio: 540 / 1170;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
 }
 
@@ -856,7 +857,7 @@ textarea {
 }
 
 /* ==========================================================================
-   Selected Projects (12-column balanced layout: 12, 6+6, 6+6)
+   Selected Projects (featured apps full width, then 6+6 rows)
    ========================================================================== */
 
 .projects-grid {
@@ -884,12 +885,47 @@ textarea {
   transform: translateY(-2px);
 }
 
-.project-card.is-wide {
+.project-card.is-feature {
   grid-column: 1 / -1;
+  gap: 24px;
+}
+
+.feature-top {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 28px;
-  align-items: center;
+  align-items: start;
+}
+
+.feature-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.point-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+
+.point-list li {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.point-list strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1px;
 }
 
 .project-head {
@@ -972,6 +1008,10 @@ textarea {
   background: var(--surface);
   color: var(--text-muted);
   border: 1px solid var(--border);
+}
+
+.mini-pill.is-text {
+  font-family: var(--font-sans);
 }
 
 .mini-pill.is-accent {
@@ -1064,10 +1104,11 @@ textarea {
   transform: scale(0.97);
 }
 
-/* Wide card screenshot strip */
-.ym-gallery-box {
+/* Featured card screenshot strip: one row on wide screens, swipeable on narrow */
+.shot-strip {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 10px;
 }
 
@@ -1090,29 +1131,42 @@ textarea {
 }
 
 .thumb-btn img {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 540 / 1170;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
 }
 
-.ym-content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* Landscape store shot letterboxed inside a portrait tile, matching its own backdrop */
+.thumb-btn.is-landscape img {
+  object-fit: contain;
+  background: linear-gradient(180deg, #f3f5fa, #e8ecf5);
 }
 
 @media (max-width: 860px) {
   .project-card,
-  .project-card.is-wide {
+  .project-card.is-feature {
     grid-column: 1 / -1;
-    grid-template-columns: minmax(0, 1fr);
   }
-}
 
-@media (max-width: 540px) {
-  .ym-gallery-box {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .feature-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .shot-strip {
+    grid-auto-columns: 128px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 2px;
+    padding: 2px 2px 10px;
+    margin-inline: -2px;
+  }
+
+  .thumb-btn {
+    scroll-snap-align: start;
   }
 }
 
@@ -1368,6 +1422,10 @@ dialog.shot-dialog {
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
 }
 
+dialog.shot-dialog.is-landscape {
+  max-width: min(92vw, 760px);
+}
+
 dialog.shot-dialog::backdrop {
   background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(6px);
@@ -1395,10 +1453,33 @@ dialog.shot-dialog::backdrop {
 }
 
 .dialog-img-wrap img {
+  display: block;
   width: 100%;
   height: auto;
-  max-height: 75vh;
+  max-height: 72vh;
   object-fit: contain;
+}
+
+.dialog-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.dialog-nav .glass-pill-btn {
+  min-inline-size: 48px;
+  font-size: 1rem;
+}
+
+.dialog-count {
+  min-inline-size: 48px;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ==========================================================================

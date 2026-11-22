@@ -4,36 +4,41 @@
   var STORAGE_LANG = 'lang-preference';
   var STORAGE_THEME = 'theme-preference';
 
-  var SHOTS = [
-    {
-      src: 'assets/images/ymodem-usb.webp',
-      titleKo: 'YMODEM Uploader — USB 시리얼 연결',
-      titleEn: 'YMODEM Uploader — USB Serial Connection',
-      altKo: 'YMODEM Uploader USB Serial Connection 화면 (FTDI / FT232R 115200 bps)',
-      altEn: 'YMODEM Uploader USB Serial Connection screen showing FTDI FT232R at 115200 bps'
+  function shot(src, w, h, ko, en) {
+    return { src: src, w: w, h: h, titleKo: ko, titleEn: en };
+  }
+
+  var GALLERIES = {
+    et: {
+      nameKo: 'Embedded Toolkit',
+      nameEn: 'Embedded Toolkit',
+      shots: [
+        shot('assets/images/et-1-firmware.webp', 720, 1280, '현장에서 바로 펌웨어 쓰기 (YModem · MegaBoot)', 'Flash firmware in the field (YModem · MegaBoot)'),
+        shot('assets/images/et-2-stm32.webp', 720, 1280, 'STM32·STM8 쓰기·읽기 (ST-LINK · UART 부트로더)', 'Write and read STM32 · STM8 (ST-LINK · UART bootloader)'),
+        shot('assets/images/et-3-modbus.webp', 720, 1280, 'Modbus RTU 읽기·쓰기·폴링', 'Modbus RTU read, write and polling'),
+        shot('assets/images/et-4-nas.webp', 720, 1280, 'NAS(WebDAV)에서 펌웨어 받기', 'Download firmware from a NAS (WebDAV)'),
+        shot('assets/images/et-5-avr.webp', 720, 1280, 'AVR JTAG 쓰기·퓨즈·백업', 'AVR JTAG write, fuses and backup'),
+        shot('assets/images/et-6-terminal.webp', 720, 1280, '시리얼 터미널 텍스트·HEX 송수신', 'Serial terminal with text and hex'),
+        shot('assets/images/et-7-dark.webp', 720, 1280, '다크 모드', 'Dark mode')
+      ]
     },
-    {
-      src: 'assets/images/ymodem-upload.webp',
-      titleKo: 'YMODEM Uploader — 펌웨어 전송',
-      titleEn: 'YMODEM Uploader — YMODEM Firmware Upload',
-      altKo: 'YMODEM Firmware Upload 파일 선택 및 전송 화면',
-      altEn: 'YMODEM Firmware Upload file selection and block transfer screen'
-    },
-    {
-      src: 'assets/images/ymodem-megaboot.webp',
-      titleKo: 'YMODEM Uploader — MegaBoot 실시간 로그',
-      titleEn: 'YMODEM Uploader — MegaBoot Progress & Logs',
-      altKo: 'MegaBoot FLASH 페이지 전송 진행률 및 로그 화면',
-      altEn: 'MegaBoot FLASH page progress bar and real-time terminal logs'
-    },
-    {
-      src: 'assets/images/ymodem-protocol.webp',
-      titleKo: 'YMODEM Uploader — 프로토콜 주소 설정',
-      titleEn: 'YMODEM Uploader — Custom Protocol Addressing',
-      altKo: '사용자 정의 프로토콜 Device · Controller · Gateway ID 설정 화면',
-      altEn: 'Custom protocol screen for configuring Device, Controller, and Gateway IDs'
+    lp: {
+      nameKo: '루페PDF',
+      nameEn: 'LoupePDF',
+      shots: [
+        shot('assets/images/lp-1-home.webp', 720, 1280, '내 기기 안에서 끝나는 안전한 PDF 도구', 'A safe PDF toolkit that stays on your device'),
+        shot('assets/images/lp-2-loupe-sign.webp', 720, 1280, '2.5배 돋보기로 정확한 서명', 'Precise signing with a 2.5x loupe'),
+        shot('assets/images/lp-3-sign-pad.webp', 1280, 720, '문서를 비춰 보며 넓게 서명하는 가로 서명 패드', 'Landscape signing pad with the document showing through'),
+        shot('assets/images/lp-4-stamp.webp', 720, 1280, '인장체부터 붓글씨까지 도장 만들기', 'Make seals and stamps in four typefaces'),
+        shot('assets/images/lp-5-pages.webp', 720, 1280, '페이지 회전·삭제·분할', 'Rotate, delete and split pages'),
+        shot('assets/images/lp-6-watermark.webp', 720, 1280, '제출처 워터마크로 사본 도용 방지', 'Recipient watermark to stop ID copy misuse'),
+        shot('assets/images/lp-7-redact.webp', 720, 1280, '민감한 번호를 되살릴 수 없게 가리기', 'Redact sensitive numbers for good'),
+        shot('assets/images/lp-8-encrypt.webp', 720, 1280, '중요한 PDF에 AES-256 암호 걸기', 'Lock important PDFs with AES-256')
+      ]
     }
-  ];
+  };
+
+  var HERO_GALLERY = 'et';
 
   var COPY = {
     ko: {
@@ -65,14 +70,14 @@
 
       showcaseAria: '대표 출시 앱 미리보기',
       showcaseTabsAria: '앱 화면 전환',
-      ymodemIconAlt: 'YMODEM Uploader 앱 아이콘',
-      showcaseSub: 'USB OTG 펌웨어 업로더',
+      etIconAlt: 'Embedded Toolkit 앱 아이콘',
+      showcaseSub: '펌웨어 · 시리얼 도구',
       showcaseBadge: 'Google Play 출시',
-      shotTab0: 'USB 연결',
-      shotTab1: 'YMODEM',
-      shotTab2: 'MegaBoot',
-      shotTab3: '프로토콜',
-      heroShotBtnAria: 'YMODEM Uploader 스크린샷 크게 보기',
+      shotTab0: '펌웨어',
+      shotTab1: 'STM32',
+      shotTab2: 'Modbus',
+      shotTab3: '터미널',
+      heroShotBtnAria: 'Embedded Toolkit 스크린샷 크게 보기',
       showcaseHint: '탭으로 화면 전환 · 이미지 클릭 시 크게 보기',
 
       aboutHeading: '개발 분야와 접근 방식',
@@ -88,8 +93,9 @@
       aboutCard2Body: '화려한 기능보다 현장에서 멈추지 않는 안정성과 직관적인 사용 흐름을 우선합니다. 민감한 문서 처리나 하드웨어 제어는 불필요한 외부 서버 의존 없이 기기 안에서 완결되도록 설계합니다.',
       aboutCard3Title: '모바일 · 데스크톱 앱',
       aboutCard3List: [
-        'USB OTG 시리얼 및 부트로더 펌웨어 업로더 Google Play 출시',
+        'YModem·ST-LINK·AVR 펌웨어 쓰기와 Modbus RTU 도구 Google Play 출시',
         '100% 온디바이스 PDF 편집·전자서명·마스킹 모바일 앱 개발',
+        '연차 계산·같이 쉬는 날 공유 앱 연차메이트 (출시 준비 중)',
         'Windows · macOS · Linux 지원 PyQt6 데스크톱 유틸리티',
         'C/C++ 소스 UTF-8 변환 및 프레임 뷰어 유틸리티 배포'
       ],
@@ -103,18 +109,41 @@
 
       projectsHeading: '주요 프로젝트',
       projectsSubheading: '실제 배포 및 운영 중인 모바일 앱, 데스크톱 유틸리티, 엔지니어링 도구입니다.',
-      proj1Kicker: 'Google Play · Android 앱',
-      proj1Desc: '스마트폰 USB OTG 포트로 FTDI·CP210x 등 USB-to-Serial 어댑터에 연결해 YMODEM 및 MegaBoot 프로토콜로 MCU 펌웨어를 전송하는 Android 앱입니다. 통신 속도 설정, 실시간 블록/페이지 로그, 사용자 정의 프로토콜 주소 구성을 지원합니다.',
+      proj1Kicker: 'Google Play · 펌웨어·시리얼 도구',
+      proj1Desc: '엔지니어와 현장 기술자를 위한 펌웨어·시리얼 도구입니다. 휴대폰(USB OTG)이나 Windows PC를 장치에 연결해 펌웨어를 쓰고, 읽고, 확인하는 일을 한 앱에서 처리합니다. FTDI·CP210x·CH34x·PL2303 USB-시리얼 어댑터, ST-LINK/V2·V2-1·STLINK-V3, Atmel-ICE·MPLAB Snap·PICkit 4를 지원합니다.',
+      proj1Points: [
+        ['펌웨어 쓰기', 'YModem(1K) IAP 업로드와 HEX→BIN 자동 변환, ATmega128 MegaBoot, 진행률·남은 시간·전송 속도 표시'],
+        ['STM32 · STM8 · AVR', 'ST-LINK(SWD·SWIM)로 쓰기·검증·읽기·백업과 양산 모드, AVR JTAG·UPDI 쓰기와 퓨즈·락 비트'],
+        ['Modbus RTU', 'FC 01~06·15·16 읽기·쓰기, 주기 폴링 결과 표, CRC·예외 코드 프레임 로그, 값 그래프'],
+        ['시리얼 터미널', '텍스트·HEX 송수신, 반복 전송, DTR·RTS, 매크로, 수신 기록 파일'],
+        ['작업 관리 · NAS', '작업 프로필 공유, 월별 CSV 작업 기록, HTTPS WebDAV로 펌웨어 받기와 백업 올리기']
+      ],
+      etGalleryAria: 'Embedded Toolkit 스크린샷',
       linkPlayStore: 'Google Play에서 보기',
-      thumbAria0: 'USB 연결 화면 확대',
-      thumbAria1: 'YMODEM 전송 화면 확대',
-      thumbAria2: 'MegaBoot 로그 화면 확대',
-      thumbAria3: '프로토콜 설정 화면 확대',
+      linkPrivacy: '개인정보처리방침',
+      enlargePrefix: '크게 보기: ',
 
       proj2Kicker: 'Google Play · 모바일 PDF 앱',
-      proj2Title: 'LoupePDF (루페PDF)',
-      proj2Desc: '서버 업로드 없이 기기 내부에서만 동작하는 오프라인 PDF 편집·보안 모바일 앱입니다. 2.5배 정밀 돋보기(Loupe) 전자서명·도장 생성, 신분증 대각선 워터마크, 개인정보 마스킹 평탄화, AES-256 암호화 및 병합·분할 기능을 제공합니다.',
-      linkLoupeInfo: '기능 · 개인정보처리방침',
+      proj2Title: '루페PDF (LoupePDF)',
+      proj2Desc: '모든 PDF·이미지 작업을 외부 서버 전송 없이 100% 기기 안에서 처리하는 올인원 문서·보안 도구입니다. 좁은 계약서 서명 칸도 2.5배 돋보기로 정확히 맞추고, 신분증 사본은 워터마크와 마스킹으로 안전하게 제출합니다. 오프라인(비행기 모드)에서도 작동합니다.',
+      proj2Points: [
+        ['2.5배 돋보기 정밀 서명', '손가락 위 돋보기와 십자선으로 위치를 잡고, 문서를 40% 비춰 보는 가로 전체화면 서명 패드에 사인'],
+        ['도장 · 서명 생성기', '한국 인감·막도장, 일본 마루인, 중화권 인장, 영문 서명을 4종 서체로 만들고 종이 배경 제거'],
+        ['병합 · 분할 · 페이지 편집', 'PDF와 사진 합치기, 범위 추출·회전·삭제·순서 변경, 페이지 번호 넣기'],
+        ['워터마크 · 영구 마스킹', '제출처 대각선 워터마크, 주민번호·계좌번호 자동 찾기와 평탄화로 복원 불가능한 가리기'],
+        ['암호 · 스캔 · 변환', 'AES-256 암호 설정·해제, 문서 스캔과 용량 압축, 이미지↔PDF 변환, 기기 안 글자 인식']
+      ],
+      lpGalleryAria: '루페PDF 스크린샷',
+
+      proj6Kicker: 'Android · 출시 준비 중',
+      proj6Title: '연차메이트 (DayOff Mate)',
+      proj6Pill1: '남은 연차 · 소멸일',
+      proj6Pill2: '연휴 추천',
+      proj6Pill3: '같이 쉬는 날',
+      proj6Desc: '입사일만 넣으면 남은 연차와 소멸일을 계산하는 앱입니다. 입사일·회계연도 기준을 모두 지원하고, 반차·반반차·시간 단위 휴가를 달력에 기록하며, 공휴일에 붙여 쉬는 연휴를 추천합니다. 로그인하면 커플·가족·팀 그룹과 쉬는 날을 함께 보고 모두 쉬는 날을 찾습니다.',
+      proj6Tag1: '근로기준법 연차 계산',
+      proj6Tag2: '위젯 · 알림',
+      linkDayoffInfo: '앱 소개',
 
       proj3Kicker: 'GitHub · 데스크톱 유틸리티',
       proj3Desc: 'Python과 PyQt6로 제작한 크로스플랫폼 PDF 용량 압축 데스크톱 앱입니다. Windows·macOS·Linux 환경에서 /screen, /ebook, /printer, /prepress 품질 프리셋을 선택해 PDF 파일을 일괄 압축하고 결과 폴더에 깔끔하게 저장합니다.',
@@ -161,6 +190,8 @@
       footerCopy: '© 2026 BlessingQ. All rights reserved.',
       footerPrivacy: 'LoupePDF 개인정보처리방침',
       dialogClose: '닫기',
+      dialogPrevAria: '이전 화면',
+      dialogNextAria: '다음 화면',
 
       thankTitle: '감사합니다!',
       thankSubtitle: '메시지가 성공적으로 전송되었습니다. 확인 후 가능한 한 빠르게 회신드리겠습니다.',
@@ -196,14 +227,14 @@
 
       showcaseAria: 'Featured app showcase',
       showcaseTabsAria: 'Switch app screen preview',
-      ymodemIconAlt: 'YMODEM Uploader app icon',
-      showcaseSub: 'USB OTG Firmware Uploader',
+      etIconAlt: 'Embedded Toolkit app icon',
+      showcaseSub: 'Firmware & Serial Tool',
       showcaseBadge: 'On Google Play',
-      shotTab0: 'USB',
-      shotTab1: 'YMODEM',
-      shotTab2: 'MegaBoot',
-      shotTab3: 'Protocol',
-      heroShotBtnAria: 'Enlarge YMODEM Uploader screenshot',
+      shotTab0: 'Firmware',
+      shotTab1: 'STM32',
+      shotTab2: 'Modbus',
+      shotTab3: 'Terminal',
+      heroShotBtnAria: 'Enlarge Embedded Toolkit screenshot',
       showcaseHint: 'Switch tabs · Click screenshot to enlarge',
 
       aboutHeading: 'About & Focus',
@@ -219,8 +250,9 @@
       aboutCard2Body: 'Prioritizing field reliability and clear user workflows over unnecessary complexity. Sensitive PDF operations and hardware communication execute locally without unnecessary external server dependencies.',
       aboutCard3Title: 'Mobile & Desktop',
       aboutCard3List: [
-        'Published USB OTG serial & firmware uploader on Google Play',
+        'Published a YModem, ST-LINK & AVR firmware and Modbus RTU tool on Google Play',
         '100% on-device PDF signing, redaction & security mobile app',
+        'DayOff Mate: annual leave calculator with shared days off (coming soon)',
         'Cross-platform PyQt6 GUI utilities for Windows, macOS & Linux',
         'Legacy C/C++ UTF-8 encoding converter & desktop viewer releases'
       ],
@@ -234,18 +266,41 @@
 
       projectsHeading: 'Selected Projects',
       projectsSubheading: 'Shipped Android apps, cross-platform desktop utilities, and CAD automation tools.',
-      proj1Kicker: 'Google Play · Android App',
-      proj1Desc: 'An Android utility connecting via USB OTG to FTDI and CP210x serial adapters to flash MCU firmware over YMODEM and MegaBoot protocols—featuring configurable baud rates, live block/page logs, and custom protocol addressing.',
+      proj1Kicker: 'Google Play · Firmware & Serial Tool',
+      proj1Desc: 'A firmware and serial tool for engineers and field technicians. Connect your phone (USB OTG) or Windows PC to a device to flash, read and check firmware in one app. Works with FTDI, CP210x, CH34x and PL2303 USB-serial adapters, ST-LINK/V2, V2-1 and STLINK-V3, and Atmel-ICE, MPLAB Snap and PICkit 4.',
+      proj1Points: [
+        ['Firmware flashing', 'YModem (1K) IAP upload with automatic HEX to BIN conversion, ATmega128 MegaBoot, progress, remaining time and transfer speed'],
+        ['STM32 · STM8 · AVR', 'Write, verify, read and back up over ST-LINK (SWD, SWIM) with production mode; AVR JTAG and UPDI writing with fuses and lock bits'],
+        ['Modbus RTU', 'Read and write with FC 01–06, 15 and 16, periodic polling table, frame log with CRC and exception decoding, value charts'],
+        ['Serial terminal', 'Text and hex send/receive, repeat sending, DTR/RTS, macros and capture to a file'],
+        ['Work management · NAS', 'Shared work profiles, monthly CSV work records, firmware download and backup upload over HTTPS WebDAV']
+      ],
+      etGalleryAria: 'Embedded Toolkit screenshots',
       linkPlayStore: 'View on Google Play',
-      thumbAria0: 'Enlarge USB Connect screenshot',
-      thumbAria1: 'Enlarge YMODEM Upload screenshot',
-      thumbAria2: 'Enlarge MegaBoot log screenshot',
-      thumbAria3: 'Enlarge Protocol Settings screenshot',
+      linkPrivacy: 'Privacy Policy',
+      enlargePrefix: 'Enlarge: ',
 
       proj2Kicker: 'Google Play · Mobile PDF App',
       proj2Title: 'LoupePDF',
-      proj2Desc: 'An offline PDF editing and document security app running strictly on-device with zero server uploads. Offers a 2.5x Loupe magnifier for e-signatures and stamps, diagonal ID watermarks, permanent redaction flattening, AES-256 encryption, merge, and split.',
-      linkLoupeInfo: 'Features & Privacy',
+      proj2Desc: 'A 100% on-device PDF and image security toolkit. Every document you open, sign, merge, encrypt or watermark stays on your phone and is never uploaded to a server. A 2.5x loupe lands signatures on tight contract lines, and watermarks and redaction keep ID copies safe. Works offline.',
+      proj2Points: [
+        ['2.5x loupe signing', 'A loupe with crosshairs above your finger, then a full-screen landscape signing pad with the document showing through at 40%'],
+        ['Stamp & seal generator', 'Korean, Japanese and Chinese seals and cursive signatures in 4 typefaces, plus paper background removal'],
+        ['Merge, split & page editing', 'Combine PDFs and photos, extract ranges, rotate, delete, reorder and add page numbers'],
+        ['Watermark & permanent redaction', 'Diagonal recipient watermarks, automatic detection of ID and account numbers, and flattening so hidden data cannot be recovered'],
+        ['Encrypt, scan & convert', 'AES-256 lock and unlock, document scanning and compression, image ↔ PDF, on-device text recognition']
+      ],
+      lpGalleryAria: 'LoupePDF screenshots',
+
+      proj6Kicker: 'Android · Coming soon',
+      proj6Title: 'DayOff Mate (연차메이트)',
+      proj6Pill1: 'Leave left · Expiry',
+      proj6Pill2: 'Long weekends',
+      proj6Pill3: 'Days off together',
+      proj6Desc: 'Enter your hire date to see your remaining annual leave and when it expires. Supports hire-date and fiscal-year bases, records half, quarter and hourly leave on a calendar, and suggests long weekends around public holidays. Sign in to share days off with your partner, family or team and find days when everyone is off.',
+      proj6Tag1: 'Korean labor law leave calc',
+      proj6Tag2: 'Widgets · Reminders',
+      linkDayoffInfo: 'About the app',
 
       proj3Kicker: 'GitHub · Desktop Utility',
       proj3Desc: 'A cross-platform PDF size reduction desktop app built with Python and PyQt6. Runs on Windows, macOS, and Linux with Ghostscript /screen, /ebook, /printer, and /prepress presets and organized output folders.',
@@ -292,6 +347,8 @@
       footerCopy: '© 2026 BlessingQ. All rights reserved.',
       footerPrivacy: 'LoupePDF Privacy Policy',
       dialogClose: 'Close',
+      dialogPrevAria: 'Previous screen',
+      dialogNextAria: 'Next screen',
 
       thankTitle: 'Thank You!',
       thankSubtitle: 'Your message has been sent successfully. I will review it and get back to you soon.',
@@ -303,6 +360,8 @@
   var currentLang = 'ko';
   var currentTheme = 'system';
   var currentShot = 0;
+  var dialogGallery = HERO_GALLERY;
+  var dialogIndex = 0;
   var lastDialogTrigger = null;
 
   function readStorage(key, fallback) {
@@ -357,9 +416,16 @@
       var items = dict[key];
       if (!Array.isArray(items)) return;
       listEl.textContent = '';
-      items.forEach(function (text) {
+      items.forEach(function (item) {
         var li = document.createElement('li');
-        li.textContent = text;
+        if (Array.isArray(item)) {
+          var strong = document.createElement('strong');
+          strong.textContent = item[0];
+          li.appendChild(strong);
+          li.appendChild(document.createTextNode(item[1]));
+        } else {
+          li.textContent = item;
+        }
         listEl.appendChild(li);
       });
     });
@@ -397,49 +463,80 @@
       menuBtn.setAttribute('aria-label', expanded ? dict.menuCloseAria : dict.menuOpenAria);
     }
 
+    document.querySelectorAll('.thumb-btn[data-gallery]').forEach(function (btn) {
+      var s = getShot(btn.getAttribute('data-gallery'), btn.getAttribute('data-shot-index'));
+      if (s) btn.setAttribute('aria-label', dict.enlargePrefix + shotTitle(s));
+    });
+
     selectShot(currentShot);
+    var dialog = document.getElementById('shot-dialog');
+    if (dialog && dialog.open) syncDialogContent();
     refreshVisibleValidationErrors();
   }
 
+  function clampIndex(galleryKey, index) {
+    var shots = GALLERIES[galleryKey].shots;
+    return Math.max(0, Math.min(shots.length - 1, Number(index) || 0));
+  }
+
+  function getShot(galleryKey, index) {
+    var gallery = GALLERIES[galleryKey];
+    if (!gallery) return null;
+    return gallery.shots[clampIndex(galleryKey, index)];
+  }
+
+  function shotTitle(shot) {
+    return currentLang === 'en' ? shot.titleEn : shot.titleKo;
+  }
+
   function selectShot(index) {
-    var safeIdx = Math.max(0, Math.min(SHOTS.length - 1, Number(index) || 0));
+    var safeIdx = clampIndex(HERO_GALLERY, index);
     currentShot = safeIdx;
-    var shot = SHOTS[safeIdx];
-    var isEn = currentLang === 'en';
+    var shot = getShot(HERO_GALLERY, safeIdx);
 
     var heroImg = document.getElementById('hero-shot-img');
     if (heroImg) {
       heroImg.src = shot.src;
-      heroImg.alt = isEn ? shot.altEn : shot.altKo;
+      heroImg.alt = GALLERIES[HERO_GALLERY].nameEn + ' — ' + shotTitle(shot);
     }
 
     document.querySelectorAll('.showcase-tab[data-shot-index]').forEach(function (tab) {
       var active = Number(tab.getAttribute('data-shot-index')) === safeIdx;
       tab.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
-
-    var dialog = document.getElementById('shot-dialog');
-    if (dialog && dialog.open) {
-      syncDialogContent(safeIdx);
-    }
   }
 
-  function syncDialogContent(index) {
-    var safeIdx = Math.max(0, Math.min(SHOTS.length - 1, Number(index) || 0));
-    var shot = SHOTS[safeIdx];
+  function syncDialogContent() {
+    var gallery = GALLERIES[dialogGallery];
+    var shot = getShot(dialogGallery, dialogIndex);
     var isEn = currentLang === 'en';
+    var appName = isEn ? gallery.nameEn : gallery.nameKo;
+    var dialog = document.getElementById('shot-dialog');
     var titleEl = document.getElementById('dialog-title');
     var imgEl = document.getElementById('dialog-img');
-    if (titleEl) titleEl.textContent = isEn ? shot.titleEn : shot.titleKo;
+    var countEl = document.getElementById('dialog-count');
+    if (dialog) dialog.classList.toggle('is-landscape', shot.w > shot.h);
+    if (titleEl) titleEl.textContent = appName + ' — ' + shotTitle(shot);
     if (imgEl) {
+      imgEl.width = shot.w;
+      imgEl.height = shot.h;
       imgEl.src = shot.src;
-      imgEl.alt = isEn ? shot.altEn : shot.altKo;
+      imgEl.alt = appName + ' — ' + shotTitle(shot);
     }
+    if (countEl) countEl.textContent = (dialogIndex + 1) + ' / ' + gallery.shots.length;
   }
 
-  function openShotDialog(index, triggerEl) {
-    selectShot(index);
-    syncDialogContent(index);
+  function stepDialog(delta) {
+    var count = GALLERIES[dialogGallery].shots.length;
+    dialogIndex = (dialogIndex + delta + count) % count;
+    syncDialogContent();
+  }
+
+  function openShotDialog(galleryKey, index, triggerEl) {
+    if (!GALLERIES[galleryKey]) return;
+    dialogGallery = galleryKey;
+    dialogIndex = clampIndex(galleryKey, index);
+    syncDialogContent();
     var dialog = document.getElementById('shot-dialog');
     if (!dialog || typeof dialog.showModal !== 'function') return;
     lastDialogTrigger = triggerEl || document.activeElement;
@@ -629,13 +726,13 @@
     var heroShotBtn = document.getElementById('hero-shot-btn');
     if (heroShotBtn) {
       heroShotBtn.addEventListener('click', function () {
-        openShotDialog(currentShot, heroShotBtn);
+        openShotDialog(HERO_GALLERY, currentShot, heroShotBtn);
       });
     }
 
-    document.querySelectorAll('.thumb-btn[data-shot-index]').forEach(function (btn) {
+    document.querySelectorAll('.thumb-btn[data-gallery]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        openShotDialog(btn.getAttribute('data-shot-index'), btn);
+        openShotDialog(btn.getAttribute('data-gallery'), btn.getAttribute('data-shot-index'), btn);
       });
     });
 
@@ -644,6 +741,19 @@
     if (dialog && dialogClose) {
       dialogClose.addEventListener('click', function () {
         dialog.close();
+      });
+      var prevBtn = document.getElementById('dialog-prev');
+      var nextBtn = document.getElementById('dialog-next');
+      if (prevBtn) prevBtn.addEventListener('click', function () { stepDialog(-1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { stepDialog(1); });
+      dialog.addEventListener('keydown', function (ev) {
+        if (ev.key === 'ArrowLeft') {
+          ev.preventDefault();
+          stepDialog(-1);
+        } else if (ev.key === 'ArrowRight') {
+          ev.preventDefault();
+          stepDialog(1);
+        }
       });
       dialog.addEventListener('close', function () {
         if (lastDialogTrigger && lastDialogTrigger.isConnected) {
