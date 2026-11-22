@@ -85,19 +85,76 @@ body {
 }
 .brand img { width: 32px; height: 32px; border-radius: 8px; }
 .brand small { color: var(--muted); font-weight: 500; font-size: 0.85rem; }
-.lang-switch { display: flex; gap: 6px; font-size: 0.85rem; }
-.lang-switch a {
+/* Language menu (top right): a <details> of plain links, so it works without JavaScript.
+   The generic details/summary rules further down are for the FAQ; reset them here. */
+.lang-menu { position: relative; margin-left: auto; font-size: 0.85rem; }
+.lang-menu details,
+.lang-menu details[open] {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+.lang-menu summary {
+  list-style: none;
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 2px 12px;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 10px 4px 12px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  color: var(--muted);
-  text-decoration: none;
   background: var(--surface);
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.lang-switch a:hover { border-color: var(--accent); color: var(--accent); }
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary:hover,
+.lang-menu details[open] > summary { border-color: var(--accent); color: var(--accent); }
+.lang-menu summary:focus-visible { border-radius: 999px; }
+.lang-menu svg { flex: none; display: block; }
+.lang-chevron { transition: transform 0.15s ease; }
+.lang-menu details[open] .lang-chevron { transform: rotate(180deg); }
+.lang-menu ul {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 110;
+  min-width: 168px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.14);
+}
+.lang-menu li { margin: 0; }
+.lang-menu li + li { margin-top: 2px; }
+.lang-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 40px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+.lang-menu a:hover { background: var(--accent-soft); color: var(--accent); }
+.lang-menu a[aria-current] { color: var(--accent); font-weight: 600; }
+.lang-menu a[aria-current]::after { content: "\2713"; content: "\2713" / ""; font-weight: 700; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-chevron { transition: none; }
+}
 
 .page-nav {
   max-width: 920px;
