@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="color-scheme" content="light">
+  <title>개인정보 처리방침 | 연차메이트 (DayOff Mate)</title>
+  <meta name="description" content="연차메이트(DayOff Mate, com.blessingq.dayoffmate) 개인정보 처리방침. 개발자 JAEYOUNG LEE (blessingq). 처리 목적, 항목, 보유 기간, 처리 위탁, 국외 이전, 정보주체 권리, Google 사용자 데이터(drive.appdata) 제한적 사용 안내.">
+  <link rel="canonical" href="https://blessingq.github.io/dayoffmate/privacy">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <script>if (/[?&]lang=en(&|$)/.test(location.search) && !location.hash) location.replace('#en');</script>
+</head>
+<!--
+  LEGAL-REVIEW (운영자 확인): 이 처리방침은 법률 검토 전 초안이다. 공개 전 확인할 것
+  - 그룹 공유가 「개인정보 보호법」상 제3자 제공인지 (명세 17-3). 여기서는 동의를 받아 제공하는 것으로 보수적으로 적었다
+  - 국외 이전 근거(제28조의8 제1항 제3호)와 사용 통계·광고까지 그 근거로 충분한지
+  - 기기 안에서만 읽는 캘린더 일정·드라이브 백업 복원이 "처리"·"수집"에 해당하는지 (명세 17-3)
+  - 광고 SDK(AdMob)는 아직 결정 전이다. 광고 없이 출시하면 제9조와 AdMob 행을 지운다
+  - 서버 백업 7일, 문의 메일 1년, Google Analytics 보존 기간(최대 14개월) 값을 실제 설정과 맞춘다
+  - [CONTACT_EMAIL] 자리표시를 실제 문의 메일로 바꾼다
+-->
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./"><img src="icon.svg" alt="" width="32" height="32"><span>연차메이트 <small lang="en">DayOff Mate</small></span></a>
+      <nav class="lang-switch" aria-label="언어 / Language">
+        <a href="#ko">한국어</a>
+        <a href="#en" lang="en" hreflang="en">English</a>
+      </nav>
+    </div>
+    <nav class="page-nav" aria-label="연차메이트 안내 페이지">
+      <ul>
+        <li><a href="./">소개 · <span lang="en">Home</span></a></li>
+        <li><a href="privacy" aria-current="page">개인정보 처리방침 · <span lang="en">Privacy</span></a></li>
+        <li><a href="terms">이용약관 · <span lang="en">Terms</span></a></li>
+        <li><a href="delete-account">계정 삭제 · <span lang="en">Delete account</span></a></li>
+        <li><a href="support">문의 · <span lang="en">Support</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===================== 한국어 ===================== -->
+    <article class="card" id="ko" lang="ko">
+      <div class="badge-row">
+        <span class="badge">연차메이트 (DayOff Mate)</span>
+        <span class="badge green">로그인 없이 쓰면 기록은 휴대폰에만</span>
+      </div>
+      <h1>연차메이트 개인정보 처리방침</h1>
+      <p class="meta">시행일 2026년 11월 22일 · 앱: 연차메이트 (DayOff Mate) · 패키지 <code>com.blessingq.dayoffmate</code> · 개발자: JAEYOUNG LEE (blessingq)</p>
+
+      <div class="callout">
+        <p><strong>한눈에 보기</strong></p>
+        <ul>
+          <li>로그인하지 않고 쓰면 입사일·휴가 기록·메모는 <strong>휴대폰에만</strong> 저장되고 개발자 서버로 보내지 않아요.</li>
+          <li>로그인하면 다른 휴대폰에서 이어 쓰고 그룹과 쉬는 날을 함께 보기 위해 기록을 Google Firebase(서울 리전)에 저장해요.</li>
+          <li>그룹에는 내가 고른 공개 범위만 보여요. 메모·입사일·일수 조정은 어떤 경우에도 공유하지 않아요.</li>
+          <li>캘린더 일정은 휴대폰 안에서만 읽고 써요. Google 드라이브 자동 백업은 <strong>내 Google 드라이브</strong>에 저장되고 개발자는 받거나 볼 수 없어요.</li>
+          <li>앱 오류를 고치고 기능을 개선하려고 오류 보고와 사용 통계를 보내요. 사용 통계는 설정에서 끌 수 있어요.</li>
+        </ul>
+      </div>
+
+      <p>JAEYOUNG LEE(blessingq, 이하 “개발자”)는 모바일 앱 「연차메이트」(DayOff Mate, 패키지 <code>com.blessingq.dayoffmate</code>, 이하 “앱”)를 이용하는 분(이하 “이용자”)의 개인정보를 「개인정보 보호법」과 관련 법령에 따라 처리하며, 같은 법 제30조에 따라 이 처리방침을 공개합니다. 이 처리방침은 Android 앱과 앞으로 출시할 iOS 앱에 함께 적용됩니다.</p>
+
+      <h2 class="first" id="ko-1">제1조 개인정보의 처리 목적</h2>
+      <p>개발자는 다음 목적으로만 개인정보를 처리하며, 목적이 바뀌면 「개인정보 보호법」 제18조에 따라 별도 동의를 받는 등 필요한 조치를 합니다.</p>
+      <ol>
+        <li><strong>회원 가입과 계정 관리</strong>: 로그인(카카오·네이버·Google, iOS는 Apple) 본인 확인, 만 14세 이상 확인, 이용약관 동의 기록, 계정 삭제, 문의 응대와 본인 확인</li>
+        <li><strong>기록 동기화</strong>: 연차 정보·휴가 기록·일수 조정·설정을 계정에 저장해 다른 휴대폰에서도 이어 쓰게 하기</li>
+        <li><strong>함께 보기(그룹)</strong>: 그룹 만들기·초대·참여, 이용자가 고른 공개 범위만큼 그룹원에게 쉬는 날 보여 주기, 같이 쉬는 날 찾기, (허용한 경우) 아이디로 찾기</li>
+        <li><strong>알림</strong>: 그룹원 휴가 알림과 참여 요청 알림(푸시) 보내기. 내 휴가 알림과 연차 소멸 알림은 휴대폰 안에서 예약되며 서버를 거치지 않습니다.</li>
+        <li><strong>안정성과 보안</strong>: 앱 오류 원인 찾기, 정상 앱에서 온 요청인지 확인, 부정 이용 방지(요청 횟수 제한), 원격 설정(점검 공지, 기능 켜고 끄기, 공휴일 정보 갱신)</li>
+        <li><strong>서비스 개선</strong>: 기능별 사용 통계(“사용 통계 보내기”를 켠 경우)</li>
+        <li><strong>광고</strong>: 무료로 제공하기 위한 홈 화면 배너 광고(광고를 표시하는 버전에서)</li>
+        <li><strong>이용자 보호</strong>: 신고 처리와 이용약관 위반 대응</li>
+      </ol>
+
+      <h2 id="ko-2">제2조 처리하는 개인정보 항목과 수집 방법</h2>
+      <h3>1. 로그인하지 않고 쓰는 경우</h3>
+      <p>계정이 없으며 개발자 서버에 저장하는 개인정보가 없습니다. 입사일, 연차 기준, 회사 인원·일하는 곳·주말 쉼 여부, 휴가 기록(종류·날짜·오전/오후·시간·메모), 일수 조정, 앱 설정은 <strong>휴대폰에만</strong> 저장됩니다. 아래 4번(자동으로 생성·수집되는 정보)은 로그인 여부와 관계없이 적용됩니다.</p>
+
+      <h3>2. 로그인한 경우 (필수)</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>로그인 이용자의 서버 저장 항목</caption>
+          <thead><tr><th scope="col">구분</th><th scope="col">항목</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">계정</th><td data-label="항목">로그인 공급자의 고유 식별자(카카오 회원번호, 네이버 회원 식별자, Google·Apple 계정 식별자), 앱 사용자 ID(uid), 이메일 주소(Google·Apple, 또는 네이버가 제공하는 경우. 카카오 로그인은 이메일을 받지 않습니다), 로그인 수단, 가입 일시, 만 14세 이상 확인·이용약관 동의·첫 공유 동의 시각</td></tr>
+            <tr><th scope="row">연차 정보</th><td data-label="항목">입사일, 연차 기준(입사일·회계연도·쉬는 날만 기록), 회계연도 시작 월, 소수점 처리 방식, 회사 인원, 일하는 곳, 주말·공휴일 쉼 여부, 시간 단위 연차 설정</td></tr>
+            <tr><th scope="row">기록</th><td data-label="항목">휴가 기록(종류, 날짜, 오전/오후, 시간, 메모, 그룹에 숨기기 여부, 만든·고친 시각), 일수 조정(대상 기간, 일수, 사유, 메모)</td></tr>
+            <tr><th scope="row">알림</th><td data-label="항목">그룹원 휴가 알림 설정(켜기, 며칠 전, 시각), 기기별 푸시 토큰(FCM), 기기 종류(Android/iOS), 알림 권한 상태, 앱 언어(알림 문구 언어를 고르는 데만 사용)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>이메일은 계정 관리(문의 응대, 본인 확인)에만 쓰며 화면·그룹에 보이지 않고 마케팅에 쓰지 않습니다. 앱은 공급자의 이름·프로필 사진을 앱 데이터로 저장하지 않습니다. 다만 Google·Apple 로그인에서는 인증 서비스(Firebase Authentication)가 공급자가 넘겨주는 기본 프로필(이름, 프로필 사진 주소)을 인증 기록에 함께 보관할 수 있으며, 앱은 이를 화면이나 그룹에 쓰지 않습니다.</p>
+
+      <h3>3. 함께 보기(그룹)를 쓰는 경우</h3>
+      <ul>
+        <li>닉네임(필수), 아이디(선택), 아이디 검색 허용 여부</li>
+        <li>그룹 이름·종류, 멤버 목록과 역할, 참여 시각, 참여 승인 대기</li>
+        <li>그룹별 공개 범위(쉬는 날만/종류까지), 남은 연차 보여 주기 여부, 그룹별 알림 설정</li>
+        <li>그룹에 보이는 공유 정보(쉬는 날짜와 종일·오전·오후·일부, 공개 범위에 따라 휴가 종류와 시간, 켠 경우 남은 연차와 기준일)</li>
+        <li>보낸·받은 초대, 차단 목록, 그룹 활동 기록(들어옴·나감·내보냄·그룹장 변경, 닉네임 포함)</li>
+        <li>신고한 경우 신고 내용</li>
+      </ul>
+
+      <h3>4. 앱 사용 중 자동으로 생성·수집되는 정보 (모든 이용자)</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>자동 생성·수집 항목</caption>
+          <thead><tr><th scope="col">용도</th><th scope="col">항목</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">오류 보고 (Firebase Crashlytics)</th><td data-label="항목">비정상 종료·오류 기록(오류 종류, 발생 위치, 오류 코드), 기기 모델, OS 버전, 앱 버전, 발생 시각, Crashlytics 설치 ID와 Firebase 설치 ID, 로그인한 경우 사용자 ID의 해시값. 메모·닉네임·날짜는 넣지 않습니다.</td></tr>
+            <tr><th scope="row">사용 통계 (Google Analytics for Firebase, 끌 수 있음)</th><td data-label="항목">기능 사용 이벤트(예: 시작 화면 완료, 기록 저장 종류, 백업·캘린더 기능 켜기, 로그인 시도 결과, 초대 경로), 근속 연수 구간, 기록 방식, 앱 언어, 앱 인스턴스 ID, 기기·OS 정보, 대략적인 지역(국가·도시 수준). 메모·날짜·닉네임·그룹 이름·캘린더 일정·Google 계정 이메일·파일 이름은 보내지 않습니다.</td></tr>
+            <tr><th scope="row">원격 설정·앱 확인 (Firebase Remote Config, Installations, App Check)</th><td data-label="항목">Firebase 설치 ID, 앱 버전, 앱 무결성 확인 정보(Android Google Play Integrity, iOS App Attest)</td></tr>
+            <tr><th scope="row">서버 접속 기록</th><td data-label="항목">IP 주소(로그인·서버 기능 제공과 보안을 위해 일시적으로 기록), 요청 횟수 제한 기록(로그인 시도는 설치 ID의 해시값, 초대 코드 확인·아이디 검색 횟수)</td></tr>
+            <tr><th scope="row">광고 (Google AdMob, 광고 표시 버전)</th><td data-label="항목">광고 ID(Android 광고 ID, iOS IDFA), 기기 정보, IP 주소, 광고 노출·클릭 기록</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5. 문의·삭제 요청을 보낸 경우</h3>
+      <p>보낸 이메일 주소, 문의 내용, 이용자가 적은 로그인 수단·닉네임 등 본인 확인 정보</p>
+
+      <h3>수집 방법</h3>
+      <p>이용자가 앱에 직접 입력, 로그인할 때 공급자에게서 받음, 앱을 쓰는 동안 자동 생성, 이메일 문의</p>
+
+      <h2 id="ko-3">제3조 휴대폰 안에서만 처리하는 정보</h2>
+      <p>다음 정보는 이용자의 휴대폰(또는 이용자 본인의 Google 계정)에만 있으며 개발자가 받거나 볼 수 없습니다.</p>
+      <ul>
+        <li><strong>로그인하지 않은 이용자의 기록</strong>: 위 제2조 1번 항목 전부</li>
+        <li><strong>캘린더 일정</strong>: “휴가를 캘린더에 넣기”나 “캘린더 일정 보기”를 켜면 휴대폰 캘린더의 일정을 휴대폰 안에서만 읽고 씁니다. 연차메이트 서버로 보내거나 저장하지 않고, 그룹·사용 통계·오류 보고·백업에도 넣지 않습니다. 앱이 넣는 일정 이름은 종류 없이 “휴가”이며, 메모는 “메모도 함께 넣기”를 켠 경우에만 넣습니다(보건휴가 메모는 넣지 않음). 기본으로 넣는 곳은 이 휴대폰에만 있는 “연차메이트” 캘린더이며, 이용자가 Google 등 다른 계정의 캘린더를 고르면 그 일정은 그 서비스와 동기화되어 그 서비스의 정책을 따릅니다.</li>
+        <li><strong>Google 드라이브 자동 백업</strong>(로그인하지 않은 이용자가 켠 경우): 기록이 이용자 본인의 Google 드라이브 안 연차메이트 전용 숨김 공간(앱 데이터 폴더)에 저장되며, 휴대폰에서 이용자의 드라이브로 바로 전송되고 연차메이트 서버를 거치지 않습니다. 개발자는 이를 받거나 볼 수 없습니다. 하루 한 개 파일로 최근 14일치를 남기며, 파일에는 입사일·연차 설정·휴가 기록(메모 포함)·일수 조정이 들어갑니다. 백업에 쓰는 Google 계정 이메일은 휴대폰에만 저장합니다. 자세한 내용은 제4조를 보세요.</li>
+        <li><strong>백업 파일 내보내기</strong>: 이용자가 고른 곳(휴대폰 저장소, 이용자의 클라우드, 메신저 등)에 저장·전송됩니다. 파일에는 입사일·기록·메모가 들어 있으니 다른 사람에게 보내지 마세요.</li>
+        <li><strong>홈 위젯, 내 휴가·소멸 알림</strong>: 휴대폰 안에서 만들고 예약합니다.</li>
+        <li><strong>초대 QR 읽기</strong>: 카메라 화면은 휴대폰 안에서 QR 코드를 읽는 데만 쓰고 저장하거나 보내지 않습니다.</li>
+        <li><strong>휴대폰 자체 백업</strong>: Android의 자동 백업·기기 간 이전을 켜 두면 운영체제가 앱 기록을 이용자의 Google 계정 백업이나 새 휴대폰으로 복사할 수 있습니다. 이는 운영체제 기능이며 개발자는 접근할 수 없습니다.</li>
+      </ul>
+
+      <h2 id="ko-4">제4조 Google 사용자 데이터 (Google API 서비스 사용자 데이터 정책)</h2>
+      <ul>
+        <li><strong>요청하는 권한</strong>: Google 드라이브 자동 백업을 켤 때 <code>https://www.googleapis.com/auth/drive.appdata</code> 범위 하나만 요청합니다. 이 범위로는 연차메이트가 만든 앱 전용 숨김 폴더의 파일만 다룰 수 있고, 이용자의 다른 드라이브 파일은 보거나 고칠 수 없습니다. Google 로그인은 계정 식별자·이메일 등 기본 프로필만 받습니다.</li>
+        <li><strong>사용 목적</strong>: 백업 파일 저장, 백업 목록과 건수 보여 주기, 이용자가 고른 백업 불러오기, 14일이 지난 백업 지우기에만 씁니다. Google 로그인 정보는 계정 식별과 계정 관리에만 씁니다.</li>
+        <li><strong>전송과 공유</strong>: 드라이브 데이터는 이용자의 휴대폰과 이용자의 Google 드라이브 사이에서만 오가며, 개발자 서버나 제3자에게 보내지 않습니다. 광고, 마케팅, 신용 평가, 데이터 판매에 쓰지 않으며, 사람이 읽지 않습니다. 일반화된 AI·머신러닝 모델을 만들거나 개선·학습하는 데 쓰지 않습니다.</li>
+        <li><strong>제한적 사용</strong>: 연차메이트가 Google API에서 받은 정보를 사용하고 다른 앱으로 전송하는 것은 제한적 사용(Limited Use) 요건을 포함한 <a href="https://developers.google.com/terms/api-services-user-data-policy" lang="en">Google API Services User Data Policy</a>를 따릅니다.</li>
+        <li><strong>끄기와 지우기</strong>: 앱 설정 &gt; 백업에서 자동 백업을 끌 수 있습니다(이미 저장된 파일은 드라이브에 남습니다). 저장된 파일은 Google 드라이브 웹 &gt; 설정 &gt; 앱 관리 &gt; 연차메이트 &gt; 옵션 &gt; “숨겨진 앱 데이터 삭제”로 지울 수 있고, 권한은 Google 계정의 <a href="https://myaccount.google.com/connections">서드 파티 앱 및 서비스 연결</a>에서 해제할 수 있습니다.</li>
+      </ul>
+
+      <h2 id="ko-5">제5조 보유·이용 기간과 파기</h2>
+      <p>개발자는 처리 목적을 이루거나 보유 기간이 끝나면 개인정보를 지체 없이 파기합니다. 계정을 삭제하면 서버의 계정 데이터를 지체 없이 지우며, 다음은 아래 기간 뒤 자동으로 지워집니다.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>보유 기간</caption>
+          <thead><tr><th scope="col">정보</th><th scope="col">보유 기간</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">계정, 연차 정보, 기록, 그룹 정보</th><td data-label="보유 기간">계정을 삭제할 때까지</td></tr>
+            <tr><th scope="row">하나씩 지운 기록·일수 조정</th><td data-label="보유 기간">다른 휴대폰에 삭제를 전하기 위한 “삭제됨” 표시로 최대 30일 뒤 완전 삭제</td></tr>
+            <tr><th scope="row">로그인했지만 가입을 마치지 않은 계정</th><td data-label="보유 기간">24시간 뒤 삭제</td></tr>
+            <tr><th scope="row">초대 코드·링크 / 아이디 초대 / 참여 승인 대기</th><td data-label="보유 기간">48시간 / 14일 / 7일 뒤 삭제</td></tr>
+            <tr><th scope="row">그룹 활동 기록, 그룹에서 내보낸 사람 기록</th><td data-label="보유 기간">30일 뒤 삭제</td></tr>
+            <tr><th scope="row">기기 푸시 토큰</th><td data-label="보유 기간">로그아웃·계정 삭제 때, 또는 토큰이 무효가 되면 삭제</td></tr>
+            <tr><th scope="row">로그인 연결 끊기 재시도 정보(공급자 식별자)</th><td data-label="보유 기간">계정 삭제 때 공급자 연결 끊기가 실패한 경우, 끊기가 끝날 때까지</td></tr>
+            <tr><th scope="row">서버 장애 복구용 백업</th><td data-label="보유 기간">최대 7일</td></tr>
+            <tr><th scope="row">Firebase Authentication 기록</th><td data-label="보유 기간">계정 삭제 뒤 Google 백업 시스템에서 최대 180일 안에 삭제(접속 IP 기록은 몇 주)</td></tr>
+            <tr><th scope="row">오류 보고 (Crashlytics)</th><td data-label="보유 기간">90일</td></tr>
+            <tr><th scope="row">사용 통계 (Google Analytics)</th><td data-label="보유 기간">Google Analytics에 설정한 보존 기간(최대 14개월)</td></tr>
+            <tr><th scope="row">Firebase 설치 ID</th><td data-label="보유 기간">Google Firebase 정책에 따름. 삭제를 요청하면 Google 시스템에서 최대 180일 안에 삭제</td></tr>
+            <tr><th scope="row">문의·삭제 요청 이메일</th><td data-label="보유 기간">처리를 마친 뒤 1년</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>현재 법령에 따라 따로 보관해야 하는 정보는 없습니다. 유료 기능을 도입해 결제 기록 등을 보관해야 하면 이 처리방침을 고쳐 알립니다.</p>
+      <p><strong>파기 절차와 방법</strong>: 파기할 정보는 보유 기간이 끝나거나 삭제 요청을 받은 때 서버 기능(자동 삭제 정책, 계정 삭제 기능)으로 지우며, 전자 파일은 복구할 수 없는 방법으로 지웁니다. 종이 문서로는 보관하지 않습니다. 휴대폰에만 있는 정보는 이용자가 앱의 “전체 기록 삭제”나 앱 삭제로 지울 수 있습니다.</p>
+
+      <h2 id="ko-6">제6조 개인정보의 제3자 제공과 그룹 공개</h2>
+      <p>개발자는 이용자의 개인정보를 제3자에게 제공하거나 판매하지 않습니다. 다만 법률에 특별한 규정이 있거나 수사기관이 법령에 따른 절차로 요구하는 경우는 예외입니다.</p>
+      <p>함께 보기(그룹)는 이용자가 처음 그룹을 만들거나 참여할 때 받는 동의(“위 정보를 이 그룹 멤버에게 보여 주는 데 동의해요”)에 따라 다음과 같이 같은 그룹 멤버에게 보여 줍니다.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>그룹 공개</caption>
+          <thead><tr><th scope="col">받는 사람</th><th scope="col">보이는 정보</th><th scope="col">목적</th><th scope="col">기간</th></tr></thead>
+          <tbody>
+            <tr>
+              <td data-label="받는 사람">이용자가 참여한 그룹의 멤버(그룹당 최대 30명)</td>
+              <td data-label="보이는 정보">닉네임, 그룹 역할, 쉬는 날짜와 종일·오전·오후·일부. “종류까지”를 고르면 휴가 종류와 시간. “남은 연차 보여 주기”를 켜면 남은 연차와 기준일. 오늘 −12개월부터 +24개월까지의 기록만</td>
+              <td data-label="목적">함께 쉬는 날 보기, 같이 쉴 날 찾기, 그룹원 휴가 알림</td>
+              <td data-label="기간">그룹을 나가거나 내보내지거나 그룹·계정을 삭제할 때까지</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>메모, 입사일·근속, 연차 기준, 일수 조정, 소멸일, 회사 인원·일하는 곳, 이메일, 로그인 수단은 어떤 경우에도 공유하지 않습니다. 보건휴가는 어느 단계에서도 “휴가”로만 보입니다. 기록마다 “그룹에 숨기기”를 켜면 모든 그룹에서 빠집니다.</li>
+        <li>그룹장도 멤버가 고른 공개 범위를 넘어서 볼 수 없습니다.</li>
+        <li>그룹원이 휴가 알림을 켜 두면 보여 주기로 한 정보가 그 사람의 휴대폰 알림(잠금 화면 포함)으로도 보일 수 있습니다.</li>
+        <li>그룹에서 나가거나 그룹이 삭제된 뒤에도 다른 멤버 휴대폰의 임시 저장(캐시)에 잠시 남을 수 있습니다.</li>
+        <li>“아이디로 나를 찾게 허용”을 켜면 아이디를 정확히 아는 사람이 나를 찾아 초대할 수 있습니다.</li>
+        <li>카카오톡이나 공유 창으로 초대하면 이용자의 닉네임, 그룹 이름, 초대 코드·링크가 이용자가 고른 앱으로 이용자에 의해 보내집니다.</li>
+      </ul>
+
+      <h2 id="ko-7">제7조 개인정보 처리의 위탁</h2>
+      <p>개발자는 서비스 제공을 위해 다음과 같이 개인정보 처리 업무를 위탁하며, 수탁자의 서비스 약관과 데이터 처리 조건을 통해 개인정보가 안전하게 처리되도록 관리합니다. 수탁자나 업무가 바뀌면 이 처리방침으로 알립니다.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>처리 위탁</caption>
+          <thead><tr><th scope="col">수탁자</th><th scope="col">위탁 업무</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Google LLC</th><td data-label="위탁 업무">Firebase Authentication(로그인 인증·계정 관리), Cloud Firestore(기록·그룹 데이터 저장, 서울 리전), Cloud Functions for Firebase(서버 기능 실행, 서울 리전), Firebase Cloud Messaging(푸시 알림 발송), Firebase Crashlytics(오류 보고), Google Analytics for Firebase(사용 통계), Firebase Remote Config·Installations(원격 설정), Firebase App Check와 Google Play Integrity(앱 무결성 확인), Firebase Hosting(초대 링크 페이지), Google 로그인(본인 확인), Google AdMob(광고 게재, 광고 표시 버전)</td></tr>
+            <tr><th scope="row">주식회사 카카오</th><td data-label="위탁 업무">카카오 로그인 본인 확인(회원번호만 받음), 로그인 연결 끊기</td></tr>
+            <tr><th scope="row">네이버 주식회사</th><td data-label="위탁 업무">네이버 로그인 본인 확인(네이버 로그인을 제공하는 경우)</td></tr>
+            <tr><th scope="row">Apple Inc.</th><td data-label="위탁 업무">Apple 로그인 본인 확인(iOS 앱 출시 후)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="ko-8">제8조 개인정보의 국외 이전</h2>
+      <p>개발자는 이용자와의 서비스 이용 계약을 이행하기 위해 다음과 같이 개인정보를 국외에서 처리·보관하도록 위탁하며, 「개인정보 보호법」 제28조의8 제1항 제3호에 따라 그 내용을 이 처리방침에 공개합니다.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>국외 이전</caption>
+          <tbody>
+            <tr><th scope="row">이전받는 자</th><td>Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) · 연락처: <a href="https://firebase.google.com/support">Firebase 지원</a>, <a href="https://policies.google.com/privacy">Google 개인정보처리방침의 문의 안내</a></td></tr>
+            <tr><th scope="row">이전 국가</th><td>미국 및 Google이 데이터 센터를 운영하는 국가. Firebase Authentication은 미국에서 처리됩니다. Cloud Firestore와 Cloud Functions 데이터는 대한민국 서울 리전(<code>asia-northeast3</code>)에 저장·처리되지만, Google LLC가 운영·관리하는 과정에서 국외에서 접근될 수 있습니다.</td></tr>
+            <tr><th scope="row">이전 항목</th><td>로그인: 공급자 식별자, 사용자 ID, 이메일(받은 경우), IP 주소 · 푸시 알림: 푸시 토큰, 설치 ID, 알림 내용(그룹원 닉네임·휴가 정보·그룹 이름) · 오류 보고, 사용 통계, 원격 설정·앱 확인, 광고: 제2조 4번 항목</td></tr>
+            <tr><th scope="row">이전 시기와 방법</th><td>앱을 쓰는 동안 필요할 때마다 암호화된 네트워크(HTTPS/TLS)로 전송</td></tr>
+            <tr><th scope="row">이용 목적과 보유 기간</th><td>제1조의 목적, 제5조의 기간</td></tr>
+            <tr><th scope="row">거부 방법과 효과</th><td>로그인하지 않으면 계정·기록 정보는 이전되지 않습니다(로그인·동기화·그룹 기능은 쓸 수 없음). 사용 통계는 앱 설정 &gt; 안내 &gt; “사용 통계 보내기”를 끄면 보내지 않습니다. 광고 ID는 휴대폰 설정에서 삭제하거나 재설정할 수 있습니다. 오류 보고·원격 설정·앱 확인에 필요한 기기 식별 정보는 앱 제공에 필요해 따로 끌 수 없으며, 원하지 않으면 앱 사용을 멈추고 앱을 삭제할 수 있습니다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>주식회사 카카오와 네이버 주식회사는 국내 사업자입니다. Apple 로그인(iOS)을 쓰면 Apple Inc.(미국)가 Apple의 개인정보 처리방침에 따라 로그인 정보를 처리합니다.</p>
+
+      <h2 id="ko-9">제9조 광고와 행태정보</h2>
+      <p>광고를 표시하는 버전에서는 홈 화면에 배너 광고 하나를 Google AdMob으로 보여 줍니다. 위젯과 캘린더·백업 화면에는 광고를 두지 않습니다. Google은 광고 게재, 노출 빈도 관리, 광고 성과 측정, 부정 클릭 방지와 (허용된 경우) 맞춤형 광고를 위해 광고 ID와 앱 이용 정보를 처리할 수 있습니다. 개발자는 이 정보로 이용자 개인을 식별하지 않습니다. Android는 설정 &gt; 개인정보 보호(또는 Google) &gt; 광고에서 광고 ID를 삭제하거나 재설정할 수 있고, iOS는 설정 &gt; 개인정보 보호 및 보안 &gt; 추적에서 끌 수 있습니다. Google의 처리 방식은 <a href="https://policies.google.com/technologies/ads">Google 광고 정책</a>을 보세요.</p>
+
+      <h2 id="ko-10">제10조 앱 접근권한</h2>
+      <p>앱의 접근권한은 모두 <strong>선택</strong>이며, 동의하지 않아도 다른 기능은 그대로 쓸 수 있습니다. 각 기능을 켤 때 앱이 먼저 설명한 뒤 휴대폰의 권한 창을 엽니다.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>선택 접근권한</caption>
+          <thead><tr><th scope="col">권한</th><th scope="col">쓰는 곳</th><th scope="col">거부하면</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">캘린더(일정)</th><td data-label="쓰는 곳">기록한 휴가를 휴대폰 캘린더에 넣고 고치기, 휴대폰 캘린더의 일정을 앱 달력에 보여 주기. 일정은 휴대폰 안에서만 읽고 씁니다.</td><td data-label="거부하면">두 기능만 쓸 수 없습니다. 기록마다 “캘린더 앱에 추가하기”는 권한 없이 쓸 수 있습니다.</td></tr>
+            <tr><th scope="row">카메라</th><td data-label="쓰는 곳">초대 QR 코드 읽기</td><td data-label="거부하면">초대 코드를 직접 입력합니다.</td></tr>
+            <tr><th scope="row">알림</th><td data-label="쓰는 곳">내 휴가·연차 소멸·그룹원 휴가·참여 요청 알림</td><td data-label="거부하면">알림만 오지 않습니다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>권한은 휴대폰 설정 &gt; 애플리케이션 &gt; 연차메이트 &gt; 권한에서 언제든 바꿀 수 있고, 캘린더 기능은 앱 설정 &gt; 캘린더 연동에서 끌 수 있습니다. 이 밖에 인터넷 연결, 재부팅 뒤 알림 다시 예약, 광고 ID(광고 표시 버전) 같은 일반 권한을 씁니다.</p>
+
+      <h2 id="ko-11">제11조 정보주체의 권리와 행사 방법</h2>
+      <p>이용자는 언제든 자신의 개인정보 열람, 정정, 삭제, 처리정지를 요구하고 동의를 철회할 수 있습니다.</p>
+      <ul>
+        <li><strong>앱에서 직접</strong>: 연차 정보 고치기(설정 &gt; 내 연차 정보), 닉네임·아이디 바꾸기(설정 &gt; 계정 관리), 공개 범위 바꾸기·그룹 나가기(그룹 설정), 기록 지우기(설정 &gt; 데이터 &gt; 전체 기록 삭제), 계정 삭제(설정 &gt; 계정 관리 &gt; 계정 삭제), 사용 통계 끄기(설정 &gt; 안내 &gt; 사용 통계 보내기)</li>
+        <li><strong>이메일로</strong>: <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a>로 요청하면 본인을 확인한 뒤 지체 없이(10일 안에) 처리하고 결과를 알려 드립니다. 계정 삭제 요청은 <a href="delete-account">계정 삭제 안내</a>에 따라 7일 안에 처리합니다.</li>
+        <li>법정대리인이나 위임을 받은 사람을 통해서도 요구할 수 있으며, 이때 위임장을 요청할 수 있습니다.</li>
+        <li>법령에 따라 요구를 거절하거나 제한해야 하는 경우 그 사유를 알려 드립니다.</li>
+        <li>앱의 연차 계산은 이용자가 참고하도록 휴대폰에서 하는 계산이며, 개발자가 이용자에 대해 자동화된 결정을 하지 않습니다.</li>
+      </ul>
+
+      <h2 id="ko-12">제12조 만 14세 미만 아동</h2>
+      <p>만 14세 미만은 가입(로그인)할 수 없습니다. 가입 화면에서 “만 14세 미만이에요”를 고르면 받은 로그인 정보를 그 자리에서 지웁니다. 로그인하지 않아도 기록 기능은 쓸 수 있으며, 이때는 제2조 4번의 자동 생성 정보 외에 개인정보를 수집하지 않습니다. 만 14세 미만 아동의 개인정보가 수집된 것을 알게 되면 지체 없이 삭제합니다.</p>
+
+      <h2 id="ko-13">제13조 개인정보의 안전성 확보 조치</h2>
+      <ul>
+        <li><strong>관리적 조치</strong>: 처리하는 개인정보 최소화(카카오는 회원번호만 받음 등), 관리 콘솔 접근 권한을 개발자로 한정</li>
+        <li><strong>기술적 조치</strong>: 전송 구간 암호화(HTTPS/TLS), 저장 데이터 암호화(Google Cloud 기본 암호화), 보안 규칙으로 본인 데이터는 본인만, 그룹 데이터는 같은 그룹 멤버만 읽게 제한, 메모·보건휴가 종류가 공유 정보에 들어가지 못하도록 서버 규칙으로 검사, App Check로 정상 앱의 요청만 허용, 로그인·초대 코드·아이디 검색 요청 횟수 제한, 잠금 화면에서 알림 내용 숨김 지원</li>
+        <li><strong>물리적 조치</strong>: 서버와 데이터는 Google의 데이터 센터 물리 보안 아래에서 관리됩니다(위탁).</li>
+      </ul>
+
+      <h2 id="ko-14">제14조 자동 수집 장치(쿠키 등)</h2>
+      <p>앱은 쿠키를 쓰지 않으며, 대신 제2조 4번의 기기 식별자(Firebase 설치 ID, 앱 인스턴스 ID, 광고 ID)를 씁니다. 사용 통계는 앱 설정에서, 광고 ID는 휴대폰 설정에서 끄거나 재설정할 수 있습니다. 이 안내 웹사이트(blessingq.github.io/dayoffmate)는 쿠키나 방문 추적 도구를 쓰지 않습니다.</p>
+
+      <h2 id="ko-15">제15조 개인정보 보호책임자와 문의처</h2>
+      <ul>
+        <li>개인정보 보호책임자: JAEYOUNG LEE (blessingq), 연차메이트 개발자</li>
+        <li>이메일: <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a></li>
+        <li>문의 페이지: <a href="support">https://blessingq.github.io/dayoffmate/support</a></li>
+      </ul>
+      <p>개인정보 침해에 대한 신고나 상담은 다음 기관에도 할 수 있습니다.</p>
+      <ul>
+        <li>개인정보분쟁조정위원회: 국번 없이 1833-6972, <a href="https://www.kopico.go.kr">www.kopico.go.kr</a></li>
+        <li>개인정보침해신고센터(한국인터넷진흥원): 국번 없이 118, <a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a></li>
+        <li>대검찰청: 국번 없이 1301, <a href="https://www.spo.go.kr">www.spo.go.kr</a></li>
+        <li>경찰청: 국번 없이 182, <a href="https://ecrm.police.go.kr">ecrm.police.go.kr</a></li>
+      </ul>
+
+      <h2 id="ko-16">제16조 처리방침의 변경</h2>
+      <p>이 처리방침을 바꾸면 시행 7일 전(이용자 권리에 중요한 변경은 30일 전)부터 이 페이지와 앱 공지로 알립니다. 이전 버전은 이 사이트의 공개 저장소 기록에서 볼 수 있습니다.</p>
+      <ul>
+        <li>공고일·시행일: 2026년 11월 22일</li>
+        <li>이 처리방침은 한국어로 작성되었으며, 영어 번역과 내용이 다르면 한국어본이 우선합니다.</li>
+      </ul>
+    </article>
+
+    <!-- ===================== English ===================== -->
+    <article class="card" id="en" lang="en">
+      <div class="badge-row">
+        <span class="badge">DayOff Mate (연차메이트)</span>
+        <span class="badge green">Without sign-in, records stay on your phone</span>
+      </div>
+      <h1>DayOff Mate Privacy Policy</h1>
+      <p class="meta">Effective November 22, 2026 · App: DayOff Mate (연차메이트) · Package <code>com.blessingq.dayoffmate</code> · Developer: JAEYOUNG LEE (blessingq)</p>
+      <p class="callout warn">This English version is a translation provided for convenience. If it differs from the Korean version above, the Korean version prevails.</p>
+
+      <div class="callout">
+        <p><strong>At a glance</strong></p>
+        <ul>
+          <li>If you use the app without signing in, your hire date, leave records and notes are stored <strong>only on your phone</strong> and never sent to the developer's servers.</li>
+          <li>If you sign in, your records are stored in Google Firebase (Seoul region) so you can continue on another phone and share days off with your groups.</li>
+          <li>Groups only see what you choose to share. Notes, hire date and day adjustments are never shared.</li>
+          <li>Calendar events are read and written only on your phone. Google Drive auto-backup is saved in <strong>your own Google Drive</strong>; the developer cannot receive or see it.</li>
+          <li>We send crash reports and usage statistics to fix bugs and improve features. You can turn usage statistics off in Settings.</li>
+        </ul>
+      </div>
+
+      <p>JAEYOUNG LEE (blessingq, the “developer”) processes the personal information of people who use the mobile app DayOff Mate (연차메이트, package <code>com.blessingq.dayoffmate</code>, the “app”) in accordance with the Korean Personal Information Protection Act (PIPA) and related laws, and publishes this policy under Article 30 of PIPA. It applies to the Android app and the future iOS app.</p>
+
+      <h2 class="first">1. Purposes of processing</h2>
+      <ol>
+        <li><strong>Sign-up and account management</strong>: verifying sign-in (Kakao, Naver, Google; Apple on iOS), confirming you are 14 or older, recording consent to the Terms, deleting accounts, answering inquiries and verifying identity</li>
+        <li><strong>Sync</strong>: storing your leave settings, records, day adjustments and settings in your account so you can use them on another phone</li>
+        <li><strong>Groups</strong>: creating, inviting and joining groups, showing your days off to group members at the level you choose, finding common days off, and (if you allow it) letting people find you by your ID</li>
+        <li><strong>Notifications</strong>: sending push notifications about group members' days off and join requests. Your own leave and expiry reminders are scheduled on your phone and do not go through the server.</li>
+        <li><strong>Reliability and security</strong>: finding the cause of crashes, checking requests come from the genuine app, preventing abuse (rate limits), remote configuration (maintenance notices, feature switches, holiday data updates)</li>
+        <li><strong>Improvement</strong>: per-feature usage statistics (when “Send usage statistics” is on)</li>
+        <li><strong>Advertising</strong>: a home-screen banner ad that keeps the app free (in versions that show ads)</li>
+        <li><strong>User protection</strong>: handling reports and violations of the Terms</li>
+      </ol>
+
+      <h2>2. Information we process and how we collect it</h2>
+      <h3>2.1 Without signing in</h3>
+      <p>There is no account and nothing personal is stored on the developer's servers. Your hire date, leave basis, workplace size, workplace type, weekend setting, leave records (type, date, AM/PM, hours, note), day adjustments and app settings are stored <strong>only on your phone</strong>. Section 2.4 (automatically generated information) applies whether or not you sign in.</p>
+      <h3>2.2 When you sign in (required)</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>Stored on the server for signed-in users</caption>
+          <thead><tr><th scope="col">Category</th><th scope="col">Items</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Account</th><td data-label="Items">Sign-in provider identifier (Kakao member number, Naver member identifier, Google or Apple account identifier), app user ID (uid), email address (from Google or Apple, or from Naver if provided; Kakao sign-in does not provide an email), sign-in method, sign-up time, times you confirmed being 14+, accepted the Terms and gave first sharing consent</td></tr>
+            <tr><th scope="row">Leave settings</th><td data-label="Items">Hire date, leave basis (hire date, fiscal year, or days-off only), fiscal year start month, rounding, workplace size, workplace type, whether you rest on weekends and holidays, hourly leave settings</td></tr>
+            <tr><th scope="row">Records</th><td data-label="Items">Leave records (type, date, AM/PM, hours, note, hidden-from-groups flag, created/updated time), day adjustments (period, days, reason, note)</td></tr>
+            <tr><th scope="row">Notifications</th><td data-label="Items">Group leave notification settings (on/off, days before, time), per-device push token (FCM), platform (Android/iOS), notification permission status, app language (used only to choose the notification language)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Your email is used only for account management (answering inquiries, verifying identity). It is never shown in the app or to groups and never used for marketing. The app does not save the provider's name or profile photo as app data. However, for Google and Apple sign-in, the authentication service (Firebase Authentication) may keep the basic profile passed by the provider (name, profile photo URL) in its sign-in record; the app does not use it on screen or in groups.</p>
+      <h3>2.3 When you use groups</h3>
+      <ul>
+        <li>Nickname (required), ID (optional), whether others may find you by ID</li>
+        <li>Group name and type, members and roles, join time, pending join requests</li>
+        <li>Per-group sharing level (days only / with leave types), whether to show remaining leave, per-group notification setting</li>
+        <li>Shared information shown to the group (dates off with full day/AM/PM/partial; depending on your level, leave type and hours; if enabled, remaining leave and its as-of date)</li>
+        <li>Invitations sent and received, block list, group activity log (joined, left, removed, owner changed, including nicknames)</li>
+        <li>Reports, if you file one</li>
+      </ul>
+      <h3>2.4 Automatically generated or collected (all users)</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>Automatically generated or collected</caption>
+          <thead><tr><th scope="col">Purpose</th><th scope="col">Items</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Crash reports (Firebase Crashlytics)</th><td data-label="Items">Crash and error records (type, location, error code), device model, OS version, app version, time, Crashlytics installation ID and Firebase installation ID, and a hash of your user ID if signed in. No notes, nicknames or dates.</td></tr>
+            <tr><th scope="row">Usage statistics (Google Analytics for Firebase; can be turned off)</th><td data-label="Items">Feature-use events (e.g. onboarding completed, type of record saved, backup or calendar feature turned on, sign-in result, invite channel), tenure band, record mode, app language, app instance ID, device and OS information, approximate location (country/city level). No notes, dates, nicknames, group names, calendar events, Google account emails or file names.</td></tr>
+            <tr><th scope="row">Remote config and app checks (Firebase Remote Config, Installations, App Check)</th><td data-label="Items">Firebase installation ID, app version, app integrity attestation (Google Play Integrity on Android, App Attest on iOS)</td></tr>
+            <tr><th scope="row">Server access</th><td data-label="Items">IP address (logged temporarily to provide sign-in and server functions securely), rate-limit counters (a hash of the installation ID for sign-in attempts; counts of invite-code checks and ID searches)</td></tr>
+            <tr><th scope="row">Ads (Google AdMob, versions that show ads)</th><td data-label="Items">Advertising ID (Android advertising ID, iOS IDFA), device information, IP address, ad impressions and clicks</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>2.5 When you contact us</h3>
+      <p>Your email address, the content of your message, and identity details you provide such as sign-in method and nickname.</p>
+      <h3>How we collect it</h3>
+      <p>You enter it in the app; we receive it from the sign-in provider; it is generated while you use the app; or you send it by email.</p>
+
+      <h2>3. Information processed only on your phone</h2>
+      <p>The following stays on your phone (or in your own Google account). The developer cannot receive or see it.</p>
+      <ul>
+        <li><strong>Records of users who do not sign in</strong>: everything in section 2.1.</li>
+        <li><strong>Calendar events</strong>: if you turn on “Add days off to calendar” or “Show calendar events”, the app reads and writes your phone's calendar on the phone only. Events are never sent to or stored on our servers, and never included in groups, usage statistics, crash reports or backups. Events the app adds are titled just “Day off” (no leave type); notes are added only if you turn on “Include notes” (never for health leave). By default events go into a “DayOff Mate” calendar that exists only on this phone. If you choose a calendar from another account such as Google, those events sync with that service under its policy.</li>
+        <li><strong>Google Drive auto-backup</strong> (for users who are not signed in and turn it on): your records are saved in a hidden, app-only space (the app data folder) in <em>your own</em> Google Drive, sent directly from your phone to your Drive without passing through our servers. The developer cannot receive or see them. One file per day is kept for the last 14 days; a file contains your hire date, leave settings, leave records (including notes) and day adjustments. The Google account email used for backup is stored only on your phone. See section 4.</li>
+        <li><strong>Exported backup files</strong>: saved or sent to the place you choose (phone storage, your cloud, a messenger). Files contain your hire date, records and notes, so do not send them to others.</li>
+        <li><strong>Home widgets and your own reminders</strong>: created and scheduled on the phone.</li>
+        <li><strong>Invite QR scanning</strong>: the camera image is used on the phone only to read the QR code and is not saved or sent.</li>
+        <li><strong>Phone backups</strong>: if Android auto-backup or device-to-device transfer is on, the operating system may copy the app's records to your Google account backup or a new phone. This is an operating-system feature; the developer has no access.</li>
+      </ul>
+
+      <h2 id="en-4">4. Google user data (Google API Services User Data Policy)</h2>
+      <ul>
+        <li><strong>Scope requested</strong>: when you turn on Google Drive auto-backup, the app requests only <code>https://www.googleapis.com/auth/drive.appdata</code>. This scope only gives access to the hidden app folder DayOff Mate creates; the app cannot see or change any other files in your Drive. Google sign-in receives only basic profile information such as your account identifier and email.</li>
+        <li><strong>Use</strong>: only to save backup files, list backups with their record counts, restore a backup you choose, and delete backups older than 14 days. Google sign-in information is used only to identify and manage your account.</li>
+        <li><strong>Transfer and sharing</strong>: Drive data moves only between your phone and your Google Drive. It is not sent to the developer's servers or to any third party, not used for advertising, marketing, credit assessment or sale, and not read by humans. It is not used to develop, improve or train generalized AI or machine-learning models.</li>
+        <li><strong>Limited Use</strong>: DayOff Mate's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</li>
+        <li><strong>Turning off and deleting</strong>: turn off auto-backup in the app under Settings &gt; Backup (files already saved stay in your Drive). Delete saved files in Google Drive on the web: Settings &gt; Manage apps &gt; DayOff Mate &gt; Options &gt; “Delete hidden app data”. Revoke access in your Google Account under <a href="https://myaccount.google.com/connections">Third-party apps &amp; services</a>.</li>
+      </ul>
+
+      <h2>5. Retention and deletion</h2>
+      <p>We delete personal information without delay once its purpose is fulfilled or its retention period ends. When you delete your account, your account data on the server is deleted without delay; the items below are deleted automatically after the periods shown.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Retention periods</caption>
+          <thead><tr><th scope="col">Information</th><th scope="col">Retention</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Account, leave settings, records, group data</th><td data-label="Retention">Until you delete your account</td></tr>
+            <tr><th scope="row">Individually deleted records and adjustments</th><td data-label="Retention">Kept as a “deleted” marker so other phones learn of the deletion; permanently removed within 30 days</td></tr>
+            <tr><th scope="row">Accounts that signed in but did not finish sign-up</th><td data-label="Retention">Deleted after 24 hours</td></tr>
+            <tr><th scope="row">Invite codes and links / ID invitations / pending join requests</th><td data-label="Retention">Deleted after 48 hours / 14 days / 7 days</td></tr>
+            <tr><th scope="row">Group activity log, records of removed members</th><td data-label="Retention">Deleted after 30 days</td></tr>
+            <tr><th scope="row">Device push tokens</th><td data-label="Retention">Deleted on sign-out or account deletion, or when the token becomes invalid</td></tr>
+            <tr><th scope="row">Retry data for unlinking a sign-in provider (provider identifier)</th><td data-label="Retention">Only if unlinking failed during account deletion, until unlinking succeeds</td></tr>
+            <tr><th scope="row">Server backups for disaster recovery</th><td data-label="Retention">Up to 7 days</td></tr>
+            <tr><th scope="row">Firebase Authentication records</th><td data-label="Retention">Removed from Google's backup systems within 180 days after account deletion (access IP logs: a few weeks)</td></tr>
+            <tr><th scope="row">Crash reports (Crashlytics)</th><td data-label="Retention">90 days</td></tr>
+            <tr><th scope="row">Usage statistics (Google Analytics)</th><td data-label="Retention">The retention period set in Google Analytics (up to 14 months)</td></tr>
+            <tr><th scope="row">Firebase installation ID</th><td data-label="Retention">Per Google Firebase policy; removed from Google's systems within 180 days after a deletion request</td></tr>
+            <tr><th scope="row">Inquiry and deletion-request emails</th><td data-label="Retention">1 year after the request is handled</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No information currently has to be kept under other laws. If paid features are introduced and records such as payment history must be kept, we will update this policy.</p>
+      <p><strong>How we delete</strong>: data is deleted by server functions (automatic expiry policies and the account-deletion function) when its period ends or when you ask; electronic files are deleted so they cannot be recovered. We keep no paper records. Information that exists only on your phone can be deleted with “Delete all records” in the app or by uninstalling the app.</p>
+
+      <h2>6. Sharing with third parties and group visibility</h2>
+      <p>The developer does not provide or sell your personal information to third parties, except where required by law or requested by investigative authorities through legal procedures.</p>
+      <p>Groups show information to members of the same group based on the consent you give when you first create or join a group (“I agree to show the information above to members of this group”).</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Group visibility</caption>
+          <thead><tr><th scope="col">Recipients</th><th scope="col">Information shown</th><th scope="col">Purpose</th><th scope="col">Period</th></tr></thead>
+          <tbody>
+            <tr>
+              <td data-label="Recipients">Members of groups you join (up to 30 per group)</td>
+              <td data-label="Information shown">Nickname, group role, dates off with full day/AM/PM/partial. With “with leave types”, leave type and hours. With “show remaining leave”, remaining leave and its as-of date. Only records from 12 months ago to 24 months ahead.</td>
+              <td data-label="Purpose">Seeing days off together, finding common days off, group leave notifications</td>
+              <td data-label="Period">Until you leave or are removed, or the group or your account is deleted</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>Notes, hire date and tenure, leave basis, day adjustments, expiry dates, workplace size and type, email and sign-in method are never shared. Health leave always appears only as “Day off”. Turning on “Hide from groups” on a record removes it from all groups.</li>
+        <li>Group owners cannot see beyond the level each member chose.</li>
+        <li>If a member turns on group leave notifications, the information you share may also appear in their phone notifications (including the lock screen).</li>
+        <li>After you leave a group or it is deleted, information may remain briefly in other members' app caches.</li>
+        <li>If you turn on “Let others find me by ID”, people who know your exact ID can find and invite you.</li>
+        <li>When you invite via KakaoTalk or the share sheet, your nickname, the group name and the invite code or link are sent by you through the app you choose.</li>
+      </ul>
+
+      <h2>7. Processors</h2>
+      <p>We entrust the following processing to these service providers and manage it through their terms of service and data processing terms. We will update this policy if a processor or task changes.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Processors</caption>
+          <thead><tr><th scope="col">Processor</th><th scope="col">Task</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Google LLC</th><td data-label="Task">Firebase Authentication (sign-in, account management), Cloud Firestore (records and group data, Seoul region), Cloud Functions for Firebase (server functions, Seoul region), Firebase Cloud Messaging (push notifications), Firebase Crashlytics (crash reports), Google Analytics for Firebase (usage statistics), Firebase Remote Config and Installations (remote configuration), Firebase App Check and Google Play Integrity (app integrity), Firebase Hosting (invite link page), Google Sign-In (identity), Google AdMob (ads, in versions that show ads)</td></tr>
+            <tr><th scope="row">Kakao Corp.</th><td data-label="Task">Kakao sign-in (member number only), unlinking on account deletion</td></tr>
+            <tr><th scope="row">NAVER Corp.</th><td data-label="Task">Naver sign-in (if Naver sign-in is offered)</td></tr>
+            <tr><th scope="row">Apple Inc.</th><td data-label="Task">Sign in with Apple (after the iOS app launches)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>8. International transfers</h2>
+      <p>To perform our service agreement with you, we entrust processing and storage of personal information abroad as follows, and disclose it here under Article 28-8(1)(3) of PIPA.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>International transfer</caption>
+          <tbody>
+            <tr><th scope="row">Recipient</th><td>Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) · Contact: <a href="https://firebase.google.com/support">Firebase Support</a>, contact options in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a></td></tr>
+            <tr><th scope="row">Countries</th><td>United States and other countries where Google operates data centers. Firebase Authentication is processed in the United States. Cloud Firestore and Cloud Functions data are stored and processed in the Seoul region (<code>asia-northeast3</code>), but may be accessed from abroad while Google LLC operates and supports the service.</td></tr>
+            <tr><th scope="row">Items</th><td>Sign-in: provider identifier, user ID, email (if received), IP address · Push: push token, installation ID, notification content (members' nicknames, leave information, group name) · Crash reports, usage statistics, remote config and app checks, ads: the items in section 2.4</td></tr>
+            <tr><th scope="row">When and how</th><td>Whenever needed while you use the app, over encrypted connections (HTTPS/TLS)</td></tr>
+            <tr><th scope="row">Purpose and retention</th><td>As in sections 1 and 5</td></tr>
+            <tr><th scope="row">How to refuse and its effect</th><td>If you do not sign in, account and record data are not transferred (sign-in, sync and groups are then unavailable). Turn off Settings &gt; About &gt; “Send usage statistics” to stop usage statistics. You can delete or reset the advertising ID in your phone settings. Device identifiers needed for crash reports, remote configuration and app checks are required to provide the app and cannot be turned off separately; if you do not want this, you can stop using and uninstall the app.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Kakao Corp. and NAVER Corp. are Korean companies. If you use Sign in with Apple (iOS), Apple Inc. (USA) processes sign-in information under Apple's privacy policy.</p>
+
+      <h2>9. Advertising</h2>
+      <p>In versions that show ads, one banner ad is shown on the home screen through Google AdMob. Widgets and the calendar and backup screens have no ads. Google may process the advertising ID and app usage information to serve ads, cap frequency, measure performance, prevent fraud and (where permitted) personalize ads. The developer does not use this information to identify you. On Android you can delete or reset your advertising ID under Settings &gt; Privacy (or Google) &gt; Ads; on iOS you can turn off tracking under Settings &gt; Privacy &amp; Security &gt; Tracking. See <a href="https://policies.google.com/technologies/ads">how Google uses information for ads</a>.</p>
+
+      <h2>10. App permissions</h2>
+      <p>All app permissions are <strong>optional</strong>; if you decline, everything else keeps working. When you turn on a feature, the app explains it first and then opens the system permission dialog.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Optional permissions</caption>
+          <thead><tr><th scope="col">Permission</th><th scope="col">Used for</th><th scope="col">If declined</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Calendar</th><td data-label="Used for">Adding and updating your days off in the phone calendar; showing phone calendar events in the app calendar. Events are read and written only on the phone.</td><td data-label="If declined">Only these two features are unavailable. “Add to calendar app” on each record works without the permission.</td></tr>
+            <tr><th scope="row">Camera</th><td data-label="Used for">Scanning invite QR codes</td><td data-label="If declined">Enter the invite code manually.</td></tr>
+            <tr><th scope="row">Notifications</th><td data-label="Used for">Your leave, leave expiry, group member leave and join request notifications</td><td data-label="If declined">You just won't get notifications.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>You can change permissions any time in your phone settings &gt; Apps &gt; DayOff Mate &gt; Permissions, and turn off calendar features in the app under Settings &gt; Calendar. The app also uses normal permissions such as internet access, rescheduling reminders after a reboot, and the advertising ID (versions that show ads).</p>
+
+      <h2>11. Your rights and how to exercise them</h2>
+      <p>You may at any time ask to access, correct, delete or stop processing your personal information, and withdraw consent.</p>
+      <ul>
+        <li><strong>In the app</strong>: edit leave settings (Settings &gt; My leave info), change nickname or ID (Settings &gt; Account &gt; Manage account), change sharing level or leave a group (group settings), delete records (Settings &gt; Data &gt; Delete all records), delete your account (Settings &gt; Account &gt; Manage account &gt; Delete account), turn off usage statistics (Settings &gt; About &gt; Send usage statistics).</li>
+        <li><strong>By email</strong>: write to <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a>. After verifying your identity we will act without delay (within 10 days) and tell you the result. Account deletion requests are handled within 7 days as described on the <a href="delete-account">account deletion page</a>.</li>
+        <li>You may also act through a legal representative or an authorized person; we may ask for a power of attorney.</li>
+        <li>If the law requires us to refuse or limit a request, we will tell you why.</li>
+        <li>The app's leave calculation is done on your phone for your reference; the developer makes no automated decisions about you.</li>
+      </ul>
+
+      <h2>12. Children under 14</h2>
+      <p>People under 14 cannot sign up (sign in). If you choose “I'm under 14” on the sign-up screen, the sign-in information received is deleted immediately. You can still use the record features without signing in; in that case no personal information is collected other than the automatically generated information in section 2.4. If we learn that we have collected personal information from a child under 14, we delete it without delay.</p>
+
+      <h2>13. Security measures</h2>
+      <ul>
+        <li><strong>Administrative</strong>: minimizing the information processed (e.g. only the member number from Kakao); access to admin consoles limited to the developer</li>
+        <li><strong>Technical</strong>: encryption in transit (HTTPS/TLS) and at rest (Google Cloud default encryption); security rules so only you can read your data and only members can read group data; server rules that reject notes or health-leave types in shared data; App Check so only the genuine app can make requests; rate limits on sign-in, invite codes and ID search; support for hiding notification content on the lock screen</li>
+        <li><strong>Physical</strong>: servers and data are protected by the physical security of Google's data centers (processor)</li>
+      </ul>
+
+      <h2>14. Cookies and similar technologies</h2>
+      <p>The app does not use cookies; it uses the device identifiers in section 2.4 (Firebase installation ID, app instance ID, advertising ID). You can turn off usage statistics in the app and reset the advertising ID in your phone settings. This website (blessingq.github.io/dayoffmate) uses no cookies or visitor tracking.</p>
+
+      <h2>15. Privacy officer and contact</h2>
+      <ul>
+        <li>Privacy officer: JAEYOUNG LEE (blessingq), developer of DayOff Mate</li>
+        <li>Email: <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a></li>
+        <li>Support page: <a href="support">https://blessingq.github.io/dayoffmate/support</a></li>
+      </ul>
+      <p>You can also report privacy violations or seek advice from: Personal Information Dispute Mediation Committee (1833-6972, <a href="https://www.kopico.go.kr">www.kopico.go.kr</a>), Personal Information Infringement Report Center, KISA (118, <a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a>), Supreme Prosecutors' Office (1301, <a href="https://www.spo.go.kr">www.spo.go.kr</a>), Korean National Police Agency (182, <a href="https://ecrm.police.go.kr">ecrm.police.go.kr</a>).</p>
+
+      <h2>16. Changes to this policy</h2>
+      <p>If we change this policy, we will announce it on this page and in the app at least 7 days before it takes effect (30 days for changes that significantly affect your rights). Earlier versions are available in this site's public repository history.</p>
+      <ul>
+        <li>Published and effective: November 22, 2026</li>
+        <li>This policy is written in Korean. If the English translation differs, the Korean version prevails.</li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <nav aria-label="연차메이트 안내 페이지 (하단)">
+      <ul>
+        <li><a href="./">소개 · <span lang="en">Home</span></a></li>
+        <li><a href="privacy">개인정보 처리방침 · <span lang="en">Privacy</span></a></li>
+        <li><a href="terms">이용약관 · <span lang="en">Terms</span></a></li>
+        <li><a href="delete-account">계정 삭제 · <span lang="en">Delete account</span></a></li>
+        <li><a href="support">문의 · <span lang="en">Support</span></a></li>
+      </ul>
+    </nav>
+    <p>연차메이트 (DayOff Mate) · 개발자 JAEYOUNG LEE (blessingq) · <a href="mailto:[CONTACT_EMAIL]">[CONTACT_EMAIL]</a></p>
+    <p><a href="https://blessingq.github.io/">blessingq.github.io</a></p>
+  </footer>
+</body>
+</html>

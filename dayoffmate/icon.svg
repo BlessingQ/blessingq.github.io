@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>연차메이트</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2E52BE"/>
+      <stop offset="0.55" stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#12235C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.18" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E3EAFB"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D6E0FA"/>
+      <stop offset="1" stop-color="#C3D1F5"/>
+    </linearGradient>
+    <linearGradient id="me" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFA463"/>
+      <stop offset="1" stop-color="#F26B2E"/>
+    </linearGradient>
+    <linearGradient id="mate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7C97FF"/>
+      <stop offset="1" stop-color="#4A66EC"/>
+    </linearGradient>
+    <clipPath id="cardClip"><rect x="252" y="292" width="520" height="468" rx="112"/></clipPath>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="26" stdDeviation="32" flood-color="#071437" flood-opacity="0.5"/>
+    </filter>
+    <filter id="dotShadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#B4440F" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+
+  <g transform="translate(512 512) scale(1.12) translate(-512 -512)">
+  <g filter="url(#shadow)">
+    <rect x="252" y="292" width="520" height="468" rx="112" fill="url(#card)"/>
+  </g>
+  <g clip-path="url(#cardClip)">
+    <rect x="252" y="292" width="520" height="138" fill="url(#band)"/>
+  </g>
+  <rect x="254" y="294" width="516" height="464" rx="110" fill="none" stroke="#FFFFFF" stroke-opacity="0.95" stroke-width="4"/>
+  <rect x="352" y="222" width="64" height="136" rx="32" fill="#FFFFFF"/>
+  <rect x="608" y="222" width="64" height="136" rx="32" fill="#FFFFFF"/>
+  <g fill="#C5D2F2">
+    <circle cx="382" cy="540" r="40"/>
+    <circle cx="512" cy="540" r="40"/>
+    <circle cx="642" cy="540" r="40"/>
+    <circle cx="382" cy="666" r="40"/>
+    <circle cx="512" cy="666" r="40"/>
+  </g>
+  <circle cx="690" cy="634" r="50" fill="url(#mate)"/>
+  <g filter="url(#dotShadow)">
+    <circle cx="628" cy="674" r="60" fill="url(#me)" stroke="#FFFFFF" stroke-width="6"/>
+  </g>
+  <path d="M598 676 L620 698 L660 654" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
