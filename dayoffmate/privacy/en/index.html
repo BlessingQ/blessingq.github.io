@@ -50,7 +50,7 @@
         <span class="badge green">Without sign-in, records stay on your phone</span>
       </div>
       <h1>DayOff Mate Privacy Policy</h1>
-      <p class="meta">Effective November 23, 2026 · App: DayOff Mate (연차메이트) · Package <code>com.blessingq.dayoffmate</code> · Developer: JAEYOUNG LEE (blessingq)</p>
+      <p class="meta">Effective November 25, 2026 · App: DayOff Mate (연차메이트) · Package <code>com.blessingq.dayoffmate</code> · Developer: JAEYOUNG LEE (blessingq)</p>
       <p class="callout warn">This English version is a translation provided for convenience. If it differs from the Korean version, the Korean version prevails.</p>
 
       <div class="callout">
@@ -70,8 +70,9 @@
       <h2 class="first">1. Purposes of processing</h2>
       <ol>
         <li><strong>Sign-up and account management</strong>: verifying sign-in (Kakao, Naver, Google; Apple on iOS), linking and unlinking several sign-in methods on one account, confirming you are 14 or older, recording consent to the Terms and the Privacy Policy, deleting accounts, answering inquiries and verifying identity</li>
-        <li><strong>Sync</strong>: storing your leave settings, records, day adjustments and settings in your account so you can use them on another phone</li>
+        <li><strong>Sync</strong>: storing your leave settings, records, day adjustments and settings in your account so you can use them on another phone. Also your work schedule, personal schedule, company calendar, half-day hours and comp time</li>
         <li><strong>Groups</strong>: creating, inviting and joining groups, showing your days off to group members at the level you choose, finding common days off, and (if you allow it) letting people find you by your ID</li>
+        <li><strong>Plan a get-together (find a time with friends)</strong>: letting a signed-in organizer create a plan, collecting the available times submitted by people who received the link (they don't need the app), and finding and setting a time that works for everyone</li>
         <li><strong>Notifications</strong>: sending push notifications about group members' days off and join requests. Your own leave and expiry reminders are scheduled on your phone and do not go through the server.</li>
         <li><strong>Reliability and security</strong>: finding the cause of app crashes and server errors, checking requests come from the genuine app, preventing abuse (rate limits), remote configuration (maintenance notices, feature switches, updates to holiday data and help-line information)</li>
         <li><strong>Improvement</strong>: per-feature usage statistics (when “Send usage statistics” is on)</li>
@@ -92,6 +93,7 @@
             <tr><th scope="row">Account</th><td data-label="Items">Sign-in provider identifier (Kakao member number, Naver member identifier, Google or Apple account identifier; one for each sign-in method you link), app user ID (uid), email address (Google and Apple sign-in only; Kakao and Naver sign-in do not provide an email), sign-in methods (which ones are linked and when), sign-up time, confirmation that you are 14+, time you accepted the Terms, time you consented to the Privacy Policy (and, if you use groups, time of first sharing consent)</td></tr>
             <tr><th scope="row">Leave settings</th><td data-label="Items">Hire date, leave basis (hire date, fiscal year, or days-off only), fiscal year start month, rounding, workplace size, workplace type, whether you rest on weekends and holidays, hourly leave settings</td></tr>
             <tr><th scope="row">Records</th><td data-label="Items">Leave records (type, date, AM/PM, hours, note, hidden-from-groups flag, created/updated time), day adjustments (period, days, reason, note)</td></tr>
+            <tr><th scope="row">Work and schedule</th><td data-label="Items">Work schedule (shift types, names, times and emoji, rotation order, changes by date), personal schedule (my time; things to do with name, link and duration; passes with name, remaining uses, expiry and planned visits), company calendar (name, dates, company day off or shared leave), half-day hours (morning and afternoon half-day times, break setting), comp time and days off in lieu (type, date received, amount, expiry, hours used, note). Stored in your account only if you sign in, so you can continue on another phone</td></tr>
             <tr><th scope="row">Notifications</th><td data-label="Items">Group leave notification settings (on/off, days before, time), per-device push token (FCM), platform (Android/iOS), notification permission status, app language (used only to choose the notification language)</td></tr>
           </tbody>
         </table>
@@ -107,6 +109,15 @@
         <li>Invitations sent and received, block list, group activity log (joined, left, removed, owner changed, including nicknames)</li>
         <li>Reports, if you file one</li>
       </ul>
+      <h3>2.3.1 When you plan a get-together</h3>
+      <ul>
+        <li>Organizer (signed-in user): plan name, length, expected number of people, candidate dates and time range, the organizer's available times (30-minute slots) or “none of these times work”, the time that was set, and status</li>
+        <li>People who answer through the link (they don't need to use the app): the name they enter, their available times (30-minute slots) or “none of these times work”, and when they answered</li>
+        <li>So that an answer can be changed or deleted only from the same browser, the answer page creates a random edit key and keeps it in that browser's storage (localStorage); the server stores only a hash of the key as the answer ID. The last name entered is also kept only in that browser.</li>
+        <li>A hash of the IP address, to prevent repeated requests (the address itself is not stored)</li>
+        <li>Pre-selecting the organizer's free times happens only on the phone; shift types, plan names and other days' schedules are not sent to the server.</li>
+      </ul>
+
       <h3>2.4 Automatically generated or collected (all users)</h3>
       <div class="table-wrap">
         <table>
@@ -122,16 +133,16 @@
         </table>
       </div>
       <h3>2.5 When you contact us, send feedback or ask for deletion</h3>
-      <p>Your email address, the content of your message, and the details you give to verify your identity: sign-in method, sign-in email, nickname, ID, group names and roughly when you signed up. If you use “Send feedback to the developer”, the email body automatically includes the app version, OS version, device manufacturer and model, and app language; you can delete them before sending.</p>
+      <p>Your email address, the content of your message, and the details you give to verify your identity: sign-in method, sign-in email, nickname, ID, group names and roughly when you signed up. If you use “Send feedback to the developer”, the email body automatically includes the app version, OS version, device manufacturer and model, and app language; you can delete them before sending. If you send feedback inside the app, we store in Cloud Firestore the type you chose (bug, idea or other), your message, an email address for a reply if you enter one, the app version, OS version, device model and app language unless you turn this off, and whether you were signed in. Your leave records and memos are not sent.</p>
       <h3>How we collect it</h3>
-      <p>You enter it in the app; we receive it from the sign-in provider when you sign in or link a sign-in method; it is generated while you use the app; or you send it by email. The first time you sign in with Kakao, Kakao shows an “app connection” screen; if you connect, Kakao provides your member number to DayOff Mate. Disconnecting the app on the Kakao, Naver or Google side does not delete your DayOff Mate account, so please delete your account in the app or as described on the <a href="/dayoffmate/delete-account/en/">account deletion page</a>.</p>
+      <p>You enter it in the app; we receive it from the sign-in provider when you sign in or link a sign-in method; it is generated while you use the app; you send it by email; or you send feedback in the app. The first time you sign in with Kakao, Kakao shows an “app connection” screen; if you connect, Kakao provides your member number to DayOff Mate. Disconnecting the app on the Kakao, Naver or Google side does not delete your DayOff Mate account, so please delete your account in the app or as described on the <a href="/dayoffmate/delete-account/en/">account deletion page</a>.</p>
 
       <h2>3. Information processed only on your phone</h2>
       <p>The following stays on your phone (or in your own Google account). The developer cannot receive or see it.</p>
       <ul>
         <li><strong>Records of users who do not sign in</strong>: everything in section 2.1.</li>
         <li><strong>Calendar events</strong>: if you turn on “Add days off to calendar” or “Show calendar events”, the app reads and writes your phone's calendar on the phone only. Events are never sent to or stored on our servers, and never included in groups, usage statistics, crash reports or backups. Events the app adds are titled just “Day off” (no leave type); notes are added only if you turn on “Include notes” (never for health leave). By default events go into a “DayOff Mate” calendar that exists only on this phone. If you choose a calendar from another account such as Google, those events sync with that service under its policy.</li>
-        <li><strong>Google Drive auto-backup</strong> (if you turn it on): your records are saved in a hidden, app-only space (the app data folder) in <em>your own</em> Google Drive, sent directly from your phone to your Drive without passing through our servers. The developer cannot receive or see them. One file per day is kept for the last 14 days; a file contains your hire date, leave settings, leave records (including notes) and day adjustments. The Google account email used for backup is stored only on your phone, and may be included in operating-system backups if “Phone backups” below is on. See section 4.</li>
+        <li><strong>Google Drive auto-backup</strong> (if you turn it on): your records are saved in a hidden, app-only space (the app data folder) in <em>your own</em> Google Drive, sent directly from your phone to your Drive without passing through our servers. The developer cannot receive or see them. One file per day is kept for the last 14 days; a file contains your hire date, leave settings, leave records (including notes) and day adjustments. It also contains your work schedule, personal schedule, company calendar, half-day hours and comp time, and, if you entered them, your spouse's childbirth date (for statutory leave deadlines), your home area for weather and your trip destinations. Exported backup files contain the same (the childbirth date, home area and destinations are not stored in your account, only on your phone and in backups). The Google account email used for backup is stored only on your phone, and may be included in operating-system backups if “Phone backups” below is on. See section 4.</li>
         <li><strong>Exported backup files</strong>: saved or sent to the place you choose (phone storage, your cloud, a messenger). Files contain your hire date, records and notes, so do not send them to others.</li>
         <li><strong>Home widgets</strong>: your remaining leave and upcoming days off (dates and leave types, including health leave) are built on the phone and shown on the home screen, and are not sent to the server. Others can see your home screen, so remove the widget if you don't want this.</li>
         <li><strong>Your own leave and expiry reminders</strong>: scheduled on the phone.</li>
@@ -160,6 +171,8 @@
             <tr><th scope="row">Individually deleted records and adjustments</th><td data-label="Retention">Kept as a “deleted” marker so other phones learn of the deletion; permanently removed within 30 days</td></tr>
             <tr><th scope="row">Accounts that signed in but did not finish sign-up</th><td data-label="Retention">Deleted immediately if you choose “Not now” or “I'm under 14” on the sign-up screen. An account left without finishing sign-up (for example, because you closed the app on the sign-up screen or a network problem prevented deletion) is deleted automatically after 24 hours</td></tr>
             <tr><th scope="row">Invite codes and links / ID invitations / pending join requests</th><td data-label="Retention">Deleted after 48 hours / 14 days / 7 days</td></tr>
+            <tr><th scope="row">Plans, answers to plans, plan links</th><td data-label="Retention">Deleted automatically within 7 days after the last candidate date; deleted immediately when the organizer deletes the plan or their account</td></tr>
+            <tr><th scope="row">Rate-limit counters for the invite and plan web pages (a hash of the IP address)</th><td data-label="Retention">Expire 24 hours after the last request and are deleted automatically within 24 hours after expiry</td></tr>
             <tr><th scope="row">Group activity log, records of removed members</th><td data-label="Retention">Deleted after 30 days</td></tr>
             <tr><th scope="row">Device push tokens</th><td data-label="Retention">Deleted on sign-out or account deletion, or when the token becomes invalid</td></tr>
             <tr><th scope="row">Retry data for unlinking Kakao (Kakao member number)</th><td data-label="Retention">Kept only if unlinking Kakao failed during account deletion; the server retries and deletes it once unlinking succeeds (up to 30 days)</td></tr>
@@ -172,6 +185,7 @@
             <tr><th scope="row">Usage statistics (Google Analytics)</th><td data-label="Retention">The retention period set in Google Analytics (up to 14 months)</td></tr>
             <tr><th scope="row">Firebase installation ID</th><td data-label="Retention">Per Google Firebase policy; removed from Google's systems within 180 days after a deletion request</td></tr>
             <tr><th scope="row">Inquiry and deletion-request emails</th><td data-label="Retention">1 year after the request is handled</td></tr>
+            <tr><th scope="row">In-app feedback (message, reply email, app info)</th><td data-label="Retention">Deleted automatically 1 year after we receive it. The feedback rate-limit record (a hash of the IP address) is used for 1 hour and deleted within 24 hours</td></tr>
           </tbody>
         </table>
       </div>
@@ -203,6 +217,7 @@
         <li>If you turn on “Let others find me by ID”, people who know your exact ID can find and invite you.</li>
         <li>When you invite via KakaoTalk or the share sheet, your nickname, the group name and the invite code or link are sent by you through the app you choose.</li>
       </ul>
+      <p><strong>Planning a get-together</strong>: anyone with the plan link sees the plan name, length, candidate dates and time range, how many people answered, how many people are free in each time slot, and the time that was set. The names of people who answered and each person's available times are shown only to the organizer. The organizer sends the plan link through the app they choose.</p>
 
       <h2>7. Processors</h2>
       <p>We entrust the following processing to these service providers and manage it through their terms of service and data processing terms. We will update this policy if a processor or task changes.</p>
@@ -211,7 +226,7 @@
           <caption>Processors</caption>
           <thead><tr><th scope="col">Processor</th><th scope="col">Task</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Google LLC</th><td data-label="Task">Firebase Authentication (sign-in, account management), Cloud Firestore (account, record and group data, Seoul region), Cloud Functions for Firebase (server functions, Seoul region), Google Cloud Logging (server access and error logs), Firebase Cloud Messaging (push notifications), Firebase Crashlytics (crash reports), Google Analytics for Firebase (usage statistics), Firebase Remote Config and Installations (remote configuration, installation ID), Firebase App Check and Google Play Integrity (app integrity), Firebase Hosting (Naver sign-in redirect address, invite link page), Google Sign-In (identity), Google AdMob (ads, Android app)</td></tr>
+            <tr><th scope="row">Google LLC</th><td data-label="Task">Firebase Authentication (sign-in, account management), Cloud Firestore (account, record and group data, Seoul region), Cloud Functions for Firebase (server functions, Seoul region), Google Cloud Logging (server access and error logs), Firebase Cloud Messaging (push notifications), Firebase Crashlytics (crash reports), Google Analytics for Firebase (usage statistics), Firebase Remote Config and Installations (remote configuration, installation ID), Firebase App Check and Google Play Integrity (app integrity), Firebase Hosting (Naver sign-in redirect address, invite link page, plan answer page), Google Sign-In (identity), Google AdMob (ads, Android app)</td></tr>
             <tr><th scope="row">Kakao Corp.</th><td data-label="Task">Kakao sign-in (member number only), unlinking on account deletion</td></tr>
             <tr><th scope="row">NAVER Corp.</th><td data-label="Task">Naver sign-in (member identifier only), disconnecting sign-in on account deletion or unlinking</td></tr>
             <tr><th scope="row">Apple Inc.</th><td data-label="Task">Sign in with Apple (after the iOS app launches)</td></tr>
@@ -289,7 +304,7 @@
       </ul>
 
       <h2>14. Cookies and similar technologies</h2>
-      <p>The app does not use cookies; it uses the device identifiers in section 2.4 (Firebase installation ID, Crashlytics installation ID, app instance ID, advertising ID). You can turn off usage statistics in the app and reset the advertising ID in your phone settings. This website (blessingq.github.io/dayoffmate) uses no cookies or visitor tracking.</p>
+      <p>The app does not use cookies; it uses the device identifiers in section 2.4 (Firebase installation ID, Crashlytics installation ID, app instance ID, advertising ID). You can turn off usage statistics in the app and reset the advertising ID in your phone settings. This website (blessingq.github.io/dayoffmate) uses no cookies or visitor tracking. The plan answer web page also uses no cookies; it keeps only the edit key and name described in section 2.3.1 in your browser's storage. You can delete them by clearing the site data in your browser; after that, answers sent from that browser can no longer be changed (you can ask the organizer to remove them).</p>
 
       <h2>15. Privacy officer and contact</h2>
       <ul>
@@ -300,17 +315,37 @@
       <p>You can also report privacy violations or seek advice from: Personal Information Dispute Mediation Committee (1833-6972, <a href="https://www.kopico.go.kr">www.kopico.go.kr</a>), Personal Information Infringement Report Center, KISA (118, <a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a>), Korean National Police Agency (182, <a href="https://ecrm.police.go.kr">ecrm.police.go.kr</a>).</p>
 
       <h2>16. Changes to this policy</h2>
-      <p>If we change this policy, we will announce it on this page and in the app at least 7 days before it takes effect (30 days for changes that significantly affect your rights). Earlier versions and the period each applied are listed under “Change history” below, and when important content changes we also publish a table comparing it before and after. The full text of earlier versions is available in this site's <a href="https://github.com/BlessingQ/blessingq.github.io/commits/main/dayoffmate">public repository history</a>, or by email on request.</p>
+      <p>If we change this policy, we will announce it on this page and in the app at least 7 days before it takes effect (30 days for changes that significantly affect your rights). Earlier versions and the period each applied are listed under “Change history” below, and when important content changes we also publish a table comparing it before and after. The full text of earlier versions is available under “Previous versions” below, or by email on request.</p>
       <ul>
-        <li>Published and effective: November 23, 2026</li>
         <li>This policy is written in Korean. If the English translation differs, the Korean version prevails.</li>
       </ul>
 
       <h3 id="en-history">Change history</h3>
       <ul>
-        <li><strong>Effective November 23, 2026 (current version)</strong>: updated to match how the app actually works. It describes the full service DayOff Mate provides, including sync, groups and notifications. The changes are listed in the table below.</li>
+        <li><strong>Effective November 25, 2026 (current version)</strong>: added planning a get-together (find a time with friends) and sending feedback and bug reports inside the app. If you sign in, your work schedule, personal schedule, company calendar, half-day hours and comp time are also stored in your account so they carry over to a new phone, and Google Drive auto-backup and backup files now also include these plus the spouse's childbirth date and weather areas. The changes are in the first table below.</li>
+        <li><strong>Effective November 23, 2026</strong>: applied through November 24, 2026. Updated to match how the app actually works. It describes the full service DayOff Mate provides, including sync, groups and notifications. The changes are listed in the table below.</li>
         <li><strong>Effective November 22, 2026 (first version)</strong>: applied through November 22, 2026</li>
       </ul>
+      <h3 id="en-versions">Previous versions</h3>
+      <ul>
+        <li><a href="https://dayoffmate.web.app/privacy-2026-11-23">Version effective November 23, 2026</a> (applied through November 24, 2026)</li>
+        <li><a href="https://dayoffmate.web.app/privacy-2026-11-22">Version effective November 22, 2026 (first version)</a> (applied through November 22, 2026)</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <caption>Changes on November 25, 2026</caption>
+          <thead><tr><th scope="col">Topic</th><th scope="col">Before (November 23, 2026)</th><th scope="col">After (November 25, 2026)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Planning a get-together (sections 1, 2.3.1 and 6)</th><td data-label="Before">None</td><td data-label="After">A signed-in organizer creates a plan, and people with the link submit a name and available times (30-minute slots) on the web. Anyone with the link sees only how many answered and how many are free in each slot; names and each person's times are shown only to the organizer</td></tr>
+            <tr><th scope="row">Retention (section 5)</th><td data-label="Before">-</td><td data-label="After">Plans, answers and links are deleted automatically within 7 days after the last candidate date. Rate-limit counters for the invite and plan web pages (a hash of the IP address) expire 24 hours after the last request and are deleted within 24 hours after that</td></tr>
+            <tr><th scope="row">Processors (section 7)</th><td data-label="Before">Firebase Hosting (Naver sign-in redirect address, invite link page)</td><td data-label="After">Firebase Hosting (Naver sign-in redirect address, invite link page, plan answer page)</td></tr>
+            <tr><th scope="row">Cookies and similar (section 14)</th><td data-label="Before">This website uses no cookies or visitor tracking</td><td data-label="After">The plan answer page also uses no cookies; it keeps only an edit key and name in browser storage so answers can be changed</td></tr>
+            <tr><th scope="row">In-app feedback (sections 2.5 and 5)</th><td data-label="Before">Sent only through your email app</td><td data-label="After">The type and message you send in the app, a reply email if you enter one, the app version, OS version, device model and app language unless you turn this off, and whether you were signed in are stored in Cloud Firestore and deleted automatically after 1 year. The rate-limit record (a hash of the IP address) is used for 1 hour and deleted within 24 hours</td></tr>
+            <tr><th scope="row">Records stored in your account (sections 1 and 2)</th><td data-label="Before">Leave settings, leave records, day adjustments and settings</td><td data-label="After">The same, plus your work schedule, personal schedule, company calendar, half-day hours and comp time (only if you sign in)</td></tr>
+            <tr><th scope="row">Drive auto-backup and backup files (sections 2 and 4)</th><td data-label="Before">Hire date, leave settings, leave records (including notes) and day adjustments</td><td data-label="After">The same, plus your work schedule, personal schedule, company calendar, half-day hours and comp time, and, if you entered them, the spouse's childbirth date, your home area for weather and trip destinations (the childbirth date, area and destinations are not stored in your account)</td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="table-wrap">
         <table>
           <caption>Changes on November 23, 2026</caption>
